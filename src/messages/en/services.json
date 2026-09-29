@@ -1,1 +1,26 @@
-{}
+{
+  "international-trading": {
+    "name": "International Trading",
+    "summary": "Trading and agency support for international transactions in the product categories covered by the company's registered business scope."
+  },
+  "import-export": {
+    "name": "Import & Export",
+    "summary": "Import and export of goods, food included, and import and export agency, as listed in the company's registered business scope."
+  },
+  "product-sourcing": {
+    "name": "Product Sourcing",
+    "summary": "Identifying products and suppliers that match a buyer's requirements in the registered product categories, as an activity that supports trade agency."
+  },
+  "supplier-coordination": {
+    "name": "Supplier Coordination",
+    "summary": "Coordinating communication between buyers and suppliers, from clarifying requirements to exchanging quotations, as an activity that supports trade agency."
+  },
+  "business-procurement": {
+    "name": "Business Procurement",
+    "summary": "Procurement support for business buyers who need goods within the registered product categories, carried out through trade agency and import and export."
+  },
+  "cross-border-trade": {
+    "name": "Cross-Border Trade",
+    "summary": "Trade in goods across borders through import and export agency and the import and export of goods, including internet sales of goods that do not require a license to sell."
+  }
+}

@@ -1,1 +1,36 @@
-{}
+{
+  "notFound": {
+    "eyebrow": "Error 404",
+    "title": "Page not found",
+    "description": "The page you are looking for does not exist, or it may have moved. Check the address, or continue from one of the links below.",
+    "homeLink": "Back to home",
+    "helpfulLinks": "Helpful links"
+  },
+  "serverError": {
+    "title": "Something went wrong",
+    "description": "An unexpected error occurred on our side. You can try again or return to the home page. If it keeps happening, quote the reference below when you contact us.",
+    "referenceLabel": "Reference",
+    "retry": "Try again",
+    "homeLink": "Back to home"
+  },
+  "network": "We could not connect. Please check your internet connection and try again.",
+  "databaseUnavailable": "We could not reach our systems just now. Please try again in a little while.",
+  "upload": {
+    "tooLarge": "This file is larger than the allowed size. Please choose a smaller file.",
+    "typeNotAllowed": "This file type is not accepted. Please choose one of the file types listed on the form.",
+    "mismatch": "The contents of this file do not match its extension or declared type. Please select the file again.",
+    "empty": "This file is empty. Please choose a different file.",
+    "readFailed": "We could not read this file. Please select it again and retry.",
+    "imageTooLarge": "The dimensions of this image are too large. Please reduce its size and try again."
+  },
+  "form": {
+    "rateLimited": "Too many requests from your connection. Please wait a few minutes and try again.",
+    "tooFast": "The form was submitted too quickly. Please review it and send it again.",
+    "generic": "We could not submit the form. Please check the fields and try again.",
+    "databaseUnavailable": "We could not save your submission because our systems could not be reached just now. Please try again in a little while.",
+    "network": "Your connection seems to be offline or unstable. Please check it and try again."
+  },
+  "loading": {
+    "label": "Loading page"
+  }
+}

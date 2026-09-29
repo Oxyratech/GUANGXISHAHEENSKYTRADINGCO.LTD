@@ -216,10 +216,11 @@ body {
   color: var(--color-navy-950);
 }
 
-:focus-visible {
-  outline: 2px solid var(--ring);
-  outline-offset: 2px;
-  border-radius: var(--radius-xs);
+@layer base {
+  :focus-visible {
+    outline: 2px solid var(--ring);
+    outline-offset: 2px;
+  }
 }
 
 /* Directional icons (arrows, chevrons) mirror in RTL */

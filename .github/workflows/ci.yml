@@ -1,0 +1,50 @@
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24
+          cache: npm
+
+      - run: npm ci
+
+      - name: Format check
+        run: npm run format:check
+
+      - name: Type check
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      - name: Unit and component tests
+        run: npm test
+
+      # The site must build with NO database and NO secrets: public content is static.
+      - name: Production build
+        run: npm run build
+        env:
+          NEXT_PUBLIC_SITE_URL: https://example.invalid
+
+      - name: Route smoke test
+        run: |
+          npx next start -p 3100 &
+          npx --yes wait-on http://localhost:3100/api/health --timeout 60000
+          node scripts/smoke-routes.mjs http://localhost:3100
+        env:
+          NEXT_PUBLIC_SITE_URL: https://example.invalid

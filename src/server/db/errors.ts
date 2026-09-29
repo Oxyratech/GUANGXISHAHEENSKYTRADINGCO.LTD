@@ -6,7 +6,7 @@
 export type DatabaseUnavailableCause = "not_configured" | "connection" | "timeout";
 
 export class DatabaseUnavailableError extends Error {
-  readonly cause: DatabaseUnavailableCause;
+  override readonly cause: DatabaseUnavailableCause;
 
   constructor(message: string, options: { cause: DatabaseUnavailableCause }) {
     super(message);

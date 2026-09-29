@@ -1,5 +1,6 @@
 import path from "node:path";
 import type { NextConfig } from "next";
+import { buildSecurityHeaders } from "./src/server/security/headers";
 
 /**
  * next-intl needs `next-intl/config` to resolve to our request config. `createNextIntlPlugin` does
@@ -19,6 +20,11 @@ const nextConfig: NextConfig = {
     // Inquiry attachments are validated to <= 5 MB; leave headroom for multipart overhead.
     serverActions: { bodySizeLimit: "8mb" },
   },
+  headers: async () =>
+    buildSecurityHeaders({
+      isDevelopment: process.env.NODE_ENV === "development",
+      plausibleDomain: process.env.NEXT_PUBLIC_PLAUSIBLE_DOMAIN?.trim() || undefined,
+    }),
   turbopack: {
     resolveAlias: { "next-intl/config": I18N_REQUEST_CONFIG },
   },

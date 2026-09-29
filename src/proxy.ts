@@ -8,5 +8,7 @@ import { routing } from "./i18n/routing";
 export default createMiddleware(routing);
 
 export const config = {
-  matcher: ["/((?!api|admin|_next|_vercel|media|files|.*\..*).*)"],
+  // `\\.` must stay double-escaped: in a plain string `\.` collapses to `.` and only "/" would match.
+  // apple-icon is the one metadata route without a file extension.
+  matcher: ["/((?!api|admin|_next|_vercel|media|files|apple-icon|.*\\..*).*)"],
 };

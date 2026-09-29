@@ -1,1 +1,105 @@
-{}
+{
+  "title": "Business scope",
+  "intro": "The business scope is the list of activities the company is registered to carry on, as recorded on its business license. For readability, the general business items are grouped by area of trade.",
+  "qualifier": "Except for projects that require approval under the law, the company carries on business activities independently, in accordance with the law, on the strength of its business license.",
+  "generalItemsLabel": "General business items",
+  "officialTextLabel": "Official text (Chinese)",
+  "translationNote": "The English wording of the scope items is an unofficial translation provided for readability. The Chinese text printed on the business license is authoritative.",
+  "regulatedNote": "Trade in some of these goods requires licenses, filings or approvals under applicable law. The registered scope is not a statement that any such license, filing or approval is held.",
+  "groups": {
+    "trade-services": {
+      "name": "Trade & agency services",
+      "description": "Trade agency, import and export of goods, and internet sales of goods that do not require a license to sell."
+    },
+    "consumer-goods": {
+      "name": "Consumer Goods",
+      "description": "Toys, maternal and infant products, jewelry and cosmetics."
+    },
+    "apparel-accessories": {
+      "name": "Apparel & Accessories",
+      "description": "Garments, footwear and headwear, bags and luggage, and garment trims."
+    },
+    "food-products": {
+      "name": "Food Products",
+      "description": "Import and export of food."
+    },
+    "household-products": {
+      "name": "Household Products",
+      "description": "Daily necessities and daily sundries."
+    },
+    "building-materials": {
+      "name": "Building Materials",
+      "description": "Building materials, lightweight building materials, thermal insulation materials, doors and windows, and metal fittings for construction."
+    },
+    "decorative-materials": {
+      "name": "Decorative Materials",
+      "description": "Building decoration materials."
+    },
+    "hardware-products": {
+      "name": "Hardware Products",
+      "description": "Hardware products, wholesale and retail."
+    },
+    "electrical-products": {
+      "name": "Electrical Products",
+      "description": "Electric wires and cables, and power distribution switchgear and control equipment."
+    },
+    "machinery-equipment": {
+      "name": "Machinery & Equipment",
+      "description": "Mechanical parts and components, fans and blowers, molds and mining machinery."
+    },
+    "metal-products": {
+      "name": "Metal Products & Materials",
+      "description": "Metal products and metal materials."
+    },
+    "minerals-ores": {
+      "name": "Minerals & Ores",
+      "description": "Coal and coal products, non-metallic minerals and their products, and metal ores."
+    },
+    "medical-protective-supplies": {
+      "name": "Medical & Protective Supplies",
+      "description": "Protective supplies for medical personnel, and Class I medical devices."
+    }
+  },
+  "items": {
+    "domestic-trade-agency": "Domestic trade agency",
+    "food-import-export": "Import and export of food",
+    "import-export-agency": "Import and export agency",
+    "goods-import-export": "Import and export of goods",
+    "toys": "Sales of toys",
+    "moulds": "Sales of molds",
+    "apparel-wholesale": "Wholesale of garments and apparel",
+    "footwear-headwear-wholesale": "Wholesale of footwear and headwear",
+    "garment-accessories": "Sales of garment accessories and trims",
+    "apparel-retail": "Retail of garments and apparel",
+    "maternal-infant-products": "Sales of maternal and infant products",
+    "internet-sales": "Internet sales (excluding goods that require a license to sell)",
+    "jewelry-retail": "Retail of jewelry",
+    "jewelry-wholesale": "Wholesale of jewelry",
+    "daily-necessities": "Sales of daily necessities",
+    "bags-luggage": "Sales of luggage and bags",
+    "daily-sundries": "Sales of daily sundries",
+    "cosmetics-wholesale": "Wholesale of cosmetics",
+    "cosmetics-retail": "Retail of cosmetics",
+    "building-decoration-materials": "Sales of building decoration materials",
+    "doors-windows": "Sales of doors and windows",
+    "hardware-retail": "Retail of hardware products",
+    "wires-cables": "Trading in electric wires and cables",
+    "thermal-insulation-materials": "Sales of thermal insulation materials",
+    "mechanical-parts": "Sales of mechanical parts and components",
+    "building-materials": "Sales of building materials",
+    "construction-metal-fittings": "Sales of metal fittings for construction",
+    "power-distribution-switchgear": "Sales of power distribution switchgear and control equipment",
+    "fans-blowers": "Sales of fans and blowers",
+    "metal-products": "Sales of metal products",
+    "lightweight-building-materials": "Sales of lightweight building materials",
+    "hardware-wholesale": "Wholesale of hardware products",
+    "coal-products": "Sales of coal and coal products",
+    "non-metallic-minerals": "Sales of non-metallic minerals and their products",
+    "metal-materials": "Sales of metal materials",
+    "medical-ppe-wholesale": "Wholesale of protective supplies for medical personnel",
+    "medical-ppe-retail": "Retail of protective supplies for medical personnel",
+    "class-i-medical-devices": "Sales of Class I medical devices",
+    "metal-ores": "Sales of metal ores",
+    "mining-machinery": "Sales of mining machinery"
+  }
+}

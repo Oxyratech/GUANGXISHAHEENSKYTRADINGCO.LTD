@@ -31,6 +31,7 @@ adapter (`@prisma/adapter-mssql`) targeting **SQL Server / Azure SQL**, Vitest +
 > generated `PageProps`/`LayoutProps`). Read `node_modules/next/dist/docs/` before using an API from memory.
 
 Deliberate version notes:
+
 - TypeScript is pinned to 6.x because `typescript-eslint` does not yet support TypeScript 7.
 - `next.config.ts` declares the `next-intl/config` alias directly instead of calling
   `createNextIntlPlugin` (which eagerly loads a native SWC addon at config time).
@@ -38,7 +39,15 @@ Deliberate version notes:
 ## 3. Routing & i18n
 
 - Locales: `en` (default), `zh` (Simplified), `ar` (RTL). URLs are always prefixed: `/en/...`.
-- `src/proxy.ts` (next-intl) negotiates/prefixes locales; it excludes `/api`, `/admin`, `/media`, `/files`, `/_next` and files.
+- `src/proxy.ts` (next-intl) negotiates/prefixes locales; it excludes `/api`, `/admin`, `/media`, `/files`, `/_next`, `/apple-icon`
+  and any path with a file extension (`src/proxy.test.ts` guards the matcher).
+- **Keep public pages static.** `getTranslations`/`getMessages` called without an explicit `locale` fall back to reading request
+  headers, which turns the whole `[locale]` tree dynamic. Pass `{ locale, namespace }` in server code. `loading.tsx` receives no
+  params, so it can only be translated from a Client Component (`useTranslations`). After touching the layout tree, check that
+  `npm run build` still lists `/en`, `/zh` and `/ar` as `●` (SSG).
+- **Real 404 status.** There is deliberately no `loading.tsx` at `[locale]` level: its Suspense boundary starts streaming before
+  `notFound()` throws, so every unknown URL would answer `200` (a soft 404; `scripts/smoke-routes.mjs` expects `404`). Add
+  `loading.tsx` only to a DB-backed section (products, news) and accept that a missing slug there is a `200` with `noindex`.
 - Public site: `src/app/(site)/[locale]/...` (its layout is a root layout: owns `<html lang dir>`).
 - Admin: `src/app/(admin)/admin/...` (its own root layout; English only, never indexed).
 - Metadata routes (`sitemap.ts`, `robots.ts`, `manifest.ts`) live at `src/app/`.
@@ -57,57 +66,64 @@ Deliberate version notes:
   the `rtl-flip` class. Numbers, Latin brand names and the license text are wrapped in `<bdi>` / `dir="ltr"` where needed.
   Uppercase/letter-spacing utilities do nothing for Arabic/Chinese (handled in `globals.css`).
 - **Chinese:** platform CJK font stack; body line-height 1.85; no synthetic bold/italics; use full-width punctuation.
+- **English copy uses American spelling** (license, mold, jewelry, center, color), matching the brief and the glossary.
+- **Keep pages static.** Every server call that reads translations passes an explicit `locale`
+  (`getTranslations({ locale, namespace })`, `getMessages({ locale })`); without it next-intl reads request
+  headers and the whole `[locale]` tree becomes dynamic. Pages never render their own `<main>` (the layout
+  owns it). Pages with per-language slugs (news, products) render `<AlternateLocalePaths />` so the language
+  switcher points at real URLs. Do not add `loading.tsx` at the `[locale]` level (unknown URLs would answer
+  200 instead of 404); DB-backed sections may add their own client-component `loading.tsx`.
 
 ### Translation glossary (use these terms consistently)
 
-| English | 简体中文 | العربية |
-| --- | --- | --- |
-| Brand: Shaheen Sky | 沙欣斯凯 | شاهين سكاي (brand rendering only — not a registered name) |
-| International trading | 国际贸易 | التجارة الدولية |
-| Import & export | 进出口 | الاستيراد والتصدير |
-| Product sourcing | 产品寻源 | البحث عن المنتجات ومصادر التوريد |
-| Supplier coordination | 供应商协调 | التنسيق مع الموردين |
-| Business procurement | 商业采购 | المشتريات التجارية |
-| Cross-border trade | 跨境贸易 | التجارة عبر الحدود |
-| Business inquiry / RFQ | 商务询盘 | استفسار تجاري |
-| Send an inquiry | 发送询盘 | أرسل استفسارًا |
-| Request a quote | 获取报价 | اطلب عرض سعر |
-| Submit trade inquiry | 提交贸易询盘 | إرسال الاستفسار التجاري |
-| Registered capital | 注册资本 | رأس المال المسجَّل |
-| Unified Social Credit Code | 统一社会信用代码 | رمز الائتمان الاجتماعي الموحَّد |
-| Legal representative | 法定代表人 | الممثل القانوني |
-| Business scope | 经营范围 | نطاق النشاط التجاري |
-| Registered address | 注册地址（住所） | العنوان المسجَّل |
-| Business license | 营业执照 | الرخصة التجارية |
-| Typical trade process | 典型贸易流程 | مسار التجارة المعتاد |
-| Product categories | 产品类别 | فئات المنتجات |
-| Buyers / importers | 采购商 / 进口商 | المشترون / المستوردون |
+| English                    | 简体中文         | العربية                                                   |
+| -------------------------- | ---------------- | --------------------------------------------------------- |
+| Brand: Shaheen Sky         | 沙欣斯凯         | شاهين سكاي (brand rendering only — not a registered name) |
+| International trading      | 国际贸易         | التجارة الدولية                                           |
+| Import & export            | 进出口           | الاستيراد والتصدير                                        |
+| Product sourcing           | 产品寻源         | البحث عن المنتجات ومصادر التوريد                          |
+| Supplier coordination      | 供应商协调       | التنسيق مع الموردين                                       |
+| Business procurement       | 商业采购         | المشتريات التجارية                                        |
+| Cross-border trade         | 跨境贸易         | التجارة عبر الحدود                                        |
+| Business inquiry / RFQ     | 商务询盘         | استفسار تجاري                                             |
+| Send an inquiry            | 发送询盘         | أرسل استفسارًا                                            |
+| Request a quote            | 获取报价         | اطلب عرض سعر                                              |
+| Submit trade inquiry       | 提交贸易询盘     | إرسال الاستفسار التجاري                                   |
+| Registered capital         | 注册资本         | رأس المال المسجَّل                                        |
+| Unified Social Credit Code | 统一社会信用代码 | رمز الائتمان الاجتماعي الموحَّد                           |
+| Legal representative       | 法定代表人       | الممثل القانوني                                           |
+| Business scope             | 经营范围         | نطاق النشاط التجاري                                       |
+| Registered address         | 注册地址（住所） | العنوان المسجَّل                                          |
+| Business license           | 营业执照         | الرخصة التجارية                                           |
+| Typical trade process      | 典型贸易流程     | مسار التجارة المعتاد                                      |
+| Product categories         | 产品类别         | فئات المنتجات                                             |
+| Buyers / importers         | 采购商 / 进口商  | المشترون / المستوردون                                     |
 
 Legal/registered names (English + Chinese) are never translated or transliterated. Arabic pages show them
 verbatim, marked `dir="ltr"` / `lang="en"` / `lang="zh-CN"`.
 
 ## 4. Content model — what is code vs. what is data
 
-| Content | Where | Why |
-| --- | --- | --- |
-| Company facts | `src/config/company.ts` | Transcribed from the license; changes only with a new license. |
-| Registered business scope (40 items) | `src/config/business-scope.ts` | Legally sensitive; verbatim; tested against a golden string. |
-| Product categories (12) | `src/content/categories.ts` (+ `categories` namespace) | Derived from scope groups; drive routes/SEO; must render without DB. |
-| Services (6) | `src/content/services.ts` (+ `services` namespace) | Each has a hand-authored page. |
-| Trade process (8 steps) | `src/content/process.ts` (+ `globalTrade` namespace) | Static. |
-| FAQ | `faq` namespace | Static, reviewed copy; FAQPage JSON-LD. |
-| Legal pages | `legal` namespace | Marked for legal review. |
-| Products, images, specs, documents | Database | Real catalogue arrives later. **Never seeded with fiction.** |
-| News | Database | Real posts arrive later. Never seeded. |
-| Inquiries, contact messages | Database | |
-| Users, roles, permissions, sessions, audit log | Database | |
-| Site settings (contact channels, etc.) | Database (`SiteSetting`) | No contact details exist yet; configurable in admin. |
-| SEO overrides | Database (`SeoMetadata`) | Optional per-page/entity overrides. |
-| Media (images, documents, attachments) | Database (`MediaAsset` + `MediaBlob`) | Zero extra infrastructure; swap the storage service for object storage later. |
+| Content                                        | Where                                                  | Why                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------ | ----------------------------------------------------------------------------- |
+| Company facts                                  | `src/config/company.ts`                                | Transcribed from the license; changes only with a new license.                |
+| Registered business scope (40 items)           | `src/config/business-scope.ts`                         | Legally sensitive; verbatim; tested against a golden string.                  |
+| Product categories (12)                        | `src/content/categories.ts` (+ `categories` namespace) | Derived from scope groups; drive routes/SEO; must render without DB.          |
+| Services (6)                                   | `src/content/services.ts` (+ `services` namespace)     | Each has a hand-authored page.                                                |
+| Trade process (8 steps)                        | `src/content/process.ts` (+ `globalTrade` namespace)   | Static.                                                                       |
+| FAQ                                            | `faq` namespace                                        | Static, reviewed copy; FAQPage JSON-LD.                                       |
+| Legal pages                                    | `legal` namespace                                      | Marked for legal review.                                                      |
+| Products, images, specs, documents             | Database                                               | Real catalogue arrives later. **Never seeded with fiction.**                  |
+| News                                           | Database                                               | Real posts arrive later. Never seeded.                                        |
+| Inquiries, contact messages                    | Database                                               |                                                                               |
+| Users, roles, permissions, sessions, audit log | Database                                               |                                                                               |
+| Site settings (contact channels, etc.)         | Database (`SiteSetting`)                               | No contact details exist yet; configurable in admin.                          |
+| SEO overrides                                  | Database (`SeoMetadata`)                               | Optional per-page/entity overrides.                                           |
+| Media (images, documents, attachments)         | Database (`MediaAsset` + `MediaBlob`)                  | Zero extra infrastructure; swap the storage service for object storage later. |
 
 The prompt's `Service`, `ProductCategory`, `FAQ` and `Translation` entities are intentionally **not tables**:
 they are code-defined (above) and the admin lists them read-only ("managed in code"). The generic
-`Translation` entity is replaced by per-entity translation tables plus an admin *translation coverage* report.
+`Translation` entity is replaced by per-entity translation tables plus an admin _translation coverage_ report.
 
 Registered scope ≠ published products. Category pages state that categories are areas available for
 sourcing and trade, not current stock. Regulated categories (`regulated: true`) show a compliance note.
@@ -129,9 +145,9 @@ sourcing and trade, not current stock. Regulated categories (`regulated: true`) 
   HttpOnly, Secure, SameSite=Lax cookie; only a SHA-256 hash stored), idle + absolute expiry, lockout after repeated failures, generic error messages.
 - **AuthZ (RBAC):** roles `SUPER_ADMIN`, `ADMIN`, `CONTENT_MANAGER`, `SALES_MANAGER` → permissions. Every admin page, server action and route
   handler calls `requirePermission(...)` on the server. The layout redirect is a convenience, not the gate.
-- **Forms:** Zod validation on client *and* server (server is authoritative); honeypot + minimum-fill-time + rate limiting
+- **Forms:** Zod validation on client _and_ server (server is authoritative); honeypot + minimum-fill-time + rate limiting
   (per IP hash and per email) ; Origin check on non-action POST handlers (Server Actions have built-in Origin/Host checks).
-- **Uploads:** allow-list by *detected* signature (PDF, JPEG, PNG, WebP, DOCX, XLSX), size cap, sanitised display name, never trusted client MIME/extension,
+- **Uploads:** allow-list by _detected_ signature (PDF, JPEG, PNG, WebP, DOCX, XLSX), size cap, sanitised display name, never trusted client MIME/extension,
   random IDs, `Content-Disposition`/`X-Content-Type-Options: nosniff`, private files only through authorised routes.
 - **PII:** IPs stored only as HMAC hashes; logs never contain secrets or full personal data; internal notes never selected by public queries.
 - **Headers:** CSP, HSTS, X-Content-Type-Options, Referrer-Policy, Permissions-Policy, frame-ancestors none — configured in `next.config.ts`.
@@ -149,12 +165,13 @@ Components (`src/components/ui`) are ours (Radix + cva), RTL-safe, keyboard-acce
 `src/components/layout`. Motion via `motion` in small client wrappers only, always honouring `prefers-reduced-motion`; no perpetual animation.
 Imagery is **vector/typographic** (no stock photos that imply facilities or clients we do not have). Any representative image must be
 swappable for real company photography via a single component (`ImageSlot`).
+Class names are merged with the one `cn` in `@/lib/utils` (it knows our type-scale utilities; do not add another).
 
 ## 8. Folder structure
 
 ```
 prisma/                 schema, migrations, seed
-scripts/                CLI utilities (create-admin, world-map generator)
+scripts/                CLI utilities (create-admin, world-map generator, route smoke test, env loader)
 docs/                   this file
 public/                 static assets (documents/business-license.png, icons)
 src/
@@ -167,6 +184,9 @@ src/
     ui/                 design-system primitives
     layout/             Container, Section, PageHero, Prose
     brand/              Logo, wordmark
+    graphics/           vector art, world map, ImageSlot
+    motion/             Reveal, FadeIn (reduced-motion aware)
+    analytics/          Plausible loader, TrackOnMount
     site/               Header, Footer, MobileNav, LanguageSwitcher
     forms/              InquiryForm, ContactForm, form fields wiring
     <feature>/          feature components (home, products, company, ...)

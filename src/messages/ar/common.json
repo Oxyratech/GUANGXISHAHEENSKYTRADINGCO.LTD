@@ -1,1 +1,100 @@
-{}
+{
+  "siteName": "Shaheen Sky",
+  "tagline": "نربط الأسواق العالمية عبر التجارة",
+  "nav": {
+    "home": "الرئيسية",
+    "about": "من نحن",
+    "business": "الأعمال",
+    "products": "المنتجات",
+    "globalTrade": "التجارة العالمية",
+    "company": "الشركة",
+    "contact": "اتصل بنا",
+    "tradeProcess": "مسار التجارة المعتاد",
+    "companyInformation": "معلومات الشركة",
+    "news": "الأخبار",
+    "faq": "الأسئلة الشائعة",
+    "inquiry": "أرسل استفسارًا",
+    "privacy": "سياسة الخصوصية",
+    "terms": "شروط الاستخدام",
+    "cookies": "سياسة ملفات تعريف الارتباط",
+    "allBusiness": "جميع خطوط الأعمال",
+    "allProducts": "جميع المنتجات"
+  },
+  "cta": {
+    "sendInquiry": "أرسل استفسارًا",
+    "exploreBusiness": "استكشف أعمالنا",
+    "requestQuote": "اطلب عرض سعر",
+    "submitTradeInquiry": "إرسال الاستفسار التجاري",
+    "contactUs": "تواصل معنا",
+    "browseProducts": "تصفّح فئات المنتجات",
+    "learnMore": "اعرف المزيد",
+    "viewAll": "عرض الكل",
+    "viewDetails": "عرض التفاصيل",
+    "backToHome": "العودة إلى الرئيسية"
+  },
+  "labels": {
+    "required": "مطلوب",
+    "optional": "اختياري",
+    "close": "إغلاق",
+    "back": "رجوع",
+    "next": "التالي",
+    "previous": "السابق",
+    "retry": "حاول مرة أخرى",
+    "reference": "الرقم المرجعي"
+  },
+  "breadcrumb": {
+    "home": "الرئيسية"
+  },
+  "language": {
+    "label": "اللغة",
+    "triggerLabel": "اللغة: {language}. تغيير اللغة.",
+    "names": {
+      "en": "الإنجليزية",
+      "zh": "الصينية (المبسّطة)",
+      "ar": "العربية"
+    }
+  },
+  "a11y": {
+    "skipToContent": "تخطَّ إلى المحتوى الرئيسي",
+    "homeLink": "{name}، الصفحة الرئيسية",
+    "mainNavigation": "التنقل الرئيسي",
+    "footerNavigation": "التنقل في تذييل الصفحة",
+    "submenu": "قائمة {name}",
+    "openMenu": "فتح القائمة",
+    "closeMenu": "إغلاق القائمة",
+    "menuTitle": "القائمة",
+    "menuDescription": "تصفّح الموقع أو اختر لغة أو أرسل استفسارًا.",
+    "changeLanguage": "تغيير اللغة",
+    "breadcrumb": "مسار التنقل",
+    "notifications": "الإشعارات",
+    "pagination": "ترقيم الصفحات",
+    "previousPage": "الصفحة السابقة",
+    "nextPage": "الصفحة التالية",
+    "goToPage": "الانتقال إلى الصفحة {page}",
+    "loading": "جارٍ التحميل",
+    "opensInNewTab": "يفتح في علامة تبويب جديدة"
+  },
+  "footer": {
+    "about": "شركة تجارة دولية مقرّها الصين، تركّز على البحث عن المنتجات ومصادر التوريد والاستيراد والتصدير، وتربط الشركات بالمنتجات وفرص التوريد في الأسواق العالمية.",
+    "columns": {
+      "navigation": "التنقل",
+      "business": "الأعمال",
+      "products": "المنتجات",
+      "company": "الشركة والتواصل",
+      "legal": "المعلومات القانونية",
+      "languages": "اللغات"
+    },
+    "registered": {
+      "heading": "بيانات التسجيل",
+      "address": "العنوان المسجَّل",
+      "uscc": "رمز الائتمان الاجتماعي الموحَّد",
+      "note": "كما هو مدوَّن في الرخصة التجارية للشركة."
+    },
+    "contact": {
+      "email": "البريد الإلكتروني",
+      "phone": "الهاتف",
+      "whatsapp": "WhatsApp"
+    },
+    "rights": "جميع الحقوق محفوظة."
+  }
+}

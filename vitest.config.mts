@@ -17,5 +17,6 @@ export default defineConfig({
     include: ["src/**/*.test.{ts,tsx}", "scripts/**/*.test.ts", "prisma/**/*.test.ts"],
     exclude: ["node_modules", "e2e", ".next"],
     css: false,
+    server: { deps: { inline: ["next-intl"] } },
   },
 });

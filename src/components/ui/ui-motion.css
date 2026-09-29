@@ -1,0 +1,166 @@
+/*
+ * Enter/exit animations for Radix overlays (dialog, drawer, menu, tooltip, accordion, toast).
+ * Radix Presence keeps an element mounted until its exit *animation* ends, so these have to be
+ * keyframe animations, not transitions. Reduced motion is collapsed globally in app/globals.css.
+ * `--ui-dir` flips the sheet slide direction in RTL so a "start" drawer always enters from its edge.
+ */
+
+:root {
+  --ui-dir: 1;
+}
+:root[dir="rtl"] {
+  --ui-dir: -1;
+}
+
+@keyframes ui-fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+@keyframes ui-fade-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes ui-pop-in {
+  from {
+    opacity: 0;
+    transform: translateY(6px) scale(0.98);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ui-pop-out {
+  from {
+    opacity: 1;
+    transform: none;
+  }
+  to {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+}
+@keyframes ui-sheet-in {
+  from {
+    transform: var(--ui-sheet-from);
+  }
+  to {
+    transform: none;
+  }
+}
+@keyframes ui-sheet-out {
+  from {
+    transform: none;
+  }
+  to {
+    transform: var(--ui-sheet-from);
+  }
+}
+@keyframes ui-collapse-down {
+  from {
+    height: 0;
+  }
+  to {
+    height: var(--radix-accordion-content-height);
+  }
+}
+@keyframes ui-collapse-up {
+  from {
+    height: var(--radix-accordion-content-height);
+  }
+  to {
+    height: 0;
+  }
+}
+@keyframes ui-toast-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+@keyframes ui-toast-out {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
+@keyframes ui-toast-swipe-out {
+  from {
+    transform: translateX(var(--radix-toast-swipe-end-x));
+  }
+  to {
+    transform: translateX(calc(var(--radix-toast-swipe-end-x) * 2));
+    opacity: 0;
+  }
+}
+
+.ui-fade:not([data-state="closed"]) {
+  animation: ui-fade-in 150ms ease-out;
+}
+.ui-fade[data-state="closed"] {
+  animation: ui-fade-out 120ms ease-in;
+}
+
+.ui-pop:not([data-state="closed"]) {
+  animation: ui-pop-in 160ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ui-pop[data-state="closed"] {
+  animation: ui-pop-out 120ms ease-in;
+}
+
+.ui-sheet[data-side="start"] {
+  --ui-sheet-from: translateX(calc(var(--ui-dir) * -100%));
+}
+.ui-sheet[data-side="end"] {
+  --ui-sheet-from: translateX(calc(var(--ui-dir) * 100%));
+}
+.ui-sheet[data-side="bottom"] {
+  --ui-sheet-from: translateY(100%);
+}
+.ui-sheet:not([data-state="closed"]) {
+  animation: ui-sheet-in 240ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ui-sheet[data-state="closed"] {
+  animation: ui-sheet-out 180ms ease-in;
+}
+
+.ui-collapse {
+  overflow: hidden;
+}
+.ui-collapse[data-state="open"] {
+  animation: ui-collapse-down 200ms ease-out;
+}
+.ui-collapse[data-state="closed"] {
+  animation: ui-collapse-up 180ms ease-out;
+}
+
+.ui-toast[data-state="open"] {
+  animation: ui-toast-in 200ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.ui-toast[data-state="closed"] {
+  animation: ui-toast-out 120ms ease-in;
+}
+.ui-toast[data-swipe="move"] {
+  transform: translateX(var(--radix-toast-swipe-move-x));
+}
+.ui-toast[data-swipe="cancel"] {
+  transform: none;
+  transition: transform 200ms ease-out;
+}
+.ui-toast[data-swipe="end"] {
+  animation: ui-toast-swipe-out 100ms ease-out forwards;
+}

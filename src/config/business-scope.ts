@@ -90,9 +90,7 @@ export const SCOPE_SUFFIX_ZH = "（除依法须经批准的项目外，凭营业
 
 /** Reassembles the scope exactly as printed on the license. */
 export function getFullScopeTextZh(): string {
-  return (
-    SCOPE_PREFIX_ZH + BUSINESS_SCOPE_ITEMS.map((item) => item.zh).join("；") + SCOPE_SUFFIX_ZH
-  );
+  return SCOPE_PREFIX_ZH + BUSINESS_SCOPE_ITEMS.map((item) => item.zh).join("；") + SCOPE_SUFFIX_ZH;
 }
 
 export function getScopeItemsByGroup(group: ScopeGroup): readonly ScopeItem[] {

@@ -1,1 +1,100 @@
-{}
+{
+  "siteName": "Shaheen Sky",
+  "tagline": "Connecting Global Markets Through Trade",
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "business": "Business",
+    "products": "Products",
+    "globalTrade": "Global Trade",
+    "company": "Company",
+    "contact": "Contact",
+    "tradeProcess": "Typical trade process",
+    "companyInformation": "Company information",
+    "news": "News",
+    "faq": "FAQ",
+    "inquiry": "Send inquiry",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Use",
+    "cookies": "Cookie Policy",
+    "allBusiness": "All business lines",
+    "allProducts": "All products"
+  },
+  "cta": {
+    "sendInquiry": "Send inquiry",
+    "exploreBusiness": "Explore our business",
+    "requestQuote": "Request a quote",
+    "submitTradeInquiry": "Submit trade inquiry",
+    "contactUs": "Contact us",
+    "browseProducts": "Browse product categories",
+    "learnMore": "Learn more",
+    "viewAll": "View all",
+    "viewDetails": "View details",
+    "backToHome": "Back to home"
+  },
+  "labels": {
+    "required": "Required",
+    "optional": "Optional",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "retry": "Try again",
+    "reference": "Reference"
+  },
+  "breadcrumb": {
+    "home": "Home"
+  },
+  "language": {
+    "label": "Language",
+    "triggerLabel": "Language: {language}. Change language.",
+    "names": {
+      "en": "English",
+      "zh": "Chinese (Simplified)",
+      "ar": "Arabic"
+    }
+  },
+  "a11y": {
+    "skipToContent": "Skip to main content",
+    "homeLink": "{name}, home page",
+    "mainNavigation": "Main navigation",
+    "footerNavigation": "Footer navigation",
+    "submenu": "{name} menu",
+    "openMenu": "Open menu",
+    "closeMenu": "Close menu",
+    "menuTitle": "Menu",
+    "menuDescription": "Browse the site, choose a language or send an inquiry.",
+    "changeLanguage": "Change language",
+    "breadcrumb": "Breadcrumb",
+    "notifications": "Notifications",
+    "pagination": "Pagination",
+    "previousPage": "Previous page",
+    "nextPage": "Next page",
+    "goToPage": "Go to page {page}",
+    "loading": "Loading",
+    "opensInNewTab": "opens in a new tab"
+  },
+  "footer": {
+    "about": "China-based international trading company focused on sourcing, importing, exporting and connecting businesses with products and supply opportunities across global markets.",
+    "columns": {
+      "navigation": "Navigation",
+      "business": "Business",
+      "products": "Products",
+      "company": "Company and contact",
+      "legal": "Legal",
+      "languages": "Languages"
+    },
+    "registered": {
+      "heading": "Registered information",
+      "address": "Registered address",
+      "uscc": "Unified Social Credit Code",
+      "note": "As recorded on the company's business license."
+    },
+    "contact": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp"
+    },
+    "rights": "All rights reserved."
+  }
+}

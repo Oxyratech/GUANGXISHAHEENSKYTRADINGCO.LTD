@@ -1,1 +1,78 @@
-{}
+{
+  "availabilityNote": "These categories show areas available for sourcing and trade. They are not a list of current stock.",
+  "regulatedNote": "Goods in this category may require licenses, filings or approvals under applicable law, depending on the product and the countries involved. The registered business scope is not a statement that such approvals are held.",
+  "otherCategory": "Other / not sure",
+  "browseLabel": "Browse product categories",
+  "consumer-goods": {
+    "name": "Consumer Goods",
+    "summary": "Trade in toys, maternal and infant products, jewelry and cosmetics.",
+    "description": "Consumer goods is an area of registered trade covering toys, maternal and infant products, jewelry and cosmetics. Jewelry and cosmetics are registered for both wholesale and retail.",
+    "scopeIntro": "Registered business scope items related to consumer goods:"
+  },
+  "apparel-accessories": {
+    "name": "Apparel & Accessories",
+    "summary": "Trade in garments, footwear and headwear, bags and luggage, and garment trims.",
+    "description": "Apparel and accessories is an area of registered trade covering garments and apparel, footwear and headwear, bags and luggage, and garment trims and accessories. Garments and apparel are registered for both wholesale and retail, and footwear and headwear for wholesale.",
+    "scopeIntro": "Registered business scope items related to apparel and accessories:"
+  },
+  "food-products": {
+    "name": "Food Products",
+    "summary": "Import and export of food.",
+    "description": "Food products is an area of registered trade covering the import and export of food. Food is a regulated area: the licenses, filings and approvals required under applicable law vary by product and market, and the registered scope does not by itself show that any of them is held.",
+    "scopeIntro": "Registered business scope items related to food products:"
+  },
+  "household-products": {
+    "name": "Household Products",
+    "summary": "Trade in daily necessities and daily sundries.",
+    "description": "Household products is an area of registered trade covering daily necessities and daily sundries. The business scope names these two general groups of everyday goods and does not list specific products.",
+    "scopeIntro": "Registered business scope items related to household products:"
+  },
+  "building-materials": {
+    "name": "Building Materials",
+    "summary": "Trade in building materials, lightweight building materials, thermal insulation materials, doors and windows, and metal fittings for construction.",
+    "description": "Building materials is an area of registered trade covering building materials generally, lightweight building materials, thermal insulation materials, doors and windows, and metal fittings for construction. Building decoration materials are registered separately and appear under decorative materials.",
+    "scopeIntro": "Registered business scope items related to building materials:"
+  },
+  "decorative-materials": {
+    "name": "Decorative Materials",
+    "summary": "Trade in building decoration materials.",
+    "description": "Decorative materials is an area of registered trade covering building decoration materials. The business scope names this as a single item and does not list specific products.",
+    "scopeIntro": "Registered business scope items related to decorative materials:"
+  },
+  "hardware-products": {
+    "name": "Hardware Products",
+    "summary": "Wholesale and retail of hardware products.",
+    "description": "Hardware products is an area of registered trade covering hardware products, registered for both wholesale and retail. The business scope names them as a general group and does not list specific products.",
+    "scopeIntro": "Registered business scope items related to hardware products:"
+  },
+  "electrical-products": {
+    "name": "Electrical Products",
+    "summary": "Trade in electric wires and cables, and power distribution switchgear and control equipment.",
+    "description": "Electrical products is an area of registered trade covering electric wires and cables, and power distribution switchgear and control equipment. This category concerns cables and distribution and control equipment; it does not cover consumer electronics.",
+    "scopeIntro": "Registered business scope items related to electrical products:"
+  },
+  "machinery-equipment": {
+    "name": "Machinery & Equipment",
+    "summary": "Trade in mechanical parts and components, fans and blowers, molds and mining machinery.",
+    "description": "Machinery and equipment is an area of registered trade covering mechanical parts and components, fans and blowers, molds and mining machinery. The business scope lists these as sales items and does not name specific machines or models.",
+    "scopeIntro": "Registered business scope items related to machinery and equipment:"
+  },
+  "metal-products": {
+    "name": "Metal Products & Materials",
+    "summary": "Trade in metal products and metal materials.",
+    "description": "Metal products and materials is an area of registered trade covering metal products and metal materials. Metal ores are registered separately and appear under minerals and ores, and metal fittings for construction appear under building materials.",
+    "scopeIntro": "Registered business scope items related to metal products and materials:"
+  },
+  "minerals-ores": {
+    "name": "Minerals & Ores",
+    "summary": "Trade in coal and coal products, non-metallic minerals and their products, and metal ores.",
+    "description": "Minerals and ores is an area of registered trade covering coal and coal products, non-metallic minerals and their products, and metal ores. These are regulated goods: the licenses, filings and approvals required under applicable law vary by product and market, and the registered scope does not by itself show that any of them is held.",
+    "scopeIntro": "Registered business scope items related to minerals and ores:"
+  },
+  "medical-protective-supplies": {
+    "name": "Medical & Protective Supplies",
+    "summary": "Trade in protective supplies for medical personnel and Class I medical devices.",
+    "description": "Medical and protective supplies is an area of registered trade covering protective supplies for medical personnel, registered for wholesale and retail, and Class I medical devices. These are regulated products: the licenses, filings and approvals required under applicable law vary by product and market, and the registered scope does not by itself show that any of them is held.",
+    "scopeIntro": "Registered business scope items related to medical and protective supplies:"
+  }
+}

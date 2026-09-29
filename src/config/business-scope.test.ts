@@ -39,7 +39,8 @@ describe("registered business scope", () => {
   });
 
   it("ids are kebab-case (they double as i18n keys)", () => {
-    for (const item of BUSINESS_SCOPE_ITEMS) expect(item.id).toMatch(/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/);
+    for (const item of BUSINESS_SCOPE_ITEMS)
+      expect(item.id).toMatch(/^[a-z][a-z0-9]*(-[a-z0-9]+)*$/);
   });
 });
 
@@ -58,7 +59,11 @@ describe("product categories derive from the scope", () => {
 
   it("flags food, minerals and medical categories as regulated", () => {
     const regulated = CATEGORIES.filter((c) => c.regulated).map((c) => c.slug);
-    expect(regulated.sort()).toEqual(["food-products", "medical-protective-supplies", "minerals-ores"]);
+    expect(regulated.sort()).toEqual([
+      "food-products",
+      "medical-protective-supplies",
+      "minerals-ores",
+    ]);
   });
 });
 

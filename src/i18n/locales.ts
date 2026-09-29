@@ -19,7 +19,13 @@ export interface LocaleMeta {
 
 export const LOCALE_META: Record<Locale, LocaleMeta> = {
   en: { nativeName: "English", dir: "ltr", htmlLang: "en", hreflang: "en", ogLocale: "en_US" },
-  zh: { nativeName: "简体中文", dir: "ltr", htmlLang: "zh-CN", hreflang: "zh-CN", ogLocale: "zh_CN" },
+  zh: {
+    nativeName: "简体中文",
+    dir: "ltr",
+    htmlLang: "zh-CN",
+    hreflang: "zh-CN",
+    ogLocale: "zh_CN",
+  },
   ar: { nativeName: "العربية", dir: "rtl", htmlLang: "ar", hreflang: "ar", ogLocale: "ar_AR" },
 };
 

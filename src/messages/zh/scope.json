@@ -1,1 +1,105 @@
-{}
+{
+  "title": "经营范围",
+  "intro": "经营范围是公司依法登记、可开展经营活动的项目清单，以营业执照上的记载为准。为便于阅读，一般经营项目按贸易领域分组列示。",
+  "qualifier": "除依法须经批准的项目外，公司凭营业执照依法自主开展经营活动。",
+  "generalItemsLabel": "一般经营项目",
+  "officialTextLabel": "官方原文（中文）",
+  "translationNote": "经营范围各项目的英文及阿拉伯文表述均为非官方译文，仅为便于阅读而提供，以营业执照上印制的中文原文为准。",
+  "regulatedNote": "其中部分货物的经营须依照适用法律取得许可、办理备案或获得批准。经营范围登记并不表示公司已取得任何此类许可、已完成备案或已获得批准。",
+  "groups": {
+    "trade-services": {
+      "name": "贸易与代理服务",
+      "description": "国内贸易代理、进出口代理、货物进出口，以及互联网销售（销售需要许可的商品除外）。"
+    },
+    "consumer-goods": {
+      "name": "消费品",
+      "description": "玩具、母婴用品、珠宝首饰和化妆品。"
+    },
+    "apparel-accessories": {
+      "name": "服饰与配饰",
+      "description": "服装服饰、鞋帽、箱包和服装辅料。"
+    },
+    "food-products": {
+      "name": "食品",
+      "description": "食品进出口。"
+    },
+    "household-products": {
+      "name": "家居日用品",
+      "description": "日用品和日用杂品。"
+    },
+    "building-materials": {
+      "name": "建筑材料",
+      "description": "建筑材料、轻质建筑材料、保温材料、门窗和建筑用金属配件。"
+    },
+    "decorative-materials": {
+      "name": "装饰材料",
+      "description": "建筑装饰材料。"
+    },
+    "hardware-products": {
+      "name": "五金产品",
+      "description": "五金产品的批发与零售。"
+    },
+    "electrical-products": {
+      "name": "电气产品",
+      "description": "电线、电缆和配电开关控制设备。"
+    },
+    "machinery-equipment": {
+      "name": "机械设备",
+      "description": "机械零件、零部件，风机、风扇，模具和矿山机械。"
+    },
+    "metal-products": {
+      "name": "金属制品及材料",
+      "description": "金属制品和金属材料。"
+    },
+    "minerals-ores": {
+      "name": "矿产及矿石",
+      "description": "煤炭及制品、非金属矿及制品和金属矿石。"
+    },
+    "medical-protective-supplies": {
+      "name": "医疗与防护用品",
+      "description": "医护人员防护用品和第一类医疗器械。"
+    }
+  },
+  "items": {
+    "domestic-trade-agency": "国内贸易代理",
+    "food-import-export": "食品进出口",
+    "import-export-agency": "进出口代理",
+    "goods-import-export": "货物进出口",
+    "toys": "玩具销售",
+    "moulds": "模具销售",
+    "apparel-wholesale": "服装服饰批发",
+    "footwear-headwear-wholesale": "鞋帽批发",
+    "garment-accessories": "服装辅料销售",
+    "apparel-retail": "服装服饰零售",
+    "maternal-infant-products": "母婴用品销售",
+    "internet-sales": "互联网销售（除销售需要许可的商品）",
+    "jewelry-retail": "珠宝首饰零售",
+    "jewelry-wholesale": "珠宝首饰批发",
+    "daily-necessities": "日用品销售",
+    "bags-luggage": "箱包销售",
+    "daily-sundries": "日用杂品销售",
+    "cosmetics-wholesale": "化妆品批发",
+    "cosmetics-retail": "化妆品零售",
+    "building-decoration-materials": "建筑装饰材料销售",
+    "doors-windows": "门窗销售",
+    "hardware-retail": "五金产品零售",
+    "wires-cables": "电线、电缆经营",
+    "thermal-insulation-materials": "保温材料销售",
+    "mechanical-parts": "机械零件、零部件销售",
+    "building-materials": "建筑材料销售",
+    "construction-metal-fittings": "建筑用金属配件销售",
+    "power-distribution-switchgear": "配电开关控制设备销售",
+    "fans-blowers": "风机、风扇销售",
+    "metal-products": "金属制品销售",
+    "lightweight-building-materials": "轻质建筑材料销售",
+    "hardware-wholesale": "五金产品批发",
+    "coal-products": "煤炭及制品销售",
+    "non-metallic-minerals": "非金属矿及制品销售",
+    "metal-materials": "金属材料销售",
+    "medical-ppe-wholesale": "医护人员防护用品批发",
+    "medical-ppe-retail": "医护人员防护用品零售",
+    "class-i-medical-devices": "第一类医疗器械销售",
+    "metal-ores": "金属矿石销售",
+    "mining-machinery": "矿山机械销售"
+  }
+}

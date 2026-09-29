@@ -1,1 +1,100 @@
-{}
+{
+  "siteName": "Shaheen Sky",
+  "tagline": "以贸易连接全球市场",
+  "nav": {
+    "home": "首页",
+    "about": "关于我们",
+    "business": "业务",
+    "products": "产品",
+    "globalTrade": "全球贸易",
+    "company": "公司",
+    "contact": "联系我们",
+    "tradeProcess": "典型贸易流程",
+    "companyInformation": "公司信息",
+    "news": "新闻动态",
+    "faq": "常见问题",
+    "inquiry": "发送询盘",
+    "privacy": "隐私政策",
+    "terms": "使用条款",
+    "cookies": "Cookie 政策",
+    "allBusiness": "全部业务",
+    "allProducts": "全部产品"
+  },
+  "cta": {
+    "sendInquiry": "发送询盘",
+    "exploreBusiness": "了解我们的业务",
+    "requestQuote": "获取报价",
+    "submitTradeInquiry": "提交贸易询盘",
+    "contactUs": "联系我们",
+    "browseProducts": "浏览产品类别",
+    "learnMore": "了解更多",
+    "viewAll": "查看全部",
+    "viewDetails": "查看详情",
+    "backToHome": "返回首页"
+  },
+  "labels": {
+    "required": "必填",
+    "optional": "选填",
+    "close": "关闭",
+    "back": "返回",
+    "next": "下一步",
+    "previous": "上一步",
+    "retry": "重试",
+    "reference": "参考编号"
+  },
+  "breadcrumb": {
+    "home": "首页"
+  },
+  "language": {
+    "label": "语言",
+    "triggerLabel": "语言：{language}。切换语言。",
+    "names": {
+      "en": "英语",
+      "zh": "简体中文",
+      "ar": "阿拉伯语"
+    }
+  },
+  "a11y": {
+    "skipToContent": "跳到主要内容",
+    "homeLink": "{name}，返回首页",
+    "mainNavigation": "主导航",
+    "footerNavigation": "页脚导航",
+    "submenu": "{name}菜单",
+    "openMenu": "打开菜单",
+    "closeMenu": "关闭菜单",
+    "menuTitle": "菜单",
+    "menuDescription": "浏览网站、选择语言或发送询盘。",
+    "changeLanguage": "切换语言",
+    "breadcrumb": "面包屑导航",
+    "notifications": "通知",
+    "pagination": "分页",
+    "previousPage": "上一页",
+    "nextPage": "下一页",
+    "goToPage": "前往第 {page} 页",
+    "loading": "正在加载",
+    "opensInNewTab": "在新标签页中打开"
+  },
+  "footer": {
+    "about": "立足中国的国际贸易公司，专注于产品寻源、进口与出口，帮助企业对接全球市场中的产品与供应机会。",
+    "columns": {
+      "navigation": "网站导航",
+      "business": "业务",
+      "products": "产品",
+      "company": "公司与联系",
+      "legal": "法律信息",
+      "languages": "语言"
+    },
+    "registered": {
+      "heading": "注册信息",
+      "address": "注册地址（住所）",
+      "uscc": "统一社会信用代码",
+      "note": "以公司营业执照所载为准。"
+    },
+    "contact": {
+      "email": "电子邮箱",
+      "phone": "电话",
+      "whatsapp": "WhatsApp"
+    },
+    "rights": "保留所有权利。"
+  }
+}

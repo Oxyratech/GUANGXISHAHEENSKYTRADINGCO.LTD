@@ -229,6 +229,7 @@ model ProductImage {
 
   @@unique([productId, mediaAssetId])
   @@index([productId, sortOrder])
+  @@index([mediaAssetId])
 }
 
 model ProductDocument {
@@ -243,6 +244,7 @@ model ProductDocument {
   translations ProductDocumentTranslation[]
 
   @@unique([productId, mediaAssetId])
+  @@index([mediaAssetId])
 }
 
 model ProductDocumentTranslation {
@@ -310,6 +312,7 @@ model BusinessInquiry {
   @@index([email])
   @@index([ipHash, createdAt])
   @@index([assignedToId])
+  @@index([productId])
 }
 
 model InquiryAttachment {
@@ -322,6 +325,7 @@ model InquiryAttachment {
   mediaAsset MediaAsset      @relation(fields: [mediaAssetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
   @@unique([inquiryId, mediaAssetId])
+  @@index([mediaAssetId])
 }
 
 // Internal only — never selected by any public query.
@@ -447,6 +451,8 @@ model NewsArticle {
   @@unique([locale, slug])
   @@index([locale, status, publishedAt])
   @@index([translationGroupId])
+  @@index([coverMediaId])
+  @@index([categoryId])
 }
 
 model NewsArticleTag {

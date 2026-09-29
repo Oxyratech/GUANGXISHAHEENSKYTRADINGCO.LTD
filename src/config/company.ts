@@ -8,7 +8,7 @@
  * Do not "round up" or restate it.
  *
  * Contact channels (email, phone, WhatsApp) are deliberately NOT here: none has been supplied.
- * They are configured via SiteSetting / environment variables — see src/lib/site-settings.
+ * They are configured via SiteSetting / environment variables — see @/server/settings.
  */
 export const COMPANY = {
   legalNameEn: "GUANGXI SHAHEEN SKY TRADING CO., LTD.",

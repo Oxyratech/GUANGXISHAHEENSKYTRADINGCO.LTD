@@ -35,7 +35,9 @@ export const INQUIRY_STATUS_DEFINITIONS = [
 ] as const;
 
 export type InquiryStatus = (typeof INQUIRY_STATUS_DEFINITIONS)[number]["code"];
-export const INQUIRY_STATUSES = INQUIRY_STATUS_DEFINITIONS.map((s) => s.code) as readonly InquiryStatus[];
+export const INQUIRY_STATUSES = INQUIRY_STATUS_DEFINITIONS.map(
+  (s) => s.code,
+) as readonly InquiryStatus[];
 
 export function isInquiryStatus(value: string): value is InquiryStatus {
   return (INQUIRY_STATUSES as readonly string[]).includes(value);

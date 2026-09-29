@@ -24,7 +24,9 @@ export function getDb(): PrismaClient {
 
   const url = process.env.DATABASE_URL?.trim();
   if (!url) {
-    throw new DatabaseUnavailableError("DATABASE_URL is not configured", { cause: "not_configured" });
+    throw new DatabaseUnavailableError("DATABASE_URL is not configured", {
+      cause: "not_configured",
+    });
   }
 
   const client = new PrismaClient({ adapter: new PrismaMssql(url) });
