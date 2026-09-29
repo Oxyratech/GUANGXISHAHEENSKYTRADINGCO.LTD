@@ -1,0 +1,41 @@
+# dependencies
+/node_modules
+/.pnp
+.pnp.*
+.yarn/*
+
+# next.js
+/.next/
+/out/
+next-env.d.ts
+
+# production
+/build
+
+# generated
+/src/generated
+
+# testing
+/coverage
+/playwright-report
+/test-results
+/blob-report
+/playwright/.cache/
+
+# env (never commit secrets — only .env.example is tracked)
+.env
+.env.*
+!.env.example
+
+# logs / misc
+*.log
+npm-debug.log*
+.DS_Store
+*.pem
+*.tsbuildinfo
+
+# local uploads (development storage fallback, if ever used)
+/storage
+
+# vercel
+.vercel

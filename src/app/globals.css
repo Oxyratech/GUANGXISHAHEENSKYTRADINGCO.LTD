@@ -1,0 +1,245 @@
+@import "tailwindcss";
+
+/* ─────────────────────────────────────────────────────────────────────────────
+   Design tokens — Guangxi Shaheen Sky Trading
+   Primary: deep navy · Secondary: professional blue · Accent: subtle gold
+   Light theme only. Hierarchy comes from type, spacing and contrast, not effects.
+   ───────────────────────────────────────────────────────────────────────────── */
+
+@theme {
+  /* Navy (primary) */
+  --color-navy-950: #061224;
+  --color-navy-900: #0b1f3a;
+  --color-navy-800: #12294d;
+  --color-navy-700: #1b3a66;
+  --color-navy-600: #2a4d80;
+
+  /* Professional blue (secondary) — replaces Tailwind's default blue scale */
+  --color-blue-50: #eef4fc;
+  --color-blue-100: #dbe8f8;
+  --color-blue-200: #b9d1f1;
+  --color-blue-300: #8db2e6;
+  --color-blue-400: #5a8cd6;
+  --color-blue-500: #2f6bc4;
+  --color-blue-600: #1f57ab;
+  --color-blue-700: #184687;
+  --color-blue-800: #143a6d;
+
+  /* Gold (accent) — used sparingly; 600+ is safe for text on white */
+  --color-gold-50: #faf6ec;
+  --color-gold-100: #f3ead2;
+  --color-gold-200: #e6d5a5;
+  --color-gold-300: #d6bc76;
+  --color-gold-400: #c4a457;
+  --color-gold-500: #a88a3f;
+  --color-gold-600: #8a6f30;
+  --color-gold-700: #6d5726;
+
+  /* Neutrals */
+  --color-ink: #121826;
+  --color-ink-muted: #4a5468;
+  --color-ink-subtle: #667085;
+  --color-line: #e2e6ed;
+  --color-line-strong: #cfd6e2;
+  --color-surface: #f5f7fa;
+  --color-surface-2: #eceff5;
+
+  /* Status */
+  --color-success-50: #ecf8f1;
+  --color-success-600: #1a7f4b;
+  --color-danger-50: #fdf0ee;
+  --color-danger-600: #b42318;
+  --color-warning-50: #fdf6e7;
+  --color-warning-700: #8a5a00;
+
+  /* Radii: deliberately modest — no oversized rounded cards */
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-lg: 8px;
+
+  /* Shadows: two quiet levels only */
+  --shadow-card: 0 1px 2px rgb(11 31 58 / 0.06), 0 0 0 1px rgb(11 31 58 / 0.04);
+  --shadow-raised: 0 8px 24px -8px rgb(11 31 58 / 0.18), 0 0 0 1px rgb(11 31 58 / 0.05);
+
+  --breakpoint-xs: 22.5rem; /* 360px */
+}
+
+/* Semantic tokens (shadcn-style names so UI primitives map cleanly) */
+:root {
+  --background: #ffffff;
+  --foreground: var(--color-ink);
+  --card: #ffffff;
+  --card-foreground: var(--color-ink);
+  --muted: var(--color-surface);
+  --muted-foreground: var(--color-ink-muted);
+  --border: var(--color-line);
+  --input: var(--color-line-strong);
+  --ring: var(--color-blue-500);
+  --primary: var(--color-navy-900);
+  --primary-foreground: #ffffff;
+  --secondary: var(--color-blue-600);
+  --secondary-foreground: #ffffff;
+  --accent: var(--color-gold-500);
+  --accent-foreground: var(--color-navy-950);
+  --destructive: var(--color-danger-600);
+
+  --font-cjk-stack:
+    "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei UI", "Microsoft YaHei", "Noto Sans CJK SC",
+    "Source Han Sans SC", "WenQuanYi Micro Hei";
+  --font-sans: var(--font-plex-sans), var(--font-cjk-stack), system-ui, sans-serif;
+
+  /* Per-language typographic settings (overridden below) */
+  --leading-heading: 1.12;
+  --leading-body: 1.65;
+  --tracking-heading: -0.015em;
+  --tracking-eyebrow: 0.14em;
+}
+
+:root:lang(zh) {
+  --font-sans: var(--font-cjk-stack), var(--font-plex-sans), system-ui, sans-serif;
+  --leading-heading: 1.3;
+  --leading-body: 1.85;
+  --tracking-heading: 0;
+  --tracking-eyebrow: 0.04em;
+}
+
+:root:lang(ar) {
+  --font-sans: var(--font-plex-arabic), var(--font-plex-sans), system-ui, sans-serif;
+  --leading-heading: 1.4;
+  --leading-body: 1.85;
+  --tracking-heading: 0;
+  --tracking-eyebrow: 0;
+}
+
+@theme inline {
+  --font-sans: var(--font-sans);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+}
+
+/* ── Typography scale ─────────────────────────────────────────────────────── */
+
+@utility text-display {
+  font-size: clamp(2.5rem, 1.7rem + 3.4vw, 4.5rem);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: 600;
+}
+@utility text-h1 {
+  font-size: clamp(2rem, 1.5rem + 2vw, 3.25rem);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: 600;
+}
+@utility text-h2 {
+  font-size: clamp(1.625rem, 1.3rem + 1.2vw, 2.375rem);
+  line-height: var(--leading-heading);
+  letter-spacing: var(--tracking-heading);
+  font-weight: 600;
+}
+@utility text-h3 {
+  font-size: clamp(1.25rem, 1.15rem + 0.5vw, 1.5rem);
+  line-height: calc(var(--leading-heading) + 0.1);
+  font-weight: 600;
+}
+@utility text-body-lg {
+  font-size: clamp(1.0625rem, 1rem + 0.3vw, 1.25rem);
+  line-height: var(--leading-body);
+}
+@utility text-body {
+  font-size: 1rem;
+  line-height: var(--leading-body);
+}
+@utility text-small {
+  font-size: 0.875rem;
+  line-height: calc(var(--leading-body) - 0.1);
+}
+@utility text-caption {
+  font-size: 0.75rem;
+  line-height: 1.5;
+}
+@utility text-label {
+  font-size: 0.875rem;
+  line-height: 1.4;
+  font-weight: 500;
+}
+@utility text-button {
+  font-size: 0.9375rem;
+  line-height: 1;
+  font-weight: 600;
+}
+/* Small uppercase section label. Casing/tracking only take effect on Latin text. */
+@utility text-eyebrow {
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 600;
+  letter-spacing: var(--tracking-eyebrow);
+  text-transform: uppercase;
+}
+
+/* ── Base ─────────────────────────────────────────────────────────────────── */
+
+html {
+  font-family: var(--font-sans);
+  color: var(--foreground);
+  background: var(--background);
+  -webkit-text-size-adjust: 100%;
+  scroll-padding-top: 5.5rem;
+}
+
+body {
+  min-height: 100dvh;
+  font-size: 1rem;
+  line-height: var(--leading-body);
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: clip;
+}
+
+::selection {
+  background: var(--color-gold-200);
+  color: var(--color-navy-950);
+}
+
+:focus-visible {
+  outline: 2px solid var(--ring);
+  outline-offset: 2px;
+  border-radius: var(--radius-xs);
+}
+
+/* Directional icons (arrows, chevrons) mirror in RTL */
+[dir="rtl"] .rtl-flip {
+  transform: scaleX(-1);
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    scroll-behavior: smooth;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}

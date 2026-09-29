@@ -1,0 +1,518 @@
+// Guangxi Shaheen Sky Trading Co., Ltd. — relational model (SQL Server / Azure SQL).
+//
+// Design notes
+// - Primary keys are sequential GUIDs (NEWSEQUENTIALID) so keys are non-enumerable in URLs
+//   but still cluster well. Small lookup/config tables use natural keys.
+// - Locale-specific text for entities lives in `<Entity>Translation` tables (unique per locale).
+//   News articles are authored per language, so each row carries its own `locale`.
+// - Services, product categories and FAQs are code-defined content (src/content) because they are
+//   mapped to the registered business scope and drive routing; they are intentionally not tables.
+// - `version` columns implement optimistic concurrency for admin-edited records.
+// - Nothing here stores or implies prices, MOQs, stock levels or certifications.
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlserver"
+}
+
+// ─── Identity & access ───────────────────────────────────────────────────────
+
+model User {
+  id               String    @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  email            String    @unique @db.NVarChar(254)
+  name             String    @db.NVarChar(120)
+  passwordHash     String    @db.NVarChar(255)
+  isActive         Boolean   @default(true)
+  failedLoginCount Int       @default(0)
+  lockedUntil      DateTime? @db.DateTime2
+  lastLoginAt      DateTime? @db.DateTime2
+  createdAt        DateTime  @default(now()) @db.DateTime2
+  updatedAt        DateTime  @updatedAt @db.DateTime2
+
+  roles             UserRole[]
+  sessions          Session[]
+  assignedInquiries BusinessInquiry[]     @relation("InquiryAssignee")
+  inquiryNotes      InquiryNote[]
+  statusChanges     InquiryStatusChange[]
+  contactHandled    ContactMessage[]      @relation("ContactHandler")
+  uploadedMedia     MediaAsset[]
+  newsArticles      NewsArticle[]
+  createdProducts   Product[]
+  auditLogs         AuditLog[]
+}
+
+model Role {
+  id          String  @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  key         String  @unique @db.NVarChar(50) // SUPER_ADMIN | ADMIN | CONTENT_MANAGER | SALES_MANAGER
+  name        String  @db.NVarChar(100)
+  description String? @db.NVarChar(500)
+  isSystem    Boolean @default(false) // system roles cannot be deleted
+
+  users       UserRole[]
+  permissions RolePermission[]
+}
+
+model Permission {
+  id          String  @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  key         String  @unique @db.NVarChar(80) // e.g. "inquiry:read", "product:write"
+  description String? @db.NVarChar(300)
+
+  roles RolePermission[]
+}
+
+model RolePermission {
+  roleId       String @db.UniqueIdentifier
+  permissionId String @db.UniqueIdentifier
+
+  role       Role       @relation(fields: [roleId], references: [id], onDelete: Cascade)
+  permission Permission @relation(fields: [permissionId], references: [id], onDelete: Cascade)
+
+  @@id([roleId, permissionId])
+}
+
+model UserRole {
+  userId     String   @db.UniqueIdentifier
+  roleId     String   @db.UniqueIdentifier
+  assignedAt DateTime @default(now()) @db.DateTime2
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  role Role @relation(fields: [roleId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([userId, roleId])
+  @@index([roleId])
+}
+
+// Server-side sessions. Only a SHA-256 hash of the opaque cookie token is stored.
+model Session {
+  id         String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  userId     String   @db.UniqueIdentifier
+  tokenHash  String   @unique @db.Char(64)
+  expiresAt  DateTime @db.DateTime2
+  createdAt  DateTime @default(now()) @db.DateTime2
+  lastUsedAt DateTime @default(now()) @db.DateTime2
+  ipHash     String?  @db.Char(64)
+  userAgent  String?  @db.NVarChar(255)
+
+  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+  @@index([expiresAt])
+}
+
+// ─── Media ───────────────────────────────────────────────────────────────────
+
+model MediaAsset {
+  id           String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  kind         String   @db.NVarChar(16) // IMAGE | DOCUMENT
+  visibility   String   @default("PUBLIC") @db.NVarChar(16) // PUBLIC | PRIVATE
+  fileName     String   @db.NVarChar(200) // sanitised display name, never used as a path
+  mimeType     String   @db.NVarChar(100) // verified from file signature, not from the client
+  sizeBytes    Int
+  sha256       String   @db.Char(64)
+  width        Int?
+  height       Int?
+  uploadedById String?  @db.UniqueIdentifier
+  createdAt    DateTime @default(now()) @db.DateTime2
+
+  uploadedBy    User?                   @relation(fields: [uploadedById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  blob          MediaBlob?
+  translations  MediaAssetTranslation[]
+  productImages ProductImage[]
+  productDocs   ProductDocument[]
+  attachments   InquiryAttachment[]
+  newsCovers    NewsArticle[]
+  seoOgImages   SeoMetadata[]
+
+  @@index([kind, visibility])
+  @@index([sha256])
+}
+
+// File bytes live in their own table so list/metadata queries never load binary data.
+// Swap this for object storage later by re-implementing the storage service only.
+model MediaBlob {
+  mediaAssetId String @id @db.UniqueIdentifier
+  data         Bytes  @db.VarBinary(Max)
+
+  mediaAsset MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: Cascade)
+}
+
+model MediaAssetTranslation {
+  id           String  @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  mediaAssetId String  @db.UniqueIdentifier
+  locale       String  @db.NVarChar(8)
+  altText      String? @db.NVarChar(300)
+  caption      String? @db.NVarChar(500)
+
+  mediaAsset MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: Cascade)
+
+  @@unique([mediaAssetId, locale])
+}
+
+// ─── Products ────────────────────────────────────────────────────────────────
+
+model Product {
+  id           String    @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  slug         String    @unique @db.NVarChar(120)
+  categorySlug String    @db.NVarChar(64) // validated against src/content/categories at write time
+  status       String    @default("DRAFT") @db.NVarChar(16) // DRAFT | PUBLISHED | ARCHIVED
+  origin       String?   @db.NVarChar(120)
+  sortOrder    Int       @default(0)
+  featured     Boolean   @default(false)
+  publishedAt  DateTime? @db.DateTime2
+  createdById  String?   @db.UniqueIdentifier
+  createdAt    DateTime  @default(now()) @db.DateTime2
+  updatedAt    DateTime  @updatedAt @db.DateTime2
+  version      Int       @default(0)
+
+  createdBy      User?                  @relation(fields: [createdById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  translations   ProductTranslation[]
+  specifications ProductSpecification[]
+  images         ProductImage[]
+  documents      ProductDocument[]
+  inquiries      BusinessInquiry[]
+
+  @@index([categorySlug, status, sortOrder])
+  @@index([status, publishedAt])
+}
+
+model ProductTranslation {
+  id               String  @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  productId        String  @db.UniqueIdentifier
+  locale           String  @db.NVarChar(8)
+  name             String  @db.NVarChar(200)
+  shortDescription String? @db.NVarChar(500)
+  description      String? @db.NVarChar(Max)
+  applications     String? @db.NVarChar(Max)
+  packagingInfo    String? @db.NVarChar(1000)
+
+  product Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, locale])
+}
+
+model ProductSpecification {
+  id        String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  productId String @db.UniqueIdentifier
+  sortOrder Int    @default(0)
+
+  product      Product                           @relation(fields: [productId], references: [id], onDelete: Cascade)
+  translations ProductSpecificationTranslation[]
+
+  @@index([productId, sortOrder])
+}
+
+model ProductSpecificationTranslation {
+  id              String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  specificationId String @db.UniqueIdentifier
+  locale          String @db.NVarChar(8)
+  label           String @db.NVarChar(200)
+  value           String @db.NVarChar(500)
+
+  specification ProductSpecification @relation(fields: [specificationId], references: [id], onDelete: Cascade)
+
+  @@unique([specificationId, locale])
+}
+
+model ProductImage {
+  id           String  @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  productId    String  @db.UniqueIdentifier
+  mediaAssetId String  @db.UniqueIdentifier
+  sortOrder    Int     @default(0)
+  isPrimary    Boolean @default(false)
+
+  product    Product    @relation(fields: [productId], references: [id], onDelete: Cascade)
+  mediaAsset MediaAsset @relation(fields: [mediaAssetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([productId, mediaAssetId])
+  @@index([productId, sortOrder])
+}
+
+model ProductDocument {
+  id           String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  productId    String @db.UniqueIdentifier
+  mediaAssetId String @db.UniqueIdentifier
+  kind         String @default("OTHER") @db.NVarChar(30) // SPECIFICATION_SHEET | CATALOGUE | CERTIFICATE | OTHER
+  sortOrder    Int    @default(0)
+
+  product      Product                      @relation(fields: [productId], references: [id], onDelete: Cascade)
+  mediaAsset   MediaAsset                   @relation(fields: [mediaAssetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  translations ProductDocumentTranslation[]
+
+  @@unique([productId, mediaAssetId])
+}
+
+model ProductDocumentTranslation {
+  id         String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  documentId String @db.UniqueIdentifier
+  locale     String @db.NVarChar(8)
+  title      String @db.NVarChar(200)
+
+  document ProductDocument @relation(fields: [documentId], references: [id], onDelete: Cascade)
+
+  @@unique([documentId, locale])
+}
+
+// ─── Inquiries & contact ─────────────────────────────────────────────────────
+
+// Lookup table: gives the inquiry lifecycle real referential integrity (the SQL Server connector has
+// no native enums). Rows are inserted by the initial migration and kept in sync by the seed.
+model InquiryStatus {
+  code       String  @id @db.NVarChar(20) // NEW, REVIEWING, QUALIFIED, QUOTATION, NEGOTIATION, CONFIRMED, COMPLETED, CANCELLED
+  label      String  @db.NVarChar(60)
+  sortOrder  Int
+  isTerminal Boolean @default(false)
+
+  inquiries   BusinessInquiry[]
+  changesFrom InquiryStatusChange[] @relation("ChangeFrom")
+  changesTo   InquiryStatusChange[] @relation("ChangeTo")
+}
+
+model BusinessInquiry {
+  id                     String    @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  referenceCode          String    @unique @db.NVarChar(24) // shown to the buyer, e.g. INQ-7K3Q9M2X
+  status                 String    @default("NEW") @db.NVarChar(20)
+  name                   String    @db.NVarChar(120)
+  company                String    @db.NVarChar(200)
+  country                String    @db.NVarChar(100)
+  email                  String    @db.NVarChar(254)
+  phone                  String?   @db.NVarChar(40)
+  whatsapp               String?   @db.NVarChar(40)
+  productName            String    @db.NVarChar(200)
+  categorySlug           String?   @db.NVarChar(64)
+  quantity               String?   @db.NVarChar(120) // free text: units differ per product
+  specification          String?   @db.NVarChar(4000)
+  targetPrice            String?   @db.NVarChar(120)
+  destinationCountry     String?   @db.NVarChar(100)
+  requiredDeliveryDate   DateTime? @db.Date
+  additionalRequirements String?   @db.NVarChar(4000)
+  productId              String?   @db.UniqueIdentifier // set when submitted from a product page
+  locale                 String    @db.NVarChar(8)
+  consentAcceptedAt      DateTime  @db.DateTime2
+  ipHash                 String?   @db.Char(64)
+  userAgent              String?   @db.NVarChar(255)
+  assignedToId           String?   @db.UniqueIdentifier
+  createdAt              DateTime  @default(now()) @db.DateTime2
+  updatedAt              DateTime  @updatedAt @db.DateTime2
+  version                Int       @default(0)
+
+  statusRef     InquiryStatus         @relation(fields: [status], references: [code], onDelete: NoAction, onUpdate: NoAction)
+  product       Product?              @relation(fields: [productId], references: [id], onDelete: SetNull)
+  assignedTo    User?                 @relation("InquiryAssignee", fields: [assignedToId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  attachments   InquiryAttachment[]
+  notes         InquiryNote[]
+  statusChanges InquiryStatusChange[]
+
+  @@index([status, createdAt])
+  @@index([email])
+  @@index([ipHash, createdAt])
+  @@index([assignedToId])
+}
+
+model InquiryAttachment {
+  id           String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  inquiryId    String   @db.UniqueIdentifier
+  mediaAssetId String   @db.UniqueIdentifier
+  createdAt    DateTime @default(now()) @db.DateTime2
+
+  inquiry    BusinessInquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+  mediaAsset MediaAsset      @relation(fields: [mediaAssetId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([inquiryId, mediaAssetId])
+}
+
+// Internal only — never selected by any public query.
+model InquiryNote {
+  id        String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  inquiryId String   @db.UniqueIdentifier
+  authorId  String?  @db.UniqueIdentifier
+  body      String   @db.NVarChar(4000)
+  createdAt DateTime @default(now()) @db.DateTime2
+
+  inquiry BusinessInquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+  author  User?           @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([inquiryId, createdAt])
+}
+
+model InquiryStatusChange {
+  id          String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  inquiryId   String   @db.UniqueIdentifier
+  fromStatus  String?  @db.NVarChar(20)
+  toStatus    String   @db.NVarChar(20)
+  changedById String?  @db.UniqueIdentifier
+  createdAt   DateTime @default(now()) @db.DateTime2
+
+  fromRef   InquiryStatus?  @relation("ChangeFrom", fields: [fromStatus], references: [code], onDelete: NoAction, onUpdate: NoAction)
+  toRef     InquiryStatus   @relation("ChangeTo", fields: [toStatus], references: [code], onDelete: NoAction, onUpdate: NoAction)
+  inquiry   BusinessInquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+  changedBy User?           @relation(fields: [changedById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([inquiryId, createdAt])
+}
+
+model ContactMessage {
+  id                String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  referenceCode     String   @unique @db.NVarChar(24)
+  status            String   @default("NEW") @db.NVarChar(16) // NEW | READ | REPLIED | ARCHIVED
+  name              String   @db.NVarChar(120)
+  company           String?  @db.NVarChar(200)
+  email             String   @db.NVarChar(254)
+  phone             String?  @db.NVarChar(40)
+  country           String?  @db.NVarChar(100)
+  message           String   @db.NVarChar(4000)
+  locale            String   @db.NVarChar(8)
+  consentAcceptedAt DateTime @db.DateTime2
+  ipHash            String?  @db.Char(64)
+  userAgent         String?  @db.NVarChar(255)
+  handledById       String?  @db.UniqueIdentifier
+  createdAt         DateTime @default(now()) @db.DateTime2
+  updatedAt         DateTime @updatedAt @db.DateTime2
+
+  handledBy User? @relation("ContactHandler", fields: [handledById], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@index([status, createdAt])
+  @@index([ipHash, createdAt])
+}
+
+// ─── News ────────────────────────────────────────────────────────────────────
+
+model NewsCategory {
+  id        String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  slug      String @unique @db.NVarChar(80)
+  sortOrder Int    @default(0)
+
+  translations NewsCategoryTranslation[]
+  articles     NewsArticle[]
+}
+
+model NewsCategoryTranslation {
+  id         String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  categoryId String @db.UniqueIdentifier
+  locale     String @db.NVarChar(8)
+  name       String @db.NVarChar(120)
+
+  category NewsCategory @relation(fields: [categoryId], references: [id], onDelete: Cascade)
+
+  @@unique([categoryId, locale])
+}
+
+model NewsTag {
+  id   String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  slug String @unique @db.NVarChar(80)
+
+  translations NewsTagTranslation[]
+  articles     NewsArticleTag[]
+}
+
+model NewsTagTranslation {
+  id     String @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  tagId  String @db.UniqueIdentifier
+  locale String @db.NVarChar(8)
+  name   String @db.NVarChar(80)
+
+  tag NewsTag @relation(fields: [tagId], references: [id], onDelete: Cascade)
+
+  @@unique([tagId, locale])
+}
+
+// One row per language version. `translationGroupId` links language versions of the same story
+// so hreflang alternates can be emitted.
+model NewsArticle {
+  id                 String    @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  translationGroupId String    @default(dbgenerated("newid()")) @db.UniqueIdentifier
+  locale             String    @db.NVarChar(8)
+  slug               String    @db.NVarChar(160)
+  title              String    @db.NVarChar(250)
+  summary            String    @db.NVarChar(600)
+  content            String    @db.NVarChar(Max) // Markdown, rendered without raw HTML
+  coverMediaId       String?   @db.UniqueIdentifier
+  authorId           String?   @db.UniqueIdentifier
+  authorName         String?   @db.NVarChar(120) // display byline; defaults to the author's name
+  categoryId         String?   @db.UniqueIdentifier
+  status             String    @default("DRAFT") @db.NVarChar(16) // DRAFT | PUBLISHED | ARCHIVED
+  publishedAt        DateTime? @db.DateTime2
+  createdAt          DateTime  @default(now()) @db.DateTime2
+  updatedAt          DateTime  @updatedAt @db.DateTime2
+  version            Int       @default(0)
+
+  cover    MediaAsset?      @relation(fields: [coverMediaId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  author   User?            @relation(fields: [authorId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  category NewsCategory?    @relation(fields: [categoryId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  tags     NewsArticleTag[]
+
+  @@unique([locale, slug])
+  @@index([locale, status, publishedAt])
+  @@index([translationGroupId])
+}
+
+model NewsArticleTag {
+  articleId String @db.UniqueIdentifier
+  tagId     String @db.UniqueIdentifier
+
+  article NewsArticle @relation(fields: [articleId], references: [id], onDelete: Cascade)
+  tag     NewsTag     @relation(fields: [tagId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([articleId, tagId])
+  @@index([tagId])
+}
+
+// ─── SEO, settings, audit, rate limiting ─────────────────────────────────────
+
+// Optional per-locale overrides for generated metadata. Absence means "use the defaults".
+model SeoMetadata {
+  id          String   @id @default(dbgenerated("newsequentialid()")) @db.UniqueIdentifier
+  scope       String   @db.NVarChar(16) // PAGE | CATEGORY | PRODUCT | NEWS
+  refKey      String   @db.NVarChar(120)
+  locale      String   @db.NVarChar(8)
+  title       String?  @db.NVarChar(120)
+  description String?  @db.NVarChar(320)
+  ogMediaId   String?  @db.UniqueIdentifier
+  noIndex     Boolean  @default(false)
+  updatedById String?  @db.UniqueIdentifier
+  updatedAt   DateTime @updatedAt @db.DateTime2
+
+  ogMedia MediaAsset? @relation(fields: [ogMediaId], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@unique([scope, refKey, locale])
+}
+
+// Editable public configuration (contact channels etc.). Keys are validated by a zod registry.
+model SiteSetting {
+  key         String   @id @db.NVarChar(100)
+  value       String   @db.NVarChar(Max)
+  isPublic    Boolean  @default(false)
+  updatedById String?  @db.UniqueIdentifier
+  updatedAt   DateTime @updatedAt @db.DateTime2
+}
+
+model AuditLog {
+  id         BigInt   @id @default(autoincrement())
+  actorId    String?  @db.UniqueIdentifier
+  actorEmail String?  @db.NVarChar(254) // snapshot: survives user deletion
+  action     String   @db.NVarChar(100) // e.g. "inquiry.status_changed"
+  entityType String   @db.NVarChar(60)
+  entityId   String?  @db.NVarChar(64)
+  summary    String?  @db.NVarChar(500)
+  metadata   String?  @db.NVarChar(Max) // JSON; never contains secrets or full PII
+  ipHash     String?  @db.Char(64)
+  createdAt  DateTime @default(now()) @db.DateTime2
+
+  actor User? @relation(fields: [actorId], references: [id], onDelete: SetNull)
+
+  @@index([entityType, entityId])
+  @@index([actorId, createdAt])
+  @@index([createdAt])
+}
+
+// Fixed-window counters shared across serverless instances.
+model RateLimitCounter {
+  key     String   @id @db.NVarChar(200)
+  count   Int
+  resetAt DateTime @db.DateTime2
+
+  @@index([resetAt])
+}
