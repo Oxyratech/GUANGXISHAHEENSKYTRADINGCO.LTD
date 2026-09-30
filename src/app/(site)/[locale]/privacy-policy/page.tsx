@@ -3,6 +3,7 @@ import { getTranslations, setRequestLocale } from "next-intl/server";
 import { LegalPage } from "@/components/legal/LegalPage";
 import { assertLocale } from "@/i18n/assert-locale";
 import { buildMetadata } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 export async function generateMetadata({
   params,
@@ -10,12 +11,16 @@ export async function generateMetadata({
   const locale = assertLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "legal" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: "/privacy-policy",
     title: t("privacy.meta.title"),
     description: t("privacy.meta.description"),
   });
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "privacy-policy", locale }),
+  );
 }
 
 export default async function PrivacyPolicyRoute({

@@ -16,6 +16,7 @@ import { CATEGORY_SLUGS } from "@/content/categories";
 import { assertLocale } from "@/i18n/assert-locale";
 import { breadcrumbJsonLd, buildMetadata, collectionPageJsonLd, JsonLd } from "@/lib/seo";
 import { countPublishedByCategory, listPublishedProducts } from "@/server/products";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 import { toBreadcrumbItems, type Crumb } from "./_lib/breadcrumbs";
 import { toListingState } from "./_lib/listing-state";
 import { skipCacheWhenUnavailable } from "./_lib/render-policy";
@@ -32,12 +33,13 @@ export async function generateMetadata({
   const locale = assertLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "products" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: "/products",
     title: t("meta.title"),
     description: t("meta.description"),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "products", locale }));
 }
 
 export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {

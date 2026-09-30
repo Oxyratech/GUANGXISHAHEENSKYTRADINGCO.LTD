@@ -25,6 +25,7 @@ import {
   localizedUrl,
 } from "@/lib/seo";
 import { listCategories, listPublishedArticles } from "@/server/news";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 /**
  * Reads `searchParams` (page, category, tag), so this page is rendered per request; the database
@@ -40,7 +41,7 @@ export async function generateMetadata({
   const t = await getTranslations({ locale, namespace: "news" });
 
   const filtered = Boolean(category || tag);
-  const metadata = buildMetadata({
+  const generated = buildMetadata({
     locale,
     path: "/news",
     title: page > 1 ? t("meta.pagedTitle", { page }) : t("meta.title"),
@@ -48,6 +49,7 @@ export async function generateMetadata({
     // A filtered view repeats articles that the unfiltered list already carries.
     noIndex: filtered,
   });
+  const metadata = applySeoOverride(generated, await getSeoOverride({ scope: "PAGE", refKey: "news", locale }));
   if (page === 1 || filtered) return metadata;
 
   // Each page of the archive is its own indexable address, not a duplicate of page 1.

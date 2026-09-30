@@ -19,18 +19,20 @@ import { CATEGORIES } from "@/content/categories";
 import { SERVICE_SLUGS } from "@/content/services";
 import { assertLocale } from "@/i18n/assert-locale";
 import { breadcrumbJsonLd, buildMetadata, collectionPageJsonLd, JsonLd } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 export async function generateMetadata({
   params,
 }: PageProps<"/[locale]/business">): Promise<Metadata> {
   const locale = assertLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "business" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: "/business",
     title: t("meta.title"),
     description: t("meta.description"),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "business", locale }));
 }
 
 const POINTS = ["direct", "supporting", "categories"] as const;

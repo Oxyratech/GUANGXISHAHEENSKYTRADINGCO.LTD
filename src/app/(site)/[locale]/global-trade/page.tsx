@@ -17,6 +17,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ButtonLink } from "@/components/ui/button-link";
 import { assertLocale } from "@/i18n/assert-locale";
 import { breadcrumbJsonLd, buildMetadata, JsonLd } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 const PATH = "/global-trade";
 
@@ -26,12 +27,13 @@ export async function generateMetadata({
   const locale = assertLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "globalTrade" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: PATH,
     title: t("meta.title"),
     description: t("meta.description"),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "global-trade", locale }));
 }
 
 export default async function GlobalTradePage({ params }: PageProps<"/[locale]/global-trade">) {

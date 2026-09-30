@@ -14,6 +14,7 @@ import { Breadcrumb } from "@/components/ui/breadcrumb";
 import { ButtonLink } from "@/components/ui/button-link";
 import { assertLocale } from "@/i18n/assert-locale";
 import { breadcrumbJsonLd, buildMetadata, JsonLd } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 const PATH = "/company-information";
 
@@ -29,12 +30,16 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/company-information">): Promise<Metadata> {
   const locale = assertLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "companyInfo" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: PATH,
     title: t("meta.title"),
     description: t("meta.description", COMPANY_NAME_VALUES),
   });
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "company-information", locale }),
+  );
 }
 
 export default async function CompanyInformationPage({

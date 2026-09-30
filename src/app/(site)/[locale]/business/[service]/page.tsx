@@ -6,6 +6,7 @@ import { isServiceSlug, SERVICE_SLUGS } from "@/content/services";
 import { assertLocale } from "@/i18n/assert-locale";
 import { LOCALES } from "@/i18n/locales";
 import { buildMetadata } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 // Only the registered business lines exist: any other slug is a real 404, not a soft one.
 export const dynamicParams = false;
@@ -22,12 +23,16 @@ export async function generateMetadata({
   if (!isServiceSlug(service)) notFound();
   const t = await getTranslations({ locale, namespace: "business" });
 
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: `/business/${service}`,
     title: t(`pages.${service}.meta.title`),
     description: t(`pages.${service}.meta.description`),
   });
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: `business/${service}`, locale }),
+  );
 }
 
 export default async function BusinessServicePage({

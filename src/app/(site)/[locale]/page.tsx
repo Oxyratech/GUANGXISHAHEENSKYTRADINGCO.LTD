@@ -12,17 +12,19 @@ import { TradeProcessSection } from "@/components/home/TradeProcessSection";
 import { WhyUsSection } from "@/components/home/WhyUsSection";
 import { assertLocale } from "@/i18n/assert-locale";
 import { buildMetadata } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 export async function generateMetadata({ params }: PageProps<"/[locale]">): Promise<Metadata> {
   const locale = assertLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "home" });
   // buildMetadata prepends the full company name on the home path automatically.
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: "/",
     title: t("meta.title"),
     description: t("meta.description"),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "home", locale }));
 }
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {

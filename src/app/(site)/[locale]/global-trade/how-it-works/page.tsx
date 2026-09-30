@@ -13,6 +13,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { DirectionalIcon } from "@/components/icons";
 import { assertLocale } from "@/i18n/assert-locale";
 import { breadcrumbJsonLd, buildMetadata, JsonLd } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 
 const PATH = "/global-trade/how-it-works";
 
@@ -22,12 +23,16 @@ export async function generateMetadata({
   const locale = assertLocale((await params).locale);
   setRequestLocale(locale);
   const t = await getTranslations({ locale, namespace: "globalTrade" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: PATH,
     title: t("howItWorks.meta.title"),
     description: t("howItWorks.meta.description"),
   });
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "global-trade/how-it-works", locale }),
+  );
 }
 
 export default async function HowItWorksPage({

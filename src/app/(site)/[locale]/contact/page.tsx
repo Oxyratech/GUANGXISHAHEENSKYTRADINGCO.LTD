@@ -25,6 +25,7 @@ import {
   JsonLd,
   localizedUrl,
 } from "@/lib/seo";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 import { getPublicContactChannels } from "@/server/settings";
 
 const PATH = "/contact";
@@ -36,12 +37,13 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/contact">): Promise<Metadata> {
   const locale = assertLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "contact" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: PATH,
     title: t("meta.title"),
     description: t("meta.description", nameValues),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "contact", locale }));
 }
 
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {

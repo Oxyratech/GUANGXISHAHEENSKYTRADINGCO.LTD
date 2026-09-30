@@ -13,6 +13,7 @@ import { assertLocale } from "@/i18n/assert-locale";
 import { getCountryOptions } from "@/lib/countries";
 import { breadcrumbJsonLd, buildMetadata, JsonLd } from "@/lib/seo";
 import { CATEGORY_OTHER } from "@/lib/validation";
+import { applySeoOverride, getSeoOverride } from "@/server/seo";
 import { describeUploadPolicy, INQUIRY_ATTACHMENT } from "@/server/storage/policies";
 
 const PATH = "/inquiry";
@@ -22,12 +23,13 @@ export async function generateMetadata({
 }: PageProps<"/[locale]/inquiry">): Promise<Metadata> {
   const locale = assertLocale((await params).locale);
   const t = await getTranslations({ locale, namespace: "inquiry" });
-  return buildMetadata({
+  const metadata = buildMetadata({
     locale,
     path: PATH,
     title: t("meta.title"),
     description: t("meta.description"),
   });
+  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "inquiry", locale }));
 }
 
 export default async function InquiryPage({ params }: PageProps<"/[locale]/inquiry">) {
