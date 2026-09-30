@@ -4,7 +4,10 @@ import { beforeEach, describe, expect, it, vi } from "vitest";
 const mocks = vi.hoisted(() => ({
   db: { newsArticle: { count: vi.fn(), findMany: vi.fn() } },
 }));
-vi.mock("@/server/db", async () => ({ ...(await import("@/server/db/errors")), getDb: () => mocks.db }));
+vi.mock("@/server/db", async () => ({
+  ...(await import("@/server/db/errors")),
+  getDb: () => mocks.db,
+}));
 
 import { listNewsArticles } from "./list";
 import type { NewsListFilters } from "./filters";

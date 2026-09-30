@@ -32,7 +32,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "business", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "business", locale }),
+  );
 }
 
 const POINTS = ["direct", "supporting", "categories"] as const;

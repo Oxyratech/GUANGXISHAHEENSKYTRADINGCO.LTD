@@ -155,14 +155,18 @@ export const updateNewsArticle = defineAdminAction({
   permission: "news:write",
   schema: z.object({ id, version, ...baseFields }),
   handler: async ({ input, session }) => {
-    requirePublishAllowed(input.status, hasPermission(session, "news:publish"));
-
     const db = getDb();
     const current = await db.newsArticle.findUnique({
       where: { id: input.id },
-      select: { locale: true, slug: true },
+      select: { locale: true, slug: true, status: true },
     });
     if (!current) throw new AdminActionError("This article no longer exists. Reload the page.");
+
+    // Only *newly* publishing needs news:publish — a writer without it can still save every other
+    // change to an article someone else already published, without being forced to unpublish it.
+    if (input.status === "PUBLISHED" && current.status !== "PUBLISHED") {
+      requirePublishAllowed(input.status, hasPermission(session, "news:publish"));
+    }
 
     if (await isNewsSlugTaken(input.locale, input.slug, input.id)) {
       const message = "That slug is already used in this locale.";
@@ -315,7 +319,9 @@ export const createNewsTranslation = defineAdminAction({
       select: { id: true },
     });
     if (already) {
-      throw new AdminActionError(`This story already has a ${input.targetLocale.toUpperCase()} version.`);
+      throw new AdminActionError(
+        `This story already has a ${input.targetLocale.toUpperCase()} version.`,
+      );
     }
 
     let slug = suggestSlugFromTitle(source.title);

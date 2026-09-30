@@ -11,10 +11,18 @@ const COLUMNS: DataTableColumn<NewsGroupCoverage>[] = [
     rowHeader: true,
     cell: (row) => {
       const first = row.articles[0];
-      return first ? <AdminLink href={`/admin/news/${first.id}`}>{row.title}</AdminLink> : row.title;
+      return first ? (
+        <AdminLink href={`/admin/news/${first.id}`}>{row.title}</AdminLink>
+      ) : (
+        row.title
+      );
     },
   },
-  { key: "locales", header: "Locales", cell: (row) => <LocaleCoverageBadges present={row.locales} /> },
+  {
+    key: "locales",
+    header: "Locales",
+    cell: (row) => <LocaleCoverageBadges present={row.locales} />,
+  },
   {
     key: "missing",
     header: "Missing",

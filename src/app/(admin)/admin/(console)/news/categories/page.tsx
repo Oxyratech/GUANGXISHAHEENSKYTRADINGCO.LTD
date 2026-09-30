@@ -34,7 +34,11 @@ export default async function NewsCategoriesPage() {
       <PageHeader
         title="News categories"
         breadcrumbs={[{ label: "News", href: "/admin/news" }, { label: "Categories" }]}
-        actions={canWrite ? <AdminButtonLink href="/admin/news/categories/new">New category</AdminButtonLink> : null}
+        actions={
+          canWrite ? (
+            <AdminButtonLink href="/admin/news/categories/new">New category</AdminButtonLink>
+          ) : null
+        }
       />
       <CategoriesTable rows={categories} />
     </>

@@ -2,7 +2,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({ db: { product: { findMany: vi.fn() } } }));
-vi.mock("@/server/db", async () => ({ ...(await import("@/server/db/errors")), getDb: () => mocks.db }));
+vi.mock("@/server/db", async () => ({
+  ...(await import("@/server/db/errors")),
+  getDb: () => mocks.db,
+}));
 
 import { computeProductTranslationCoverage } from "./products";
 
@@ -13,7 +16,12 @@ beforeEach(() => {
 describe("computeProductTranslationCoverage", () => {
   it("lists the locales present and the ones missing for each product", async () => {
     mocks.db.product.findMany.mockResolvedValue([
-      { id: "p1", slug: "steel-bolt", categorySlug: "hardware-products", translations: [{ locale: "en" }] },
+      {
+        id: "p1",
+        slug: "steel-bolt",
+        categorySlug: "hardware-products",
+        translations: [{ locale: "en" }],
+      },
       {
         id: "p2",
         slug: "cotton-shirt",

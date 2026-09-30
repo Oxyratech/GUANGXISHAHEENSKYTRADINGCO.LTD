@@ -17,27 +17,35 @@ export function StaticContentCoveragePanel({ coverage }: { coverage: StaticConte
         <Alert variant="success" title="Complete">
           <p>
             Every one of the {coverage.namespaces.length} message namespaces (categories, services,
-            FAQ and the rest of the site&apos;s static copy) has the same keys, filled in, in English,
-            Chinese and Arabic. This is enforced by an automated test, so it is expected to stay true.
+            FAQ and the rest of the site&apos;s static copy) has the same keys, filled in, in
+            English, Chinese and Arabic. This is enforced by an automated test, so it is expected to
+            stay true.
           </p>
         </Alert>
       ) : (
         <Alert variant="warning" title="Some static content is missing a translation">
           <div className="grid gap-3">
             <p>
-              {incomplete.length} of {coverage.namespaces.length} namespaces have a missing or empty key
-              in at least one locale. This should not happen — src/i18n/messages.test.ts is meant to
-              catch it — so treat this as a bug to fix in the message files, not something to edit here.
+              {incomplete.length} of {coverage.namespaces.length} namespaces have a missing or empty
+              key in at least one locale. This should not happen — src/i18n/messages.test.ts is
+              meant to catch it — so treat this as a bug to fix in the message files, not something
+              to edit here.
             </p>
             <ul className="grid gap-2">
               {incomplete.map((namespace) => (
-                <li key={namespace.namespace} className="rounded-md border border-line bg-white p-3 text-small">
+                <li
+                  key={namespace.namespace}
+                  className="rounded-md border border-line bg-white p-3 text-small"
+                >
                   <p className="font-medium text-navy-900">{namespace.namespace}</p>
-                  {(Object.entries(namespace.missingKeys) as [string, string[]][]).map(([locale, keys]) => (
-                    <p key={locale} className="mt-1 text-ink-muted">
-                      {LOCALE_META[locale as keyof typeof LOCALE_META]?.nativeName ?? locale}: {keys.join(", ")}
-                    </p>
-                  ))}
+                  {(Object.entries(namespace.missingKeys) as [string, string[]][]).map(
+                    ([locale, keys]) => (
+                      <p key={locale} className="mt-1 text-ink-muted">
+                        {LOCALE_META[locale as keyof typeof LOCALE_META]?.nativeName ?? locale}:{" "}
+                        {keys.join(", ")}
+                      </p>
+                    ),
+                  )}
                 </li>
               ))}
             </ul>

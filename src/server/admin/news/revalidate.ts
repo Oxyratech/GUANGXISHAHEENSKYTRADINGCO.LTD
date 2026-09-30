@@ -19,7 +19,11 @@ export function revalidateNewsAdminPages(id?: string): void {
 }
 
 /** Call after every write that can change what a visitor sees. */
-export function revalidateNews(id: string | undefined, locale: string, slugs: readonly string[] = []) {
+export function revalidateNews(
+  id: string | undefined,
+  locale: string,
+  slugs: readonly string[] = [],
+) {
   revalidateTag(NEWS_CACHE_TAG, { expire: 0 });
   revalidateNewsAdminPages(id);
   revalidateNewsPublicPages(locale, slugs);

@@ -10,7 +10,11 @@ const COLUMNS: DataTableColumn<NewsCategoryRow>[] = [
     rowHeader: true,
     cell: (row) => <AdminLink href={`/admin/news/categories/${row.id}`}>{row.names.en}</AdminLink>,
   },
-  { key: "slug", header: "Slug", cell: (row) => <span className="font-mono text-caption">{row.slug}</span> },
+  {
+    key: "slug",
+    header: "Slug",
+    cell: (row) => <span className="font-mono text-caption">{row.slug}</span>,
+  },
   { key: "sortOrder", header: "Order", align: "center", cell: (row) => row.sortOrder },
   { key: "articles", header: "Articles", align: "center", cell: (row) => row.articleCount },
 ];

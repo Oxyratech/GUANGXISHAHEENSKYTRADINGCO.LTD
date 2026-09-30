@@ -10,9 +10,8 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { LOCALES, LOCALE_META, type Locale } from "@/i18n/locales";
-import { describeUploadPolicy, PRODUCT_IMAGE } from "@/server/storage";
 import { formatBytes } from "@/server/admin/format";
-import { MAX_PRODUCT_IMAGES } from "@/server/admin/products/schemas";
+import { MAX_PRODUCT_IMAGES } from "@/server/admin/products/constants";
 import {
   moveProductImage,
   removeProductImage,
@@ -21,8 +20,7 @@ import {
   uploadProductImage,
 } from "@/server/admin/products/image-actions";
 import type { ProductEditImage } from "@/server/admin/products/detail";
-
-const POLICY = describeUploadPolicy(PRODUCT_IMAGE);
+import type { UploadPolicySummary } from "@/server/storage";
 
 function AltTextRow({
   productId,
@@ -46,9 +44,7 @@ function AltTextRow({
         run({ productId, mediaAssetId, locale, altText: value });
       }}
     >
-      <label className="w-10 shrink-0 text-caption text-ink-muted">
-        {locale.toUpperCase()}
-      </label>
+      <label className="w-10 shrink-0 text-caption text-ink-muted">{locale.toUpperCase()}</label>
       <Input
         value={value}
         onChange={(event) => setValue(event.target.value)}
@@ -64,7 +60,15 @@ function AltTextRow({
   );
 }
 
-function ImageCard({ productId, image, isOnly }: { productId: string; image: ProductEditImage; isOnly: boolean }) {
+function ImageCard({
+  productId,
+  image,
+  isOnly,
+}: {
+  productId: string;
+  image: ProductEditImage;
+  isOnly: boolean;
+}) {
   const router = useRouter();
   const setPrimary = useInputAction(setPrimaryProductImage);
   const move = useInputAction(moveProductImage);
@@ -74,7 +78,12 @@ function ImageCard({ productId, image, isOnly }: { productId: string; image: Pro
     <li className="grid gap-3 rounded-lg border border-line bg-white p-3 shadow-card">
       <div className="flex gap-3">
         <div className="size-24 shrink-0 overflow-hidden rounded-md border border-line">
-          <MediaThumbnail kind="IMAGE" visibility="PUBLIC" id={image.mediaAssetId} fileName={image.fileName} />
+          <MediaThumbnail
+            kind="IMAGE"
+            visibility="PUBLIC"
+            id={image.mediaAssetId}
+            fileName={image.fileName}
+          />
         </div>
         <div className="grid min-w-0 flex-1 content-start gap-2">
           <div className="flex flex-wrap items-center gap-2">
@@ -154,9 +163,12 @@ function ImageCard({ productId, image, isOnly }: { productId: string; image: Pro
 export function ProductImagesManager({
   productId,
   images,
+  policy,
 }: {
   productId: string;
   images: readonly ProductEditImage[];
+  /** From describeUploadPolicy(PRODUCT_IMAGE), computed on the server (it reads UPLOAD_MAX_BYTES). */
+  policy: UploadPolicySummary;
 }) {
   const router = useRouter();
   const [files, setFiles] = useState<File[]>([]);
@@ -199,13 +211,13 @@ export function ProductImagesManager({
             id="product-image-files"
             type="file"
             multiple
-            accept={POLICY.mimeTypes.join(",")}
+            accept={policy.mimeTypes.join(",")}
             disabled={atLimit}
             onChange={(event) => setFiles(Array.from(event.target.files ?? []))}
           />
           <p className="text-caption text-ink-muted">
-            Up to {formatBytes(POLICY.maxBytes)} each. JPEG, PNG or WebP. At most {MAX_PRODUCT_IMAGES}{" "}
-            images per product ({images.length} so far).
+            Up to {formatBytes(policy.maxBytes)} each. JPEG, PNG or WebP. At most{" "}
+            {MAX_PRODUCT_IMAGES} images per product ({images.length} so far).
           </p>
         </div>
         <Button type="submit" loading={busy} disabled={files.length === 0 || atLimit}>
@@ -219,7 +231,12 @@ export function ProductImagesManager({
       ) : (
         <ul className="grid gap-3">
           {images.map((image) => (
-            <ImageCard key={image.id} productId={productId} image={image} isOnly={images.length === 1} />
+            <ImageCard
+              key={image.id}
+              productId={productId}
+              image={image}
+              isOnly={images.length === 1}
+            />
           ))}
         </ul>
       )}

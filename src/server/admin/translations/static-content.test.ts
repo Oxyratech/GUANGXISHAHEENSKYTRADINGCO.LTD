@@ -18,14 +18,14 @@ describe("computeStaticContentCoverage", () => {
     mocks.loadMessages.mockImplementation(() => Promise.resolve(fixture()));
     const result = await computeStaticContentCoverage();
     expect(result.complete).toBe(true);
-    expect(result.namespaces.find((n) => n.namespace === "common")).toMatchObject({ complete: true });
+    expect(result.namespaces.find((n) => n.namespace === "common")).toMatchObject({
+      complete: true,
+    });
   });
 
   it("flags a namespace missing a key in one locale", async () => {
     mocks.loadMessages.mockImplementation((locale: string) =>
-      Promise.resolve(
-        locale === "zh" ? fixture({ common: {} }) : fixture(),
-      ),
+      Promise.resolve(locale === "zh" ? fixture({ common: {} }) : fixture()),
     );
     const result = await computeStaticContentCoverage();
     expect(result.complete).toBe(false);

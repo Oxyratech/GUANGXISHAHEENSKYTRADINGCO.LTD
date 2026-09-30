@@ -6,12 +6,24 @@ import { NewsCoverageTable } from "@/components/admin/translations/NewsCoverageT
 import { ProductCoverageTable } from "@/components/admin/translations/ProductCoverageTable";
 import { SeoOverrideCoverageTable } from "@/components/admin/translations/SeoOverrideCoverageTable";
 import { StaticContentCoveragePanel } from "@/components/admin/translations/StaticContentCoveragePanel";
-import { TranslationTabs, type TranslationTab } from "@/components/admin/translations/TranslationTabs";
+import {
+  TranslationTabs,
+  type TranslationTab,
+} from "@/components/admin/translations/TranslationTabs";
 import { asDatabaseOutage, requireAdminPage } from "@/server/admin/access";
 import type { RawSearchParams } from "@/server/admin/pagination";
-import { computeNewsTranslationCoverage, type NewsGroupCoverage } from "@/server/admin/translations/news";
-import { computeProductTranslationCoverage, type ProductTranslationCoverage } from "@/server/admin/translations/products";
-import { computeSeoOverrideCoverage, type SeoOverrideCoverage } from "@/server/admin/translations/seo";
+import {
+  computeNewsTranslationCoverage,
+  type NewsGroupCoverage,
+} from "@/server/admin/translations/news";
+import {
+  computeProductTranslationCoverage,
+  type ProductTranslationCoverage,
+} from "@/server/admin/translations/products";
+import {
+  computeSeoOverrideCoverage,
+  type SeoOverrideCoverage,
+} from "@/server/admin/translations/seo";
 import {
   computeStaticContentCoverage,
   type StaticContentCoverage,
@@ -37,7 +49,8 @@ type PageData =
 async function loadPageData(tab: TranslationTab): Promise<PageData> {
   if (tab === "static") return { kind: "static", coverage: await computeStaticContentCoverage() };
   try {
-    if (tab === "products") return { kind: "products", rows: await computeProductTranslationCoverage() };
+    if (tab === "products")
+      return { kind: "products", rows: await computeProductTranslationCoverage() };
     if (tab === "news") return { kind: "news", rows: await computeNewsTranslationCoverage() };
     return { kind: "seo", rows: await computeSeoOverrideCoverage() };
   } catch (error) {

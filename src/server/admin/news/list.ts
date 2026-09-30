@@ -72,7 +72,10 @@ export async function listNewsArticles(
           authorName: true,
           translationGroupId: true,
           category: {
-            select: { slug: true, translations: { where: { locale: "en" }, select: { name: true } } },
+            select: {
+              slug: true,
+              translations: { where: { locale: "en" }, select: { name: true } },
+            },
           },
         },
       }),
@@ -102,7 +105,10 @@ export async function listNewsArticles(
         publishedAt: row.publishedAt ? row.publishedAt.toISOString() : null,
         authorName: row.authorName,
         category: row.category
-          ? { slug: row.category.slug, name: row.category.translations[0]?.name ?? row.category.slug }
+          ? {
+              slug: row.category.slug,
+              name: row.category.translations[0]?.name ?? row.category.slug,
+            }
           : null,
         translationGroupId: row.translationGroupId,
         siblingLocales: (localesByGroup.get(row.translationGroupId) ?? []).filter(

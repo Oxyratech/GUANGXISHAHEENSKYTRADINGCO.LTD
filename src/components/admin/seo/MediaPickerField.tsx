@@ -1,6 +1,7 @@
 "use client";
 
 import { useId, useState, useTransition } from "react";
+import { AdminLink } from "@/components/admin/AdminLink";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import type { UploadedAssetSummary } from "@/server/admin/media/actions";
@@ -56,9 +57,19 @@ export function MediaPickerField({
             alt=""
             className="size-16 rounded-md border border-line object-cover"
           />
-          <Button type="button" variant="outline" size="sm" onClick={() => setMediaId(null)}>
-            Remove
-          </Button>
+          <div className="grid gap-1">
+            <Button type="button" variant="outline" size="sm" onClick={() => setMediaId(null)}>
+              Remove
+            </Button>
+            <AdminLink
+              href={`/admin/media/${mediaId}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-caption"
+            >
+              Edit alt text in the media library
+            </AdminLink>
+          </div>
         </div>
       ) : (
         <input

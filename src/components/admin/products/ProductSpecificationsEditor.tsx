@@ -16,7 +16,7 @@ import {
   removeProductSpecification,
   updateProductSpecificationTranslation,
 } from "@/server/admin/products/specification-actions";
-import { MAX_PRODUCT_SPECIFICATIONS } from "@/server/admin/products/schemas";
+import { MAX_PRODUCT_SPECIFICATIONS } from "@/server/admin/products/constants";
 
 function SpecRow({
   productId,
@@ -147,7 +147,9 @@ export function ProductSpecificationsEditor({
               <p className="text-small text-ink-muted">No specification rows yet.</p>
             ) : (
               <table className="w-full border-collapse text-small">
-                <caption className="sr-only">Specifications ({LOCALE_META[value].nativeName})</caption>
+                <caption className="sr-only">
+                  Specifications ({LOCALE_META[value].nativeName})
+                </caption>
                 <thead>
                   <tr className="border-y border-line bg-surface text-label text-ink-muted">
                     <th scope="col" className="p-2 text-start">

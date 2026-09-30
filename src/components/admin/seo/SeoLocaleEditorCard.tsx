@@ -97,11 +97,7 @@ export function SeoLocaleEditorCard({
             initialId={row?.ogMedia?.id ?? null}
             uploadAction={uploadMediaAsset}
           />
-          <ActionField
-            name="noIndex"
-            label="Hide from search engines (noindex)"
-            layout="inline"
-          >
+          <ActionField name="noIndex" label="Hide from search engines (noindex)" layout="inline">
             <Checkbox defaultChecked={row?.noIndex ?? false} />
           </ActionField>
           <div>

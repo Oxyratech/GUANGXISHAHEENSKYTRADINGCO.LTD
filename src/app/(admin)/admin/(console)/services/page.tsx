@@ -22,8 +22,8 @@ export default async function ServicesRegistryPage() {
       />
       <div className="grid gap-4">
         <RegistryNotice filePath="src/content/services.ts">
-          Services are mapped to the registered business scope and each has a dedicated public page, so
-          they are edited in the repository, not here.
+          Services are mapped to the registered business scope and each has a dedicated public page,
+          so they are edited in the repository, not here.
         </RegistryNotice>
         <ServiceRegistryTable rows={rows} />
       </div>

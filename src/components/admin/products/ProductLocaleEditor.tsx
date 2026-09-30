@@ -7,14 +7,26 @@ import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { LOCALES, LOCALE_META, type Locale } from "@/i18n/locales";
 import type { ProductEditTranslation } from "@/server/admin/products/detail";
 
-const FIELDS = ["name", "shortDescription", "description", "applications", "packagingInfo"] as const;
+const FIELDS = [
+  "name",
+  "shortDescription",
+  "description",
+  "applications",
+  "packagingInfo",
+] as const;
 
 function completeness(translation: ProductEditTranslation | undefined): number {
   if (!translation) return 0;
   return FIELDS.filter((field) => Boolean(translation[field]?.trim())).length;
 }
 
-function emptyValues(): { name: string; shortDescription: string; description: string; applications: string; packagingInfo: string } {
+function emptyValues(): {
+  name: string;
+  shortDescription: string;
+  description: string;
+  applications: string;
+  packagingInfo: string;
+} {
   return { name: "", shortDescription: "", description: "", applications: "", packagingInfo: "" };
 }
 
@@ -63,7 +75,12 @@ export function ProductLocaleEditor({
           : emptyValues();
         return (
           <TabsContent key={locale} value={locale}>
-            <ProductTranslationForm id={productId} version={version} locale={locale} values={values} />
+            <ProductTranslationForm
+              id={productId}
+              version={version}
+              locale={locale}
+              values={values}
+            />
           </TabsContent>
         );
       })}

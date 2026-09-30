@@ -38,7 +38,8 @@ const refKeyField = requiredString(120);
 
 /** Missing or "" (no image chosen) becomes null; anything else must be a real media id. */
 const mediaIdField = z.preprocess(
-  (value) => (value === undefined || (typeof value === "string" && value.trim() === "") ? null : value),
+  (value) =>
+    value === undefined || (typeof value === "string" && value.trim() === "") ? null : value,
   z.union([id, z.null()]),
 );
 

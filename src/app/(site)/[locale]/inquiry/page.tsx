@@ -29,7 +29,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "inquiry", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "inquiry", locale }),
+  );
 }
 
 export default async function InquiryPage({ params }: PageProps<"/[locale]/inquiry">) {

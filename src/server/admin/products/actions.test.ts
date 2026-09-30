@@ -50,7 +50,13 @@ vi.mock("@/server/http/request-context", () => ({ getRequestContext: mocks.getRe
 vi.mock("@/server/db", () => ({ getDb: mocks.getDb }));
 
 import { AuthorizationError } from "@/server/auth/authorize";
-import { changeProductStatus, createProduct, deleteProduct, updateProductCore, upsertProductTranslation } from "./actions";
+import {
+  changeProductStatus,
+  createProduct,
+  deleteProduct,
+  updateProductCore,
+  upsertProductTranslation,
+} from "./actions";
 
 const IP_HASH = "a".repeat(64);
 const PRODUCT_ID = "11111111-1111-1111-1111-111111111111";
@@ -326,7 +332,11 @@ describe("upsertProductTranslation", () => {
 
 describe("changeProductStatus", () => {
   function withEnglish(
-    overrides: Partial<{ status: string; publishedAt: Date | null; shortDescription: string | null }> = {},
+    overrides: Partial<{
+      status: string;
+      publishedAt: Date | null;
+      shortDescription: string | null;
+    }> = {},
   ) {
     const shortDescription =
       "shortDescription" in overrides ? overrides.shortDescription : "Woven steel mesh.";

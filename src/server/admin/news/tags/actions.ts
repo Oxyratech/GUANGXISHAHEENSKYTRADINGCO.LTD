@@ -28,7 +28,10 @@ export const createNewsTag = defineAdminAction({
   schema: z.object({ slug: slugField, ...namesSchema }),
   handler: async ({ input }) => {
     const db = getDb();
-    const existing = await db.newsTag.findUnique({ where: { slug: input.slug }, select: { id: true } });
+    const existing = await db.newsTag.findUnique({
+      where: { slug: input.slug },
+      select: { id: true },
+    });
     if (existing) {
       const message = "That slug is already used by another tag.";
       throw new AdminActionError(message, { slug: [message] });
@@ -37,7 +40,9 @@ export const createNewsTag = defineAdminAction({
     const tag = await db.newsTag.create({
       data: {
         slug: input.slug,
-        translations: { create: LOCALES.map((locale) => ({ locale, name: input[`name_${locale}`] })) },
+        translations: {
+          create: LOCALES.map((locale) => ({ locale, name: input[`name_${locale}`] })),
+        },
       },
       select: { id: true },
     });

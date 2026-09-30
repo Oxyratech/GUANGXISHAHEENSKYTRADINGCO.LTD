@@ -15,7 +15,12 @@ vi.mock("@/server/db", async () => ({
   getDb: mocks.getDb,
 }));
 
-import { getOverrideRows, listStaticSeoDirectory, searchNewsTargets, searchProductTargets } from "./queries";
+import {
+  getOverrideRows,
+  listStaticSeoDirectory,
+  searchNewsTargets,
+  searchProductTargets,
+} from "./queries";
 
 beforeEach(() => {
   mocks.getDb.mockReset().mockReturnValue(mocks.db);

@@ -2,7 +2,13 @@ import "server-only";
 import { LOCALES, type Locale } from "@/i18n/locales";
 import type { SeoScope } from "@/lib/domain/statuses";
 import { getDb, toDatabaseError } from "@/server/db";
-import { CATEGORY_SEO_TARGETS, findCategoryTarget, findStaticTarget, STATIC_SEO_TARGETS, type SeoTarget } from "./targets";
+import {
+  CATEGORY_SEO_TARGETS,
+  findCategoryTarget,
+  findStaticTarget,
+  STATIC_SEO_TARGETS,
+  type SeoTarget,
+} from "./targets";
 
 /*
  * Read side of the admin SEO screens: which of the enumerable targets (static pages, categories)
@@ -112,7 +118,9 @@ export async function searchProductTargets(query: string): Promise<SeoSearchResu
     return rows.map((row) => ({
       refKey: row.slug,
       label:
-        row.translations.find((t) => t.locale === "en")?.name ?? row.translations[0]?.name ?? row.slug,
+        row.translations.find((t) => t.locale === "en")?.name ??
+        row.translations[0]?.name ??
+        row.slug,
       sublabel: row.slug,
       locales: row.translations.map((t) => t.locale as Locale),
     }));
@@ -162,13 +170,23 @@ export async function getSeoEditorContext(
   if (scope === "PAGE") {
     const target = findStaticTarget(refKey);
     return target
-      ? { label: target.label, sublabel: null, locales: [...LOCALES], publicPath: target.publicPath }
+      ? {
+          label: target.label,
+          sublabel: null,
+          locales: [...LOCALES],
+          publicPath: target.publicPath,
+        }
       : null;
   }
   if (scope === "CATEGORY") {
     const target = findCategoryTarget(refKey);
     return target
-      ? { label: target.label, sublabel: null, locales: [...LOCALES], publicPath: target.publicPath }
+      ? {
+          label: target.label,
+          sublabel: null,
+          locales: [...LOCALES],
+          publicPath: target.publicPath,
+        }
       : null;
   }
 

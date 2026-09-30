@@ -43,7 +43,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description", nameValues),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "contact", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "contact", locale }),
+  );
 }
 
 export default async function ContactPage({ params }: PageProps<"/[locale]/contact">) {

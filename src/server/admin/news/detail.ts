@@ -82,7 +82,9 @@ export interface TranslationSibling {
 }
 
 /** Every language version of one story (the requested one included), for the "create translation" gate. */
-export async function getTranslationSiblings(translationGroupId: string): Promise<TranslationSibling[]> {
+export async function getTranslationSiblings(
+  translationGroupId: string,
+): Promise<TranslationSibling[]> {
   try {
     const rows = await getDb().newsArticle.findMany({
       where: { translationGroupId },
@@ -112,15 +114,27 @@ export async function getNewsFormOptions(): Promise<NewsFormOptions> {
     const [categories, tags] = await Promise.all([
       db.newsCategory.findMany({
         orderBy: { sortOrder: "asc" },
-        select: { id: true, slug: true, translations: { where: { locale: "en" }, select: { name: true } } },
+        select: {
+          id: true,
+          slug: true,
+          translations: { where: { locale: "en" }, select: { name: true } },
+        },
       }),
       db.newsTag.findMany({
         orderBy: { slug: "asc" },
-        select: { id: true, slug: true, translations: { where: { locale: "en" }, select: { name: true } } },
+        select: {
+          id: true,
+          slug: true,
+          translations: { where: { locale: "en" }, select: { name: true } },
+        },
       }),
     ]);
     return {
-      categories: categories.map((c) => ({ id: c.id, slug: c.slug, name: c.translations[0]?.name ?? c.slug })),
+      categories: categories.map((c) => ({
+        id: c.id,
+        slug: c.slug,
+        name: c.translations[0]?.name ?? c.slug,
+      })),
       tags: tags.map((t) => ({ id: t.id, slug: t.slug, name: t.translations[0]?.name ?? t.slug })),
     };
   } catch (error) {

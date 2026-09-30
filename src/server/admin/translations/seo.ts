@@ -18,11 +18,17 @@ export interface SeoOverrideCoverage {
  */
 export async function computeSeoOverrideCoverage(): Promise<SeoOverrideCoverage[]> {
   try {
-    const rows = await getDb().seoMetadata.findMany({ select: { scope: true, refKey: true, locale: true } });
+    const rows = await getDb().seoMetadata.findMany({
+      select: { scope: true, refKey: true, locale: true },
+    });
     const groups = new Map<string, { scope: string; refKey: string; locales: Set<string> }>();
     for (const row of rows) {
       const key = `${row.scope}:${row.refKey}`;
-      const entry = groups.get(key) ?? { scope: row.scope, refKey: row.refKey, locales: new Set<string>() };
+      const entry = groups.get(key) ?? {
+        scope: row.scope,
+        refKey: row.refKey,
+        locales: new Set<string>(),
+      };
       entry.locales.add(row.locale);
       groups.set(key, entry);
     }

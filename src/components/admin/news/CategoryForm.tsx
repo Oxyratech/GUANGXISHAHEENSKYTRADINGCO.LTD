@@ -44,7 +44,9 @@ export function CategoryForm({ category }: { category?: NewsCategoryRow }) {
       ))}
 
       <div>
-        <ActionSubmit pendingLabel="Saving…">{category ? "Save category" : "Create category"}</ActionSubmit>
+        <ActionSubmit pendingLabel="Saving…">
+          {category ? "Save category" : "Create category"}
+        </ActionSubmit>
       </div>
     </ActionForm>
   );

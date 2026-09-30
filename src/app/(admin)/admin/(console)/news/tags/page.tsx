@@ -34,7 +34,9 @@ export default async function NewsTagsPage() {
       <PageHeader
         title="News tags"
         breadcrumbs={[{ label: "News", href: "/admin/news" }, { label: "Tags" }]}
-        actions={canWrite ? <AdminButtonLink href="/admin/news/tags/new">New tag</AdminButtonLink> : null}
+        actions={
+          canWrite ? <AdminButtonLink href="/admin/news/tags/new">New tag</AdminButtonLink> : null
+        }
       />
       <TagsTable rows={tags} />
     </>

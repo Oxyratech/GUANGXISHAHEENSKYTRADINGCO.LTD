@@ -33,7 +33,9 @@ export function parseNewsListFilters(searchParams: RawSearchParams): NewsListFil
   return {
     q: first(searchParams.q).slice(0, 200),
     locale: (LOCALES as readonly string[]).includes(locale) ? (locale as Locale) : "",
-    status: (PUBLISH_STATUSES as readonly string[]).includes(status) ? (status as PublishStatus) : "",
+    status: (PUBLISH_STATUSES as readonly string[]).includes(status)
+      ? (status as PublishStatus)
+      : "",
     category: first(searchParams.category).slice(0, 80),
     sort: (NEWS_SORTS as readonly string[]).includes(sort) ? (sort as NewsSort) : "newest",
   };

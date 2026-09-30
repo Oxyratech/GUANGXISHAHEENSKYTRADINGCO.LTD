@@ -18,7 +18,15 @@ import { cn } from "@/lib/utils";
  * lookup here), so an inline image shows as a link rather than a picture; the cover image has its own
  * separate field and preview.
  */
-export function MarkdownEditor({ name, label, defaultValue }: { name: string; label: string; defaultValue: string }) {
+export function MarkdownEditor({
+  name,
+  label,
+  defaultValue,
+}: {
+  name: string;
+  label: string;
+  defaultValue: string;
+}) {
   const [content, setContent] = useState(defaultValue);
   const [previewing, setPreviewing] = useState(false);
   const { fieldErrors } = useActionForm();
@@ -64,7 +72,11 @@ export function MarkdownEditor({ name, label, defaultValue }: { name: string; la
       </div>
       <div hidden={!previewing} className={cn("min-h-96 rounded-md border border-line p-4")}>
         {content.trim() ? (
-          <ArticleBody markdown={content} images={{}} labels={{ opensInNewTab: "opens in a new tab" }} />
+          <ArticleBody
+            markdown={content}
+            images={{}}
+            labels={{ opensInNewTab: "opens in a new tab" }}
+          />
         ) : (
           <p className="text-small text-ink-muted">Nothing to preview yet.</p>
         )}

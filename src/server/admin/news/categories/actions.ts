@@ -41,7 +41,10 @@ export const createNewsCategory = defineAdminAction({
   schema: z.object({ slug: slugField, sortOrder: sortOrderField, ...namesSchema }),
   handler: async ({ input }) => {
     const db = getDb();
-    const existing = await db.newsCategory.findUnique({ where: { slug: input.slug }, select: { id: true } });
+    const existing = await db.newsCategory.findUnique({
+      where: { slug: input.slug },
+      select: { id: true },
+    });
     if (existing) {
       const message = "That slug is already used by another category.";
       throw new AdminActionError(message, { slug: [message] });
@@ -86,7 +89,10 @@ export const updateNewsCategory = defineAdminAction({
       throw new AdminActionError(message, { slug: [message] });
     }
 
-    const category = await db.newsCategory.findUnique({ where: { id: input.id }, select: { id: true } });
+    const category = await db.newsCategory.findUnique({
+      where: { id: input.id },
+      select: { id: true },
+    });
     if (!category) throw new AdminActionError("This category no longer exists. Reload the page.");
 
     await db.$transaction([

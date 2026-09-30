@@ -39,7 +39,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "products", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "products", locale }),
+  );
 }
 
 export default async function ProductsPage({ params }: PageProps<"/[locale]/products">) {

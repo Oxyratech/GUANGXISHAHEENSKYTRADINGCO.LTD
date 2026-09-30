@@ -10,9 +10,11 @@ import { resolveTagIdsByNames } from "./resolve";
 
 beforeEach(() => {
   mocks.db.newsTag.findMany.mockReset().mockResolvedValue([]);
-  mocks.db.newsTag.create.mockReset().mockImplementation(({ data }: { data: { slug: string } }) =>
-    Promise.resolve({ id: `id-${data.slug}` }),
-  );
+  mocks.db.newsTag.create
+    .mockReset()
+    .mockImplementation(({ data }: { data: { slug: string } }) =>
+      Promise.resolve({ id: `id-${data.slug}` }),
+    );
 });
 
 describe("resolveTagIdsByNames", () => {

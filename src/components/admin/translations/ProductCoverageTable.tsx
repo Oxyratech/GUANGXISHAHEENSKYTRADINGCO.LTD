@@ -12,7 +12,11 @@ const COLUMNS: DataTableColumn<ProductTranslationCoverage>[] = [
     cell: (row) => <AdminLink href={`/admin/products/${row.id}`}>{row.slug}</AdminLink>,
   },
   { key: "category", header: "Category", cell: (row) => row.categorySlug },
-  { key: "locales", header: "Locales", cell: (row) => <LocaleCoverageBadges present={row.locales} /> },
+  {
+    key: "locales",
+    header: "Locales",
+    cell: (row) => <LocaleCoverageBadges present={row.locales} />,
+  },
 ];
 
 export function ProductCoverageTable({ rows }: { rows: readonly ProductTranslationCoverage[] }) {

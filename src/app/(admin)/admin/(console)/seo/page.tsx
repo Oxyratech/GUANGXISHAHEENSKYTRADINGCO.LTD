@@ -10,7 +10,11 @@ import { Input } from "@/components/ui/input";
 import { asDatabaseOutage, requireAdminPage } from "@/server/admin/access";
 import type { RawSearchParams } from "@/server/admin/pagination";
 import type { SeoDirectoryEntry, SeoSearchResult } from "@/server/admin/seo/queries";
-import { listStaticSeoDirectory, searchNewsTargets, searchProductTargets } from "@/server/admin/seo/queries";
+import {
+  listStaticSeoDirectory,
+  searchNewsTargets,
+  searchProductTargets,
+} from "@/server/admin/seo/queries";
 import type { DatabaseUnavailableCause } from "@/server/db/errors";
 
 export const metadata: Metadata = { title: "SEO overrides" };

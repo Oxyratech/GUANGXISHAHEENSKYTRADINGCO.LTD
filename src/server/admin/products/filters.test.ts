@@ -4,7 +4,12 @@ import { parseProductListFilters } from "./filters";
 
 describe("parseProductListFilters", () => {
   it("defaults to no filters and 'updated' sort", () => {
-    expect(parseProductListFilters({})).toEqual({ q: "", status: "", category: "", sort: "updated" });
+    expect(parseProductListFilters({})).toEqual({
+      q: "",
+      status: "",
+      category: "",
+      sort: "updated",
+    });
   });
 
   it("normalises status case and validates it against PUBLISH_STATUSES", () => {

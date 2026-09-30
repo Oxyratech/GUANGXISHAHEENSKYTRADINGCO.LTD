@@ -38,18 +38,12 @@ function buildWhere(filters: ProductListFilters): Prisma.ProductWhereInput {
   if (filters.category) where.categorySlug = filters.category;
   if (filters.q) {
     const q = filters.q;
-    where.OR = [
-      { slug: { contains: q } },
-      { translations: { some: { name: { contains: q } } } },
-    ];
+    where.OR = [{ slug: { contains: q } }, { translations: { some: { name: { contains: q } } } }];
   }
   return where;
 }
 
-const ORDER_BY: Record<
-  ProductListFilters["sort"],
-  Prisma.ProductOrderByWithRelationInput[]
-> = {
+const ORDER_BY: Record<ProductListFilters["sort"], Prisma.ProductOrderByWithRelationInput[]> = {
   updated: [{ updatedAt: "desc" }],
   name: [{ slug: "asc" }],
   sortOrder: [{ sortOrder: "asc" }, { slug: "asc" }],

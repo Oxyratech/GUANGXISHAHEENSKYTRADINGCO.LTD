@@ -111,9 +111,7 @@ describe("getProductForEdit", () => {
   });
 
   it("normalises a connection failure", async () => {
-    mocks.db.product.findUnique.mockRejectedValue(
-      Object.assign(new Error("x"), { code: "P1002" }),
-    );
+    mocks.db.product.findUnique.mockRejectedValue(Object.assign(new Error("x"), { code: "P1002" }));
     await expect(getProductForEdit("p1")).rejects.toBeInstanceOf(DatabaseUnavailableError);
   });
 });
@@ -121,7 +119,10 @@ describe("getProductForEdit", () => {
 describe("findProductBySlug", () => {
   it("returns the matching id and slug, or null", async () => {
     mocks.db.product.findUnique.mockResolvedValue({ id: "p1", slug: "steel-wire-mesh" });
-    expect(await findProductBySlug("steel-wire-mesh")).toEqual({ id: "p1", slug: "steel-wire-mesh" });
+    expect(await findProductBySlug("steel-wire-mesh")).toEqual({
+      id: "p1",
+      slug: "steel-wire-mesh",
+    });
 
     mocks.db.product.findUnique.mockResolvedValue(null);
     expect(await findProductBySlug("nope")).toBeNull();

@@ -145,7 +145,10 @@ describe("uploadProductDocument", () => {
   });
 
   it("accepts CERTIFICATE like any other kind — it is never generated, only chosen", async () => {
-    mocks.storeUpload.mockResolvedValue({ ok: true, asset: { id: MEDIA_ID, fileName: "cert.pdf" } });
+    mocks.storeUpload.mockResolvedValue({
+      ok: true,
+      asset: { id: MEDIA_ID, fileName: "cert.pdf" },
+    });
     mocks.db.productDocument.create.mockResolvedValue({ id: DOCUMENT_ID });
 
     const state = await uploadProductDocument(

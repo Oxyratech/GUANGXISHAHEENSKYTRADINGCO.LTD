@@ -15,7 +15,12 @@ export async function computeProductTranslationCoverage(): Promise<ProductTransl
   try {
     const rows = await getDb().product.findMany({
       orderBy: { updatedAt: "desc" },
-      select: { id: true, slug: true, categorySlug: true, translations: { select: { locale: true } } },
+      select: {
+        id: true,
+        slug: true,
+        categorySlug: true,
+        translations: { select: { locale: true } },
+      },
     });
     return rows.map((row) => {
       const locales = LOCALES.filter((locale) => row.translations.some((t) => t.locale === locale));

@@ -9,7 +9,9 @@ export interface NewsTagRow {
   articleCount: number;
 }
 
-function toNames(translations: readonly { locale: string; name: string }[]): Record<Locale, string> {
+function toNames(
+  translations: readonly { locale: string; name: string }[],
+): Record<Locale, string> {
   return Object.fromEntries(
     LOCALES.map((locale) => [locale, translations.find((t) => t.locale === locale)?.name ?? ""]),
   ) as Record<Locale, string>;
@@ -49,7 +51,12 @@ export async function getNewsTag(id: string): Promise<NewsTagRow | null> {
       },
     });
     if (!row) return null;
-    return { id: row.id, slug: row.slug, names: toNames(row.translations), articleCount: row._count.articles };
+    return {
+      id: row.id,
+      slug: row.slug,
+      names: toNames(row.translations),
+      articleCount: row._count.articles,
+    };
   } catch (error) {
     throw toDatabaseError(error);
   }

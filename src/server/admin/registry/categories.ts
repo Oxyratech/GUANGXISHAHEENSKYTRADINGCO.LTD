@@ -33,10 +33,9 @@ export interface CategoryRegistryResult {
 }
 
 function publicPathsFor(slug: string): Record<Locale, string> {
-  return Object.fromEntries(LOCALES.map((locale) => [locale, `/${locale}/products/${slug}`])) as Record<
-    Locale,
-    string
-  >;
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}/products/${slug}`]),
+  ) as Record<Locale, string>;
 }
 
 export async function listCategoryRegistry(): Promise<CategoryRegistryResult> {

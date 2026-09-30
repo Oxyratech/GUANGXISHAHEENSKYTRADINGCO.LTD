@@ -27,7 +27,11 @@ function isRecord(value: unknown): value is Record<string, unknown> {
 }
 
 /** Dotted-path leaves of a message tree. An empty object/array counts as a (non-string) leaf. */
-function flatten(value: unknown, path = "", out = new Map<string, unknown>()): Map<string, unknown> {
+function flatten(
+  value: unknown,
+  path = "",
+  out = new Map<string, unknown>(),
+): Map<string, unknown> {
   if (isRecord(value)) {
     const keys = Object.keys(value);
     if (keys.length === 0 && path !== "") {

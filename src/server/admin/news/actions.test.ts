@@ -110,9 +110,9 @@ beforeEach(() => {
   mocks.db.newsTag.findMany.mockReset().mockResolvedValue([]);
   mocks.db.newsTag.create.mockReset().mockResolvedValue({ id: "tag-1" });
   mocks.db.mediaAsset.findUnique.mockReset();
-  mocks.db.$transaction.mockReset().mockImplementation((callback: (tx: typeof mocks.db) => unknown) =>
-    callback(mocks.db),
-  );
+  mocks.db.$transaction
+    .mockReset()
+    .mockImplementation((callback: (tx: typeof mocks.db) => unknown) => callback(mocks.db));
   mocks.requirePermissionOrThrow.mockReset().mockResolvedValue(WRITER);
   mocks.writeAudit.mockReset().mockResolvedValue(undefined);
   mocks.revalidatePath.mockReset();
@@ -171,7 +171,9 @@ describe("createNewsArticle — slug uniqueness per locale", () => {
   it("checks uniqueness scoped to the article's own locale", async () => {
     await createNewsArticle(undefined, form({ ...baseArticleFields, locale: "zh" }));
     expect(mocks.db.newsArticle.findFirst).toHaveBeenCalledWith(
-      expect.objectContaining({ where: expect.objectContaining({ locale: "zh", slug: "expo-2026" }) }),
+      expect.objectContaining({
+        where: expect.objectContaining({ locale: "zh", slug: "expo-2026" }),
+      }),
     );
   });
 });
@@ -232,7 +234,32 @@ describe("createNewsArticle — audit and revalidation", () => {
 });
 
 describe("updateNewsArticle", () => {
-  const existing = { locale: "en", slug: "expo-2026" };
+  const existing = { locale: "en", slug: "expo-2026", status: "DRAFT" };
+
+  it("does not require news:publish to save other edits to an article that is already published", async () => {
+    mocks.db.newsArticle.findUnique.mockResolvedValue({ ...existing, status: "PUBLISHED" });
+    const state = await updateNewsArticle(
+      undefined,
+      form({
+        ...baseArticleFields,
+        id: ARTICLE_ID,
+        version: "1",
+        status: "PUBLISHED",
+        title: "Updated title",
+      }),
+    );
+    expect(state).toMatchObject({ status: "success" });
+  });
+
+  it("still requires news:publish to move a draft to published", async () => {
+    mocks.db.newsArticle.findUnique.mockResolvedValue(existing);
+    const state = await updateNewsArticle(
+      undefined,
+      form({ ...baseArticleFields, id: ARTICLE_ID, version: "1", status: "PUBLISHED" }),
+    );
+    expect(state).toMatchObject({ status: "error", code: "rejected" });
+    expect(mocks.db.newsArticle.updateMany).not.toHaveBeenCalled();
+  });
 
   it("refuses an update for an article that no longer exists", async () => {
     mocks.db.newsArticle.findUnique.mockResolvedValue(null);

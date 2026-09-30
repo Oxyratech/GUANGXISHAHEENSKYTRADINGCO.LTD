@@ -4,7 +4,10 @@ import { ConfirmButton } from "@/components/admin/ConfirmButton";
 import type { PublishStatus } from "@/lib/domain/statuses";
 import { setNewsStatus } from "@/server/admin/news/actions";
 
-const COPY: Record<PublishStatus, { label: string; title: string; description: string; destructive: boolean }> = {
+const COPY: Record<
+  PublishStatus,
+  { label: string; title: string; description: string; destructive: boolean }
+> = {
   DRAFT: {
     label: "Revert to draft",
     title: "Revert to draft?",
@@ -35,7 +38,9 @@ export function NewsStatusActions({
   version: number;
   status: PublishStatus;
 }) {
-  const targets = (Object.keys(COPY) as PublishStatus[]).filter((candidate) => candidate !== status);
+  const targets = (Object.keys(COPY) as PublishStatus[]).filter(
+    (candidate) => candidate !== status,
+  );
 
   return (
     <div className="flex flex-wrap gap-2">

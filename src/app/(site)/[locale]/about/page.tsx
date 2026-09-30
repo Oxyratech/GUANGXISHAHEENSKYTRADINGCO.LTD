@@ -31,7 +31,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description", { ...COMPANY_NAME_VALUES, location: t("location") }),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "about", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "about", locale }),
+  );
 }
 
 export default async function AboutPage({ params }: PageProps<"/[locale]/about">) {

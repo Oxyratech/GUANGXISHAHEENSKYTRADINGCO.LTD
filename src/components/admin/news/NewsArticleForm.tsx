@@ -112,11 +112,20 @@ export function NewsArticleForm({
         }}
       />
 
-      <ActionField name="summary" label="Summary" required hint="Shown in article listings and used as the default description. Up to 600 characters.">
+      <ActionField
+        name="summary"
+        label="Summary"
+        required
+        hint="Shown in article listings and used as the default description. Up to 600 characters."
+      >
         <Textarea maxLength={600} defaultValue={article?.summary} className="min-h-24" />
       </ActionField>
 
-      <MarkdownEditor name="content" label="Content (Markdown)" defaultValue={article?.content ?? ""} />
+      <MarkdownEditor
+        name="content"
+        label="Content (Markdown)"
+        defaultValue={article?.content ?? ""}
+      />
 
       <MediaPickerField
         name="coverMediaId"
@@ -131,7 +140,10 @@ export function NewsArticleForm({
         label="Tags"
         hint="Comma-separated. A name that doesn't match an existing tag creates a new one."
       >
-        <Input defaultValue={article?.tagNames.join(", ") ?? ""} placeholder="Trade fairs, Company news" />
+        <Input
+          defaultValue={article?.tagNames.join(", ") ?? ""}
+          placeholder="Trade fairs, Company news"
+        />
       </ActionField>
 
       <ActionField
@@ -139,7 +151,11 @@ export function NewsArticleForm({
         label="Author byline"
         hint={`Defaults to your name (${defaultAuthorName}) when left blank.`}
       >
-        <Input maxLength={120} defaultValue={article?.authorName ?? ""} placeholder={defaultAuthorName} />
+        <Input
+          maxLength={120}
+          defaultValue={article?.authorName ?? ""}
+          placeholder={defaultAuthorName}
+        />
       </ActionField>
 
       <div className="grid gap-5 sm:grid-cols-2">
@@ -158,7 +174,10 @@ export function NewsArticleForm({
           label="Publish date"
           hint="Blank publishes immediately when status is Published. A future date schedules it."
         >
-          <Input type="datetime-local" defaultValue={toDateTimeLocal(article?.publishedAt ?? null)} />
+          <Input
+            type="datetime-local"
+            defaultValue={toDateTimeLocal(article?.publishedAt ?? null)}
+          />
         </ActionField>
       </div>
 
@@ -169,7 +188,9 @@ export function NewsArticleForm({
       ) : null}
 
       <div>
-        <ActionSubmit pendingLabel="Saving…">{article ? "Save article" : "Create article"}</ActionSubmit>
+        <ActionSubmit pendingLabel="Saving…">
+          {article ? "Save article" : "Create article"}
+        </ActionSubmit>
       </div>
     </ActionForm>
   );

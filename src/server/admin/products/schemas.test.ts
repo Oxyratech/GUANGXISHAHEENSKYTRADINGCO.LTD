@@ -14,12 +14,17 @@ describe("slugField", () => {
     expect(slugField.safeParse(value).success).toBe(true);
   });
 
-  it.each(["Steel-Wire", "steel_wire", "steel wire", "-leading", "trailing-", "double--hyphen", ""])(
-    "rejects %s",
-    (value) => {
-      expect(slugField.safeParse(value).success).toBe(false);
-    },
-  );
+  it.each([
+    "Steel-Wire",
+    "steel_wire",
+    "steel wire",
+    "-leading",
+    "trailing-",
+    "double--hyphen",
+    "",
+  ])("rejects %s", (value) => {
+    expect(slugField.safeParse(value).success).toBe(false);
+  });
 
   it("rejects a slug longer than 120 characters (Product.slug column size)", () => {
     expect(slugField.safeParse("a".repeat(121)).success).toBe(false);

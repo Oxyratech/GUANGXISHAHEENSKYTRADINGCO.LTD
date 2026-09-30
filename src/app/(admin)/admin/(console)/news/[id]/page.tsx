@@ -10,14 +10,27 @@ import { NewsStatusActions } from "@/components/admin/news/NewsStatusActions";
 import { PageHeader } from "@/components/admin/PageHeader";
 import { StatusBadge } from "@/components/admin/StatusBadge";
 import { asDatabaseOutage, hasAdminPermission, requireAdminPage } from "@/server/admin/access";
-import { getNewsArticleForEdit, getNewsFormOptions, getTranslationSiblings } from "@/server/admin/news/detail";
-import type { NewsArticleForEdit, NewsFormOptions, TranslationSibling } from "@/server/admin/news/detail";
+import {
+  getNewsArticleForEdit,
+  getNewsFormOptions,
+  getTranslationSiblings,
+} from "@/server/admin/news/detail";
+import type {
+  NewsArticleForEdit,
+  NewsFormOptions,
+  TranslationSibling,
+} from "@/server/admin/news/detail";
 import type { DatabaseUnavailableCause } from "@/server/db/errors";
 
 export const metadata: Metadata = { title: "Edit article" };
 
 type PageData =
-  | { kind: "ready"; article: NewsArticleForEdit; options: NewsFormOptions; siblings: TranslationSibling[] }
+  | {
+      kind: "ready";
+      article: NewsArticleForEdit;
+      options: NewsFormOptions;
+      siblings: TranslationSibling[];
+    }
   | { kind: "not_found" }
   | { kind: "unavailable"; cause: DatabaseUnavailableCause };
 
@@ -114,7 +127,11 @@ export default async function NewsArticleEditPage({ params }: { params: Promise<
             columns={1}
             items={[
               { label: "Summary", value: article.summary, wide: true },
-              { label: "Content", value: <pre className="whitespace-pre-wrap">{article.content}</pre>, wide: true },
+              {
+                label: "Content",
+                value: <pre className="whitespace-pre-wrap">{article.content}</pre>,
+                wide: true,
+              },
             ]}
           />
         )}

@@ -49,7 +49,10 @@ export async function generateMetadata({
     // A filtered view repeats articles that the unfiltered list already carries.
     noIndex: filtered,
   });
-  const metadata = applySeoOverride(generated, await getSeoOverride({ scope: "PAGE", refKey: "news", locale }));
+  const metadata = applySeoOverride(
+    generated,
+    await getSeoOverride({ scope: "PAGE", refKey: "news", locale }),
+  );
   if (page === 1 || filtered) return metadata;
 
   // Each page of the archive is its own indexable address, not a duplicate of page 1.

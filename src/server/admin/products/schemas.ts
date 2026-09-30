@@ -3,6 +3,7 @@ import { isCategorySlug } from "@/content/categories";
 import { LOCALES, type Locale } from "@/i18n/locales";
 import { DOCUMENT_KINDS, PUBLISH_STATUSES, type DocumentKind } from "@/lib/domain/statuses";
 import { checkbox, id, optionalString, requiredString, version } from "@/server/admin/action";
+import { MAX_PRODUCT_DOCUMENTS, MAX_PRODUCT_IMAGES, MAX_PRODUCT_SPECIFICATIONS } from "./constants";
 
 /*
  * Shared zod schemas for the product editor. Column sizes mirror prisma/schema.prisma exactly (see
@@ -11,9 +12,7 @@ import { checkbox, id, optionalString, requiredString, version } from "@/server/
  * product from growing without bound.
  */
 
-export const MAX_PRODUCT_IMAGES = 12;
-export const MAX_PRODUCT_DOCUMENTS = 10;
-export const MAX_PRODUCT_SPECIFICATIONS = 30;
+export { MAX_PRODUCT_IMAGES, MAX_PRODUCT_DOCUMENTS, MAX_PRODUCT_SPECIFICATIONS };
 
 const MARKDOWN_MAX = 20_000;
 
@@ -84,7 +83,9 @@ export const productCoreSchema = z.object({
 
 export const createProductSchema = productCoreSchema;
 
-export const updateProductCoreSchema = productCoreSchema.omit({ name: true }).extend({ id, version });
+export const updateProductCoreSchema = productCoreSchema
+  .omit({ name: true })
+  .extend({ id, version });
 
 export const productTranslationSchema = z.object({
   id,

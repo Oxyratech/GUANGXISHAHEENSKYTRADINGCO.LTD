@@ -121,7 +121,8 @@ export const moveProductDocument = defineAdminInputAction({
       select: { id: true, sortOrder: true },
     });
     const index = documents.findIndex((doc) => doc.id === input.documentId);
-    if (index === -1) throw new AdminActionError("This document no longer exists. Reload the page.");
+    if (index === -1)
+      throw new AdminActionError("This document no longer exists. Reload the page.");
 
     const swapWith = input.direction === "up" ? index - 1 : index + 1;
     if (swapWith < 0 || swapWith >= documents.length) {

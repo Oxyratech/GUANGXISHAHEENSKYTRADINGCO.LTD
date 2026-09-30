@@ -2,7 +2,10 @@
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const mocks = vi.hoisted(() => ({ db: { seoMetadata: { findMany: vi.fn() } } }));
-vi.mock("@/server/db", async () => ({ ...(await import("@/server/db/errors")), getDb: () => mocks.db }));
+vi.mock("@/server/db", async () => ({
+  ...(await import("@/server/db/errors")),
+  getDb: () => mocks.db,
+}));
 
 import { computeSeoOverrideCoverage } from "./seo";
 

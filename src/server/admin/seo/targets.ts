@@ -25,7 +25,9 @@ function titleCase(segment: string): string {
 /** "business/international-trading" -> "Business – International trading". */
 function labelFromPageKey(refKey: string): string {
   if (refKey === "home") return "Home";
-  const parts = refKey.split("/").map((part, index) => (index === 0 ? titleCase(part) : titleCase(part)));
+  const parts = refKey
+    .split("/")
+    .map((part, index) => (index === 0 ? titleCase(part) : titleCase(part)));
   return parts.join(" – ");
 }
 

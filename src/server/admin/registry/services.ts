@@ -18,10 +18,9 @@ export interface ServiceRegistryRow {
 }
 
 function publicPathsFor(slug: string): Record<Locale, string> {
-  return Object.fromEntries(LOCALES.map((locale) => [locale, `/${locale}/business/${slug}`])) as Record<
-    Locale,
-    string
-  >;
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}/business/${slug}`]),
+  ) as Record<Locale, string>;
 }
 
 export async function listServiceRegistry(): Promise<ServiceRegistryRow[]> {

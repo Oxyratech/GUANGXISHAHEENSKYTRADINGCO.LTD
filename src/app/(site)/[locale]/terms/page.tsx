@@ -17,7 +17,10 @@ export async function generateMetadata({
     title: t("terms.meta.title"),
     description: t("terms.meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "terms", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "terms", locale }),
+  );
 }
 
 export default async function TermsRoute({ params }: PageProps<"/[locale]/terms">) {

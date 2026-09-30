@@ -24,7 +24,11 @@ interface PageMetaKeys {
 const SERVICE_META_KEYS: Record<string, PageMetaKeys> = Object.fromEntries(
   SERVICE_SLUGS.map((slug) => [
     `business/${slug}`,
-    { ns: "business", title: `pages.${slug}.meta.title`, description: `pages.${slug}.meta.description` },
+    {
+      ns: "business",
+      title: `pages.${slug}.meta.title`,
+      description: `pages.${slug}.meta.description`,
+    },
   ]),
 );
 
@@ -40,12 +44,20 @@ const PAGE_META_KEYS: Record<string, PageMetaKeys> = {
     title: "howItWorks.meta.title",
     description: "howItWorks.meta.description",
   },
-  "company-information": { ns: "companyInfo", title: "meta.title", description: "meta.description" },
+  "company-information": {
+    ns: "companyInfo",
+    title: "meta.title",
+    description: "meta.description",
+  },
   news: { ns: "news", title: "meta.title", description: "meta.description" },
   faq: { ns: "faq", title: "meta.title", description: "meta.description" },
   contact: { ns: "contact", title: "meta.title", description: "meta.description" },
   inquiry: { ns: "inquiry", title: "meta.title", description: "meta.description" },
-  "privacy-policy": { ns: "legal", title: "privacy.meta.title", description: "privacy.meta.description" },
+  "privacy-policy": {
+    ns: "legal",
+    title: "privacy.meta.title",
+    description: "privacy.meta.description",
+  },
   terms: { ns: "legal", title: "terms.meta.title", description: "terms.meta.description" },
   cookies: { ns: "legal", title: "cookies.meta.title", description: "cookies.meta.description" },
 };

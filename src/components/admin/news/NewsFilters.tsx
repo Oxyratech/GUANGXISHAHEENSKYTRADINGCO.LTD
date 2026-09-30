@@ -29,7 +29,13 @@ export function NewsFilters({
         <label htmlFor="news-search" className="text-label text-ink">
           Search
         </label>
-        <Input id="news-search" type="search" name="q" defaultValue={filters.q} placeholder="Title or slug" />
+        <Input
+          id="news-search"
+          type="search"
+          name="q"
+          defaultValue={filters.q}
+          placeholder="Title or slug"
+        />
       </div>
 
       <div className="grid gap-1.5">

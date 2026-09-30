@@ -19,11 +19,17 @@ export function TranslationTabs({ active }: { active: TranslationTab }) {
           return (
             <li key={tab.key}>
               <Link
-                href={tab.key === "products" ? "/admin/translations" : `/admin/translations?tab=${tab.key}`}
+                href={
+                  tab.key === "products"
+                    ? "/admin/translations"
+                    : `/admin/translations?tab=${tab.key}`
+                }
                 aria-current={isActive ? "page" : undefined}
                 className={cn(
                   "inline-flex min-h-11 items-center rounded-md px-4 text-label whitespace-nowrap transition-colors duration-150",
-                  isActive ? "bg-white text-navy-900 shadow-card" : "text-ink-muted hover:text-navy-900",
+                  isActive
+                    ? "bg-white text-navy-900 shadow-card"
+                    : "text-ink-muted hover:text-navy-900",
                 )}
               >
                 {tab.label}

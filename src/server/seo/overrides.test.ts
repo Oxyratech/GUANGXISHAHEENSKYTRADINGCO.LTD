@@ -121,7 +121,9 @@ describe("applySeoOverride", () => {
       ogImage: null,
     });
     expect(result.title).toEqual({ absolute: "Custom title" });
-    expect(result.title).not.toEqual(expect.objectContaining({ absolute: expect.stringContaining("|") }));
+    expect(result.title).not.toEqual(
+      expect.objectContaining({ absolute: expect.stringContaining("|") }),
+    );
   });
 
   it("merges description, noIndex and the Open Graph image", () => {

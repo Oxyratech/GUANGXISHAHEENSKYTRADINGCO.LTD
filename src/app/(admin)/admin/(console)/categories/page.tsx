@@ -23,8 +23,8 @@ export default async function CategoriesRegistryPage() {
       <div className="grid gap-4">
         <RegistryNotice filePath="src/content/categories.ts">
           Categories are mapped to the registered business scope and drive routing and SEO for the
-          public product pages, so they are edited in the repository, not here. The published-product
-          count below comes from the database.
+          public product pages, so they are edited in the repository, not here. The
+          published-product count below comes from the database.
         </RegistryNotice>
         {databaseUnavailable ? (
           <p className="text-small text-ink-muted">

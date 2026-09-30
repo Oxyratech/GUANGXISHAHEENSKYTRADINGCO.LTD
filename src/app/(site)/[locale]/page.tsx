@@ -24,7 +24,10 @@ export async function generateMetadata({ params }: PageProps<"/[locale]">): Prom
     title: t("meta.title"),
     description: t("meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "home", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "home", locale }),
+  );
 }
 
 export default async function HomePage({ params }: PageProps<"/[locale]">) {

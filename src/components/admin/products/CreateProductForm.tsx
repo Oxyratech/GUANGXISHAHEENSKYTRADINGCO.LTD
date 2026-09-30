@@ -75,7 +75,11 @@ export function CreateProductForm() {
       <ActionField name="origin" label="Origin" hint="Free text, e.g. a province or country.">
         <Input autoComplete="off" maxLength={120} />
       </ActionField>
-      <ActionField name="sortOrder" label="Sort order" hint="Lower numbers show first within a category.">
+      <ActionField
+        name="sortOrder"
+        label="Sort order"
+        hint="Lower numbers show first within a category."
+      >
         <Input type="number" defaultValue={0} step={1} />
       </ActionField>
       <ActionField name="featured" label="Featured" layout="inline">

@@ -33,7 +33,10 @@ export async function generateMetadata({
     title: t("meta.title"),
     description: t("meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "global-trade", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "global-trade", locale }),
+  );
 }
 
 export default async function GlobalTradePage({ params }: PageProps<"/[locale]/global-trade">) {

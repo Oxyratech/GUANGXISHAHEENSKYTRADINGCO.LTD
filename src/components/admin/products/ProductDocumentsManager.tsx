@@ -19,10 +19,8 @@ import {
   updateProductDocumentTranslation,
   uploadProductDocument,
 } from "@/server/admin/products/document-actions";
-import { MAX_PRODUCT_DOCUMENTS } from "@/server/admin/products/schemas";
-import { describeUploadPolicy, PUBLIC_DOCUMENT } from "@/server/storage";
-
-const POLICY = describeUploadPolicy(PUBLIC_DOCUMENT);
+import { MAX_PRODUCT_DOCUMENTS } from "@/server/admin/products/constants";
+import type { UploadPolicySummary } from "@/server/storage";
 
 const KIND_LABEL: Record<DocumentKind, string> = {
   SPECIFICATION_SHEET: "Specification sheet",
@@ -69,7 +67,13 @@ function TitleRow({
   );
 }
 
-function DocumentRow({ productId, document }: { productId: string; document: ProductEditDocument }) {
+function DocumentRow({
+  productId,
+  document,
+}: {
+  productId: string;
+  document: ProductEditDocument;
+}) {
   const router = useRouter();
   const move = useInputAction(moveProductDocument);
   const setKind = useInputAction(setProductDocumentKind);
@@ -152,9 +156,12 @@ function DocumentRow({ productId, document }: { productId: string; document: Pro
 export function ProductDocumentsManager({
   productId,
   documents,
+  policy,
 }: {
   productId: string;
   documents: readonly ProductEditDocument[];
+  /** From describeUploadPolicy(PUBLIC_DOCUMENT), computed on the server (it reads UPLOAD_MAX_BYTES). */
+  policy: UploadPolicySummary;
 }) {
   const router = useRouter();
   const [kind, setKind] = useState<DocumentKind>("SPECIFICATION_SHEET");
@@ -185,7 +192,10 @@ export function ProductDocumentsManager({
 
   return (
     <div className="grid gap-4">
-      <form onSubmit={handleUpload} className="grid gap-3 sm:grid-cols-[10rem_1fr_auto] sm:items-end">
+      <form
+        onSubmit={handleUpload}
+        className="grid gap-3 sm:grid-cols-[10rem_1fr_auto] sm:items-end"
+      >
         <div className="grid gap-1.5">
           <label htmlFor="product-document-kind" className="text-label text-ink">
             Type
@@ -209,13 +219,13 @@ export function ProductDocumentsManager({
           <Input
             id="product-document-file"
             type="file"
-            accept={POLICY.mimeTypes.join(",")}
+            accept={policy.mimeTypes.join(",")}
             disabled={atLimit}
             onChange={(event) => setFile(event.target.files?.[0] ?? null)}
           />
           <p className="text-caption text-ink-muted">
-            Up to {formatBytes(POLICY.maxBytes)}. PDF only. At most {MAX_PRODUCT_DOCUMENTS} documents
-            per product ({documents.length} so far).
+            Up to {formatBytes(policy.maxBytes)}. PDF only. At most {MAX_PRODUCT_DOCUMENTS}{" "}
+            documents per product ({documents.length} so far).
           </p>
         </div>
         <Button type="submit" loading={busy} disabled={!file || atLimit}>

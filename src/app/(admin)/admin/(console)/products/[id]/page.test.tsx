@@ -51,7 +51,11 @@ vi.mock("@/server/admin/products/specification-actions", () => ({
   updateProductSpecificationTranslation: vi.fn(),
 }));
 vi.mock("@/server/storage", () => ({
-  describeUploadPolicy: () => ({ maxBytes: 5_000_000, mimeTypes: ["image/jpeg"], extensions: ["jpg"] }),
+  describeUploadPolicy: () => ({
+    maxBytes: 5_000_000,
+    mimeTypes: ["image/jpeg"],
+    extensions: ["jpg"],
+  }),
   PRODUCT_IMAGE: { name: "PRODUCT_IMAGE" },
   PUBLIC_DOCUMENT: { name: "PUBLIC_DOCUMENT" },
 }));
@@ -80,7 +84,16 @@ function baseProduct(overrides: Partial<Record<string, unknown>> = {}) {
     createdAt: new Date("2026-01-01T00:00:00Z"),
     updatedAt: new Date("2026-06-01T00:00:00Z"),
     version: 1,
-    translations: [{ locale: "en", name: "Steel Wire Mesh", shortDescription: "Woven mesh.", description: null, applications: null, packagingInfo: null }],
+    translations: [
+      {
+        locale: "en",
+        name: "Steel Wire Mesh",
+        shortDescription: "Woven mesh.",
+        description: null,
+        applications: null,
+        packagingInfo: null,
+      },
+    ],
     images: [],
     documents: [],
     specifications: [],
@@ -101,7 +114,11 @@ async function renderPage(id = "0d4f2c1a-0000-4000-8000-00000000000a") {
 }
 
 beforeEach(() => {
-  mocks.getSession.mockReset().mockResolvedValue(makeSession("product:read", "product:write", "product:publish", "product:delete"));
+  mocks.getSession
+    .mockReset()
+    .mockResolvedValue(
+      makeSession("product:read", "product:write", "product:publish", "product:delete"),
+    );
   mocks.redirect.mockReset().mockImplementation((path: string) => {
     throw new RedirectSignal(path);
   });
@@ -148,9 +165,7 @@ describe("with data", () => {
   it("falls back to the slug as the title when there is no English name yet", async () => {
     mocks.getProductForEdit.mockResolvedValue(baseProduct({ translations: [] }));
     await renderPage();
-    expect(
-      screen.getByRole("heading", { level: 1, name: "steel-wire-mesh" }),
-    ).toBeInTheDocument();
+    expect(screen.getByRole("heading", { level: 1, name: "steel-wire-mesh" })).toBeInTheDocument();
   });
 
   it("offers Publish for a draft and Unpublish for a published product", async () => {

@@ -60,7 +60,11 @@ export function ProductCoreForm({
         <Input autoComplete="off" maxLength={120} defaultValue={origin ?? ""} />
       </ActionField>
 
-      <ActionField name="sortOrder" label="Sort order" hint="Lower numbers show first within a category.">
+      <ActionField
+        name="sortOrder"
+        label="Sort order"
+        hint="Lower numbers show first within a category."
+      >
         <Input type="number" step={1} defaultValue={sortOrder} />
       </ActionField>
 

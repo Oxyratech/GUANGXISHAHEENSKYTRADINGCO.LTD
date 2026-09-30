@@ -236,7 +236,11 @@ describe("moveProductImage", () => {
   it("is a no-op at either end of the list", async () => {
     mocks.db.productImage.findMany.mockResolvedValue(rows);
 
-    const atTop = await moveProductImage({ productId: PRODUCT_ID, imageId: IMAGE_A, direction: "up" });
+    const atTop = await moveProductImage({
+      productId: PRODUCT_ID,
+      imageId: IMAGE_A,
+      direction: "up",
+    });
     expect(atTop).toMatchObject({ status: "success", message: "Already at that end." });
     expect(mocks.db.productImage.update).not.toHaveBeenCalled();
 

@@ -17,7 +17,10 @@ export async function generateMetadata({
     title: t("cookies.meta.title"),
     description: t("cookies.meta.description"),
   });
-  return applySeoOverride(metadata, await getSeoOverride({ scope: "PAGE", refKey: "cookies", locale }));
+  return applySeoOverride(
+    metadata,
+    await getSeoOverride({ scope: "PAGE", refKey: "cookies", locale }),
+  );
 }
 
 export default async function CookiesRoute({ params }: PageProps<"/[locale]/cookies">) {

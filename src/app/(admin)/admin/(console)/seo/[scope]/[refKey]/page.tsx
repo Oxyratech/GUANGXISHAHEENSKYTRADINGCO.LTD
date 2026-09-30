@@ -26,7 +26,11 @@ import type { SeoScope } from "@/lib/domain/statuses";
 
 export const metadata: Metadata = { title: "SEO override" };
 
-function defaultPreview(scope: SeoScope, refKey: string, locale: Locale): Promise<DefaultMetaPreview> {
+function defaultPreview(
+  scope: SeoScope,
+  refKey: string,
+  locale: Locale,
+): Promise<DefaultMetaPreview> {
   if (scope === "PAGE") return getDefaultPageMetaPreview(refKey, locale);
   if (scope === "CATEGORY") return getDefaultCategoryMetaPreview(refKey, locale);
   if (scope === "PRODUCT") return getDefaultProductMetaPreview(refKey, locale);
@@ -52,7 +56,12 @@ async function loadPageData(scope: SeoScope, refKey: string): Promise<PageData> 
       getOverrideRows(scope, refKey),
       Promise.all(context.locales.map((locale) => defaultPreview(scope, refKey, locale))),
     ]);
-    return { kind: "ready", context, rowsByLocale: new Map(rows.map((row) => [row.locale, row])), previews };
+    return {
+      kind: "ready",
+      context,
+      rowsByLocale: new Map(rows.map((row) => [row.locale, row])),
+      previews,
+    };
   } catch (error) {
     const outage = asDatabaseOutage(error);
     if (!outage) throw error;

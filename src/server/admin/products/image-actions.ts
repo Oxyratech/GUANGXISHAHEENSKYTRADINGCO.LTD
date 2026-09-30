@@ -192,7 +192,8 @@ export const removeProductImage = defineAdminInputAction({
           orderBy: { sortOrder: "asc" },
           select: { id: true },
         });
-        if (next) await tx.productImage.update({ where: { id: next.id }, data: { isPrimary: true } });
+        if (next)
+          await tx.productImage.update({ where: { id: next.id }, data: { isPrimary: true } });
       }
     });
     await deleteAssetIfOrphaned(image.mediaAssetId);

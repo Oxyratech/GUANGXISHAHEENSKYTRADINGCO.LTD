@@ -60,9 +60,17 @@ describe("getDefaultPageMetaPreview", () => {
 describe("getDefaultCategoryMetaPreview", () => {
   it("interpolates the category name into the raw title/description", async () => {
     mocks.getTranslations
-      .mockResolvedValueOnce(fakeT({}, { "consumer-goods.name": "Consumer goods", "consumer-goods.summary": "Everyday items." }))
       .mockResolvedValueOnce(
-        fakeT({ "category.meta.title": "{name} | Shaheen Sky", "category.meta.description": "Browse {summary}" }),
+        fakeT(
+          {},
+          { "consumer-goods.name": "Consumer goods", "consumer-goods.summary": "Everyday items." },
+        ),
+      )
+      .mockResolvedValueOnce(
+        fakeT({
+          "category.meta.title": "{name} | Shaheen Sky",
+          "category.meta.description": "Browse {summary}",
+        }),
       );
     expect(await getDefaultCategoryMetaPreview("consumer-goods", "en")).toEqual({
       title: "Consumer goods | Shaheen Sky",
@@ -93,7 +101,10 @@ describe("getDefaultProductMetaPreview", () => {
 
 describe("getDefaultNewsMetaPreview", () => {
   it("uses the article's own title and summary", async () => {
-    mocks.db.newsArticle.findUnique.mockResolvedValue({ title: "Expo 2026", summary: "We attended." });
+    mocks.db.newsArticle.findUnique.mockResolvedValue({
+      title: "Expo 2026",
+      summary: "We attended.",
+    });
     expect(await getDefaultNewsMetaPreview("a1")).toEqual({
       title: "Expo 2026",
       description: "We attended.",

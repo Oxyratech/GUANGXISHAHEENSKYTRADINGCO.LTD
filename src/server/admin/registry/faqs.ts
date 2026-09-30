@@ -18,10 +18,9 @@ export interface FaqRegistryRow {
 }
 
 function publicPathsFor(anchor: string): Record<Locale, string> {
-  return Object.fromEntries(LOCALES.map((locale) => [locale, `/${locale}/faq#${anchor}`])) as Record<
-    Locale,
-    string
-  >;
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, `/${locale}/faq#${anchor}`]),
+  ) as Record<Locale, string>;
 }
 
 export async function listFaqRegistry(): Promise<FaqRegistryRow[]> {

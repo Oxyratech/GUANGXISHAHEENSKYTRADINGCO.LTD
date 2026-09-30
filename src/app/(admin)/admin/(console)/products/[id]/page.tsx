@@ -8,6 +8,7 @@ import { ProductEditorTabs } from "@/components/admin/products/ProductEditorTabs
 import { ProductStatusPanel } from "@/components/admin/products/ProductStatusPanel";
 import { asDatabaseOutage, hasAdminPermission, requireAdminPage } from "@/server/admin/access";
 import { getProductForEdit } from "@/server/admin/products/detail";
+import { describeUploadPolicy, PRODUCT_IMAGE, PUBLIC_DOCUMENT } from "@/server/storage";
 
 export const metadata: Metadata = { title: "Edit product" };
 
@@ -70,7 +71,11 @@ export default async function ProductEditPage({ params }: PageProps<"/admin/prod
         ) : null}
 
         {canWrite ? (
-          <ProductEditorTabs product={product} />
+          <ProductEditorTabs
+            product={product}
+            imagePolicy={describeUploadPolicy(PRODUCT_IMAGE)}
+            documentPolicy={describeUploadPolicy(PUBLIC_DOCUMENT)}
+          />
         ) : (
           <p className="text-small text-ink-muted">
             You do not have permission to edit this product&apos;s content.

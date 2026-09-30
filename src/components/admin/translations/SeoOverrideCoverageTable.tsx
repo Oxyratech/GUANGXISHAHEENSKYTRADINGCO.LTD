@@ -16,7 +16,11 @@ const COLUMNS: DataTableColumn<SeoOverrideCoverage>[] = [
       </AdminLink>
     ),
   },
-  { key: "locales", header: "Overridden in", cell: (row) => <LocaleCoverageBadges present={row.locales} /> },
+  {
+    key: "locales",
+    header: "Overridden in",
+    cell: (row) => <LocaleCoverageBadges present={row.locales} />,
+  },
 ];
 
 export function SeoOverrideCoverageTable({ rows }: { rows: readonly SeoOverrideCoverage[] }) {

@@ -31,7 +31,10 @@ export default async function NewsPage({
   let result;
   let categories;
   try {
-    [result, categories] = await Promise.all([listNewsArticles(filters, page), listNewsCategories()]);
+    [result, categories] = await Promise.all([
+      listNewsArticles(filters, page),
+      listNewsCategories(),
+    ]);
   } catch (error) {
     const outage = asDatabaseOutage(error);
     if (!outage) throw error;
@@ -43,7 +46,9 @@ export default async function NewsPage({
     );
   }
 
-  const hasActiveFilters = Boolean(filters.q || filters.locale || filters.status || filters.category);
+  const hasActiveFilters = Boolean(
+    filters.q || filters.locale || filters.status || filters.category,
+  );
   const canWrite = hasAdminPermission(access.session, "news:write");
 
   return (
@@ -59,7 +64,9 @@ export default async function NewsPage({
             <AdminButtonLink href="/admin/news/tags" variant="outline">
               Tags
             </AdminButtonLink>
-            {canWrite ? <AdminButtonLink href="/admin/news/new">New article</AdminButtonLink> : null}
+            {canWrite ? (
+              <AdminButtonLink href="/admin/news/new">New article</AdminButtonLink>
+            ) : null}
           </>
         }
       />
@@ -70,7 +77,12 @@ export default async function NewsPage({
           categories={categories.map((c) => ({ slug: c.slug, name: c.names.en || c.slug }))}
         />
         <NewsTable rows={result.rows} hasActiveFilters={hasActiveFilters} />
-        <AdminPagination meta={result.meta} pathname={PATHNAME} searchParams={rawSearchParams} itemLabel="articles" />
+        <AdminPagination
+          meta={result.meta}
+          pathname={PATHNAME}
+          searchParams={rawSearchParams}
+          itemLabel="articles"
+        />
       </div>
     </>
   );

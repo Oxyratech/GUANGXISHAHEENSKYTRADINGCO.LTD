@@ -54,7 +54,12 @@ export function ProductTranslationForm({
             : "Leave blank to fall back to the English name on the public site."
         }
       >
-        <Input dir={LOCALE_META[locale].dir} lang={LOCALE_META[locale].htmlLang} maxLength={200} defaultValue={values.name} />
+        <Input
+          dir={LOCALE_META[locale].dir}
+          lang={LOCALE_META[locale].htmlLang}
+          maxLength={200}
+          defaultValue={values.name}
+        />
       </ActionField>
 
       <ActionField
@@ -100,7 +105,9 @@ export function ProductTranslationForm({
       </ActionField>
 
       <div>
-        <ActionSubmit pendingLabel="Saving…">Save {LOCALE_META[locale].nativeName} content</ActionSubmit>
+        <ActionSubmit pendingLabel="Saving…">
+          Save {LOCALE_META[locale].nativeName} content
+        </ActionSubmit>
       </div>
     </ActionForm>
   );
