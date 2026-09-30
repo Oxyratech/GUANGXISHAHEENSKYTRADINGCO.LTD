@@ -1,1 +1,126 @@
-{}
+{
+  "meta": {
+    "title": "发送商务询盘（RFQ）",
+    "description": "告诉我们您的需求。向位于广西南宁的中国贸易公司发送商务询盘或报价请求，用于产品寻源、供应商寻源、批发采购及进出口支持。"
+  },
+  "page": {
+    "eyebrow": "商务询盘",
+    "title": "告诉我们您的需求",
+    "lead": "就产品寻源、供应商寻源或从中国批发采购发送商务询盘或报价请求。需求描述越清晰，我们的团队越容易评估。",
+    "breadcrumb": "商务询盘"
+  },
+  "guidance": {
+    "title": "建议提供的信息",
+    "intro": "无需一开始就提供全部细节，以下几点有助于我们的团队了解您的需求。",
+    "items": {
+      "product": "产品或产品类型，以及您考虑的型号、材质或尺寸。",
+      "quantity": "您考虑的数量，以及是一次性订单还是长期重复订单。",
+      "specification": "规格、标准，以及包装或品牌要求。",
+      "destination": "目的国家或地区，以及您需要的交货日期。",
+      "price": "如有目标价格，请注明价格及币种。",
+      "files": "图纸、照片或规格书（如比文字描述更直观）。"
+    }
+  },
+  "next": {
+    "title": "后续流程",
+    "note": "以下为典型流程，并非承诺。每项需求各不相同，我们不承诺回复时限或最终结果。",
+    "steps": {
+      "review": {
+        "title": "我们审阅",
+        "body": "团队会阅读您的询盘，并对照公司登记的经营范围进行核对。"
+      },
+      "clarify": {
+        "title": "可能向您询问",
+        "body": "如缺少规格、数量或目的地等信息，我们可能会与您联系。"
+      },
+      "source": {
+        "title": "评估寻源可行性",
+        "body": "在寻源可行的情况下，我们会寻找合适的供应商，并准备报价或建议的下一步安排。"
+      }
+    },
+    "processLink": "查看典型贸易流程"
+  },
+  "privacy": {
+    "title": "我们如何处理您的信息",
+    "body": "我们仅使用您提交的信息来审阅并回复您的询盘。为减少垃圾信息，我们还会保存您 IP 地址的哈希值，而不保存 IP 地址本身。附件会被私密存储，仅授权人员可以查看。详情请参阅<link>隐私政策</link>。"
+  },
+  "form": {
+    "title": "询盘详情",
+    "requiredNote": "带 * 的为必填项。",
+    "noscript": "此表单需要启用 JavaScript。请在浏览器中开启后再发送询盘。",
+    "honeypot": "请勿填写此字段",
+    "groups": {
+      "contact": "关于您",
+      "product": "您的需求",
+      "delivery": "交付与价格",
+      "extra": "更多信息"
+    },
+    "fields": {
+      "name": { "label": "您的姓名" },
+      "company": { "label": "公司名称" },
+      "country": { "label": "国家/地区" },
+      "email": { "label": "电子邮箱" },
+      "phone": { "label": "电话", "hint": "请包含国家/地区区号。" },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "hint": "如希望通过 WhatsApp 联系，请填写并包含国家/地区区号。"
+      },
+      "product": { "label": "产品", "hint": "您想寻源的产品名称或类型。" },
+      "category": { "label": "产品类别" },
+      "quantity": {
+        "label": "数量",
+        "hint": "请注明单位，例如件、套、千克或集装箱。"
+      },
+      "specification": {
+        "label": "规格",
+        "hint": "材质、尺寸、标准、包装、品牌或其他要求。"
+      },
+      "targetPrice": {
+        "label": "目标价格",
+        "hint": "请注明币种和计价单位，例如每件。"
+      },
+      "destinationCountry": {
+        "label": "目的国家/地区",
+        "hint": "货物需要送达的地方。"
+      },
+      "requiredDeliveryDate": {
+        "label": "要求交货日期",
+        "hint": "您需要收到货物的日期。"
+      },
+      "additionalRequirements": { "label": "其他要求" },
+      "attachment": { "label": "附件" },
+      "consent": { "label": "隐私同意" }
+    },
+    "select": {
+      "country": "选择国家或地区",
+      "category": "选择产品类别",
+      "destinationCountry": "选择国家或地区"
+    },
+    "attachment": {
+      "hint": "选填。仅限一个文件，不超过 {size, number} MB。支持的格式：{types}。",
+      "choose": "选择文件",
+      "replace": "更换文件",
+      "none": "未选择文件",
+      "remove": "移除文件",
+      "removeNamed": "移除 {name}"
+    },
+    "consent": "我同意，我提交的信息可用于审阅并回复我的询盘，详见<privacy>隐私政策</privacy>。",
+    "submit": "提交贸易询盘",
+    "submitting": "正在发送询盘",
+    "summaryTitle": "请检查以下字段",
+    "error": {
+      "title": "无法发送您的询盘",
+      "hint": "您填写的内容仍保留在表单中。",
+      "retry": "重试"
+    }
+  },
+  "success": {
+    "title": "已收到您的询盘",
+    "lead": "谢谢。您的询盘已记录，我们的团队可以开始审阅。",
+    "referenceLabel": "参考编号",
+    "referenceHint": "请保留此编号，就本询盘与我们联系时请提供。",
+    "next": "我们的团队会进行审阅，如需更多信息可能与您联系。我们无法承诺回复时限。",
+    "another": "再发送一份询盘",
+    "browse": "浏览产品类别"
+  }
+}

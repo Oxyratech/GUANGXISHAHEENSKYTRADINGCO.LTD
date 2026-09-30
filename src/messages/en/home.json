@@ -1,1 +1,120 @@
-{}
+{
+  "meta": {
+    "title": "International Trading & Sourcing",
+    "description": "A China-based international trading company registered in Nanning, Guangxi. GUANGXI SHAHEEN SKY TRADING CO., LTD. supports product sourcing, supplier sourcing and import and export for international buyers."
+  },
+  "hero": {
+    "eyebrow": "Nanning, Guangxi, China",
+    "description": "<n>{name}</n> (<zh>{nameZh}</zh>) is a China-based international trading company focused on sourcing, importing, exporting and connecting businesses with products and supply opportunities across global markets.",
+    "illustration": "Decorative world map illustration centered on Nanning, Guangxi"
+  },
+  "credibility": {
+    "eyebrow": "Registered facts",
+    "title": "On the record",
+    "caption": "Registration details as shown on the company's <link>business license</link>",
+    "facts": {
+      "established": "Established",
+      "capital": "Registered capital",
+      "location": "Location",
+      "focus": "Registered focus"
+    },
+    "values": {
+      "location": "Nanning, Guangxi, China",
+      "focus": "International trading & sourcing"
+    }
+  },
+  "business": {
+    "eyebrow": "What we do",
+    "title": "Six lines of business",
+    "description": "Each line has its own page describing what it covers and how it relates to the company's registered business scope.",
+    "cta": "Explore our business"
+  },
+  "categories": {
+    "eyebrow": "Product categories",
+    "title": "Product categories available for sourcing and trade",
+    "description": "{count} categories drawn from the company's registered business scope. They mark areas open to sourcing and trade, not current stock.",
+    "cta": "Browse product categories"
+  },
+  "sourcing": {
+    "eyebrow": "Global sourcing",
+    "title": "Tell us what you need",
+    "description": "Send a business inquiry describing what you are looking for. Our team reviews every inquiry against the areas the company is registered to trade in.",
+    "illustration": "Abstract illustration representing product sourcing",
+    "checklist": {
+      "title": "What to include in a sourcing brief",
+      "items": {
+        "product": "The product or product type, with any model, material or size in mind",
+        "quantity": "The quantity you are considering, and whether it is a one-time or a repeat order",
+        "specification": "Specifications, standards, and packaging or branding requirements",
+        "destination": "The destination country and the date you need the goods by"
+      }
+    },
+    "cta": "Request a quote"
+  },
+  "process": {
+    "eyebrow": "How trade works",
+    "title": "A typical trade process",
+    "description": "Eight steps from first inquiry to delivery. It is a typical process, not a fixed procedure: not every step applies to every order.",
+    "cta": "See how the process works"
+  },
+  "why": {
+    "eyebrow": "Why work with us",
+    "title": "What you can rely on",
+    "points": {
+      "verifiable": {
+        "title": "A verifiable registration",
+        "body": "The company is registered in Nanning, Guangxi, and its registration can be checked directly on China's National Enterprise Credit Information Publicity System."
+      },
+      "scope": {
+        "title": "A transparent registered scope",
+        "body": "The full registered business scope is published on this site as recorded on the business license, not summarized or selectively shown."
+      },
+      "inquiryProcess": {
+        "title": "A structured inquiry process",
+        "body": "Every business inquiry follows the same review process, set out in full before you send one."
+      },
+      "languages": {
+        "title": "Built for three languages",
+        "body": "The website and the inquiry form work in English, Chinese (简体中文) and Arabic (العربية)."
+      },
+      "contact": {
+        "title": "A single point of contact",
+        "body": "One inquiry reaches the team responsible for reviewing it, without needing to find the right department first."
+      }
+    }
+  },
+  "cta": {
+    "title": "Ready to send a business inquiry?",
+    "description": "Describe what you are looking for. There is no cost to submit an inquiry, and no obligation to order.",
+    "primary": "Submit trade inquiry",
+    "secondary": "Contact us"
+  },
+  "company": {
+    "eyebrow": "Company information",
+    "title": "Registered company details",
+    "description": "These details are taken from the company's business license. The full registration record, the license image and the official register are on the company information page.",
+    "facts": {
+      "nameEn": "Official English name",
+      "nameZh": "Chinese name",
+      "representative": "Legal representative",
+      "uscc": "Unified Social Credit Code",
+      "address": "Registered address"
+    },
+    "licenseAlt": "Preview of the company's business license",
+    "cta": "View company information"
+  },
+  "contact": {
+    "eyebrow": "Contact",
+    "title": "Get in touch",
+    "description": "Send a business inquiry for a specific request, or use the contact page for anything else. Contact channels are shown here only once the company has published one.",
+    "addressLabel": "Registered address",
+    "addressTranslationLabel": "Unofficial translation",
+    "inquiryCta": "Send an inquiry",
+    "contactCta": "Contact us",
+    "channels": {
+      "email": "Email",
+      "phone": "Phone",
+      "whatsapp": "WhatsApp"
+    }
+  }
+}

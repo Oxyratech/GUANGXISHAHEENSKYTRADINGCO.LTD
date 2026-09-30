@@ -1,1 +1,122 @@
-{}
+{
+  "meta": {
+    "title": "产品类别与寻源",
+    "description": "浏览公司登记经营的十二个产品类别，并发送询盘，从中国采购所需产品。"
+  },
+  "index": {
+    "eyebrow": "产品类别",
+    "title": "面向寻源与贸易的产品类别",
+    "description": "十二个贸易领域均取自公司登记的经营范围。产品按采购商的具体需求寻源，因此如有明确需求，请先发送询盘。",
+    "categories": {
+      "heading": "十二个登记经营的贸易领域",
+      "description": "打开任一类别，可查看对应的登记经营范围及已发布的产品。"
+    },
+    "published": {
+      "heading": "已发布的产品",
+      "description": "本网站已发布的产品。各类别页面会列出该类别下的产品。",
+      "more": "已显示 {shown} 个，共 {total} 个已发布产品。请进入相应类别查看其余产品。"
+    },
+    "closing": {
+      "title": "在寻找某款具体产品？",
+      "description": "请告知产品、规格、数量和目的市场，我们将审阅您的需求。"
+    }
+  },
+  "category": {
+    "eyebrow": "产品类别",
+    "meta": {
+      "title": "{name}寻源与贸易",
+      "pageTitle": "{title}（第 {page} 页）",
+      "description": "{summary}此为登记经营的贸易领域，并非现有库存。请发送询盘，就该类别产品进行寻源。"
+    },
+    "scope": {
+      "heading": "该类别的登记经营范围"
+    },
+    "products": {
+      "heading": "已发布的产品",
+      "description": "本类别下已在本网站发布的产品。",
+      "summary": "显示第 {from}–{to} 项，共 {total} 项"
+    },
+    "others": {
+      "heading": "其他产品类别",
+      "all": "全部产品类别"
+    }
+  },
+  "card": {
+    "count": "{count, plural, other {已发布 # 个产品}}",
+    "explore": "浏览该类别"
+  },
+  "regulated": {
+    "badge": "受监管",
+    "title": "受监管货物"
+  },
+  "empty": {
+    "category": {
+      "title": "本类别下尚未发布任何产品。",
+      "description": "产品按采购商的具体需求寻源。请发送询盘，说明您在{category}方面的需求，我们将予以审阅。",
+      "action": "就该类别发送询盘"
+    },
+    "index": {
+      "title": "尚未发布任何产品。",
+      "description": "产品按采购商的具体需求寻源。请发送询盘，说明您的需求，我们将予以审阅。"
+    }
+  },
+  "unavailable": {
+    "title": "产品列表暂时无法显示",
+    "description": "我们暂时无法加载已发布的产品。请稍后再试，或发送询盘说明您的需求。"
+  },
+  "pagination": {
+    "label": "产品分页",
+    "previous": "上一页",
+    "next": "下一页",
+    "page": "第 {page} 页"
+  },
+  "detail": {
+    "eyebrow": "产品",
+    "categoryLabel": "类别",
+    "originLabel": "产地",
+    "summaryLabel": "产品概要",
+    "meta": {
+      "fallbackDescription": "{category}类别下的{name}。发送询盘，可咨询规格、数量和交付事宜。"
+    },
+    "actions": {
+      "title": "对这款产品感兴趣？",
+      "sendBusinessInquiry": "发送商务询盘",
+      "note": "本页不列出价格、最小起订量或交货期。请发送询盘并说明您的需求，以便咨询相关事项。"
+    },
+    "sections": {
+      "description": "产品说明",
+      "applications": "应用领域",
+      "packaging": "包装信息",
+      "specifications": "规格参数",
+      "documents": "相关文件",
+      "related": "{category}下的更多产品",
+      "relatedCategories": "浏览其他类别"
+    },
+    "translationNotice": {
+      "title": "以英文显示",
+      "body": "该产品尚无您所用语言的译文，因此详情以英文显示。"
+    }
+  },
+  "gallery": {
+    "label": "产品图片",
+    "thumbnails": "选择图片",
+    "showImage": "第 {position} 张，共 {total} 张：{alt}",
+    "noImage": "尚未发布{name}的照片。"
+  },
+  "specifications": {
+    "caption": "{name}的规格参数",
+    "specification": "参数",
+    "value": "数值"
+  },
+  "documents": {
+    "listLabel": "{name}的相关文件",
+    "download": "下载",
+    "downloadLabel": "下载{title}（{type}，{size}）",
+    "kinds": {
+      "SPECIFICATION_SHEET": "规格书",
+      "CATALOGUE": "产品目录",
+      "CERTIFICATE": "证书",
+      "OTHER": "文件"
+    }
+  }
+}

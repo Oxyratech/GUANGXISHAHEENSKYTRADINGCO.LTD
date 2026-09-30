@@ -1,1 +1,47 @@
-{}
+{
+  "meta": {
+    "title": "News and updates",
+    "pagedTitle": "News and updates, page {page}",
+    "description": "News and updates from Guangxi Shaheen Sky Trading Co., Ltd., a China trading company in Nanning, Guangxi working in product sourcing, import and export."
+  },
+  "hero": {
+    "eyebrow": "Company news",
+    "title": "News and updates",
+    "description": "Announcements and updates from <company>Guangxi Shaheen Sky Trading Co., Ltd.</company>, a China trading company based in Nanning, Guangxi."
+  },
+  "list": {
+    "heading": "Latest articles",
+    "readArticle": "Read article"
+  },
+  "filter": {
+    "heading": "Categories",
+    "all": "All articles",
+    "tagNotice": "Showing articles tagged <strong>{tag}</strong>.",
+    "clear": "Show all articles"
+  },
+  "empty": {
+    "title": "No news articles have been published yet.",
+    "description": "News will appear here once it is published. In the meantime, you can look at what we do or send us an inquiry.",
+    "filteredTitle": "No articles match this filter.",
+    "filteredDescription": "There are no published articles in this category or with this tag yet.",
+    "showAll": "View all news"
+  },
+  "unavailable": {
+    "title": "We could not load the news"
+  },
+  "article": {
+    "byline": "By <author>{name}</author>",
+    "published": "Published",
+    "category": "Category",
+    "tags": "Tags",
+    "backToNews": "Back to all news",
+    "related": {
+      "heading": "More news"
+    },
+    "cta": {
+      "eyebrow": "Business inquiry",
+      "title": "Have a sourcing, import or export requirement?",
+      "description": "Tell us what you are looking for. Send an inquiry with the details of the products you want to source, import or export, and our team will review it."
+    }
+  }
+}

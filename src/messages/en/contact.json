@@ -1,1 +1,85 @@
-{}
+{
+  "meta": {
+    "title": "Contact Us",
+    "description": "Contact {name} ({nameZh}), a China trading company in Nanning, Guangxi. Send a business inquiry, write to our team, or see the registered company information and location."
+  },
+  "page": {
+    "eyebrow": "Contact",
+    "title": "Contact our team",
+    "lead": "For product sourcing, supplier sourcing, wholesale sourcing or import and export questions, send a business inquiry or write to us with the form below. The company details on this page are as registered.",
+    "breadcrumb": "Contact"
+  },
+  "channels": {
+    "title": "Business contact",
+    "lead": "The company's direct channels, as published.",
+    "email": "Email",
+    "phone": "Phone",
+    "whatsapp": "WhatsApp",
+    "none": {
+      "title": "No public phone, email or WhatsApp is published yet",
+      "body": "To reach the team, use the business inquiry form or the contact form on this page."
+    },
+    "inquiryLink": "Send business inquiry",
+    "formLink": "Write to us"
+  },
+  "inquiry": {
+    "title": "Business inquiry",
+    "body": "Looking to source, import or export goods? The business inquiry form collects what our team needs to review a request for quotation: product, quantity, specification, destination and timing.",
+    "cta": "Send business inquiry"
+  },
+  "company": {
+    "title": "Company information",
+    "lead": "The company as registered on its business license.",
+    "rows": {
+      "legalName": "Registered name",
+      "legalNameZh": "Registered name (Chinese)",
+      "legalRepresentative": "Legal representative",
+      "capital": "Registered capital",
+      "established": "Established",
+      "uscc": "Unified Social Credit Code"
+    },
+    "capitalValue": "RMB {amount, number}",
+    "link": "See full company information"
+  },
+  "location": {
+    "title": "Location",
+    "city": "Nanning, Guangxi, China",
+    "addressLabel": "Registered address",
+    "translation": "Unofficial English translation: <latin>Room 603, Unit 1, Building 4, No. 6 Guiya Road, Qingxiu District, Nanning, Guangxi, China</latin>",
+    "note": "This is the registered address shown on the business license. To arrange a meeting, please contact us first through the inquiry form or the contact form."
+  },
+  "form": {
+    "title": "Write to us",
+    "lead": "For general questions. For a quotation or a sourcing request, use the <link>business inquiry form</link> instead.",
+    "requiredNote": "Fields marked with * are required.",
+    "noscript": "This form needs JavaScript. Please turn it on in your browser to send a message.",
+    "honeypot": "Leave this field empty",
+    "fields": {
+      "name": { "label": "Your name" },
+      "company": { "label": "Company" },
+      "email": { "label": "Email" },
+      "phone": { "label": "Phone", "hint": "Include the country code." },
+      "country": { "label": "Country" },
+      "message": { "label": "Message", "hint": "Tell us what you would like to ask or discuss." },
+      "consent": { "label": "Privacy consent" }
+    },
+    "select": { "country": "Select a country" },
+    "consent": "I agree that the details I submit may be used to read and respond to my message, as described in the <privacy>Privacy Policy</privacy>.",
+    "submit": "Send message",
+    "submitting": "Sending your message",
+    "summaryTitle": "Please check these fields",
+    "error": {
+      "title": "We could not send your message",
+      "hint": "Your details are still in the form.",
+      "retry": "Try again"
+    }
+  },
+  "success": {
+    "title": "Your message has been received",
+    "lead": "Thank you. Your message is recorded and our team can now read it.",
+    "referenceLabel": "Reference code",
+    "referenceHint": "Please keep this code and quote it if you contact us about this message.",
+    "next": "Our team may contact you if a reply is needed. We cannot promise a response time.",
+    "another": "Send another message"
+  }
+}

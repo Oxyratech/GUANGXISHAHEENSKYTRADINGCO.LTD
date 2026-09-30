@@ -1,1 +1,85 @@
-{}
+{
+  "meta": {
+    "title": "联系我们",
+    "description": "联系{nameZh}（{name}），一家位于广西南宁的中国贸易公司。您可以发送商务询盘、给我们的团队留言，或查看公司的注册信息与所在地。"
+  },
+  "page": {
+    "eyebrow": "联系",
+    "title": "联系我们的团队",
+    "lead": "如有产品寻源、供应商寻源、批发采购或进出口方面的问题，请发送商务询盘，或通过下方表单给我们留言。本页列出的公司信息均以登记为准。",
+    "breadcrumb": "联系我们"
+  },
+  "channels": {
+    "title": "商务联系方式",
+    "lead": "以下为公司公布的直接联系渠道。",
+    "email": "电子邮箱",
+    "phone": "电话",
+    "whatsapp": "WhatsApp",
+    "none": {
+      "title": "目前尚未公布公开的电话、邮箱或 WhatsApp",
+      "body": "如需联系我们的团队，请使用商务询盘表单或本页的留言表单。"
+    },
+    "inquiryLink": "发送商务询盘",
+    "formLink": "给我们留言"
+  },
+  "inquiry": {
+    "title": "商务询盘",
+    "body": "需要寻源、进口或出口货物？商务询盘表单会收集团队审阅报价请求所需的信息：产品、数量、规格、目的地和时间。",
+    "cta": "发送商务询盘"
+  },
+  "company": {
+    "title": "公司信息",
+    "lead": "以下为公司营业执照上登记的信息。",
+    "rows": {
+      "legalName": "登记名称（英文）",
+      "legalNameZh": "登记名称（中文）",
+      "legalRepresentative": "法定代表人",
+      "capital": "注册资本",
+      "established": "成立日期",
+      "uscc": "统一社会信用代码"
+    },
+    "capitalValue": "人民币 {amount, number} 元",
+    "link": "查看完整公司信息"
+  },
+  "location": {
+    "title": "所在地",
+    "city": "中国广西南宁",
+    "addressLabel": "注册地址（住所）",
+    "translation": "英文译文（非官方）：<latin>Room 603, Unit 1, Building 4, No. 6 Guiya Road, Qingxiu District, Nanning, Guangxi, China</latin>",
+    "note": "此为营业执照所载的注册地址。如需安排会面，请先通过询盘表单或留言表单与我们联系。"
+  },
+  "form": {
+    "title": "给我们留言",
+    "lead": "适用于一般咨询。如需报价或寻源，请改用<link>商务询盘表单</link>。",
+    "requiredNote": "带 * 的为必填项。",
+    "noscript": "此表单需要启用 JavaScript。请在浏览器中开启后再发送留言。",
+    "honeypot": "请勿填写此字段",
+    "fields": {
+      "name": { "label": "您的姓名" },
+      "company": { "label": "公司名称" },
+      "email": { "label": "电子邮箱" },
+      "phone": { "label": "电话", "hint": "请包含国家/地区区号。" },
+      "country": { "label": "国家/地区" },
+      "message": { "label": "留言内容", "hint": "请说明您想咨询或洽谈的内容。" },
+      "consent": { "label": "隐私同意" }
+    },
+    "select": { "country": "选择国家或地区" },
+    "consent": "我同意，我提交的信息可用于阅读并回复我的留言，详见<privacy>隐私政策</privacy>。",
+    "submit": "发送留言",
+    "submitting": "正在发送留言",
+    "summaryTitle": "请检查以下字段",
+    "error": {
+      "title": "无法发送您的留言",
+      "hint": "您填写的内容仍保留在表单中。",
+      "retry": "重试"
+    }
+  },
+  "success": {
+    "title": "已收到您的留言",
+    "lead": "谢谢。您的留言已记录，我们的团队可以阅读。",
+    "referenceLabel": "参考编号",
+    "referenceHint": "请保留此编号，就本留言与我们联系时请提供。",
+    "next": "如需回复，我们的团队可能会与您联系。我们无法承诺回复时限。",
+    "another": "再发送一条留言"
+  }
+}

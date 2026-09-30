@@ -1,1 +1,120 @@
-{}
+{
+  "meta": {
+    "title": "国际贸易与寻源",
+    "description": "广西沙欣斯凯商贸有限责任公司是一家注册于中国广西南宁的国际贸易公司，支持产品寻源、供应商寻源及进出口业务，服务全球采购商。"
+  },
+  "hero": {
+    "eyebrow": "中国广西南宁",
+    "description": "<zh>{nameZh}</zh>（<n>{name}</n>）是一家立足中国的国际贸易公司，专注于产品寻源、进口与出口，帮助企业对接全球市场中的产品与供应机会。",
+    "illustration": "以南宁为中心的世界地图装饰插画"
+  },
+  "credibility": {
+    "eyebrow": "登记信息",
+    "title": "有据可查",
+    "caption": "登记信息均以公司<link>营业执照</link>所载为准",
+    "facts": {
+      "established": "成立日期",
+      "capital": "注册资本",
+      "location": "注册地",
+      "focus": "登记业务方向"
+    },
+    "values": {
+      "location": "中国广西南宁",
+      "focus": "国际贸易与寻源"
+    }
+  },
+  "business": {
+    "eyebrow": "业务范围",
+    "title": "六大业务方向",
+    "description": "每个业务方向均设有独立页面，说明其具体内容及与公司注册经营范围的关系。",
+    "cta": "了解我们的业务"
+  },
+  "categories": {
+    "eyebrow": "产品类别",
+    "title": "可供寻源与贸易的产品类别",
+    "description": "{count} 个类别均来自公司注册经营范围，标示可供寻源与贸易的领域，而非现有库存。",
+    "cta": "浏览产品类别"
+  },
+  "sourcing": {
+    "eyebrow": "全球寻源",
+    "title": "告诉我们您的需求",
+    "description": "发送商务询盘，说明您所需的产品。我们会对照公司注册经营范围审核每一条询盘。",
+    "illustration": "代表产品寻源的抽象插画",
+    "checklist": {
+      "title": "寻源需求应包含的内容",
+      "items": {
+        "product": "产品或产品类型，如有具体型号、材质或尺寸也请一并说明",
+        "quantity": "预计采购数量，以及是单次采购还是长期复购",
+        "specification": "规格、标准，以及包装或品牌方面的要求",
+        "destination": "目的地国家及所需交货日期"
+      }
+    },
+    "cta": "获取报价"
+  },
+  "process": {
+    "eyebrow": "贸易如何进行",
+    "title": "典型贸易流程",
+    "description": "从首次询盘到交付共八个步骤。此为典型流程，并非固定程序，并非每一步都适用于所有订单。",
+    "cta": "查看流程详情"
+  },
+  "why": {
+    "eyebrow": "为何选择我们",
+    "title": "您可以确认的事实",
+    "points": {
+      "verifiable": {
+        "title": "登记信息可查验",
+        "body": "公司注册于中国广西南宁，其登记信息可直接在国家企业信用信息公示系统上查验。"
+      },
+      "scope": {
+        "title": "经营范围公开透明",
+        "body": "公司注册经营范围的完整内容均已在本网站公开，均以营业执照所载为准，未作删减或选择性展示。"
+      },
+      "inquiryProcess": {
+        "title": "规范的询盘流程",
+        "body": "每一条商务询盘均遵循相同的审核流程，且该流程在您发送询盘前已完整说明。"
+      },
+      "languages": {
+        "title": "支持三种语言",
+        "body": "本网站及询盘表单均支持英语、简体中文与阿拉伯语（العربية）。"
+      },
+      "contact": {
+        "title": "统一的联系窗口",
+        "body": "每一条询盘均会送达负责审核的团队，无需自行查找对应部门。"
+      }
+    }
+  },
+  "cta": {
+    "title": "准备好发送商务询盘了吗？",
+    "description": "请说明您的具体需求。提交询盘不收取任何费用，也不构成下单义务。",
+    "primary": "提交贸易询盘",
+    "secondary": "联系我们"
+  },
+  "company": {
+    "eyebrow": "公司信息",
+    "title": "注册公司信息",
+    "description": "以下信息均取自公司营业执照。完整的登记信息、执照图片及官方查询入口详见公司信息页面。",
+    "facts": {
+      "nameEn": "官方英文名称",
+      "nameZh": "中文名称",
+      "representative": "法定代表人",
+      "uscc": "统一社会信用代码",
+      "address": "注册地址（住所）"
+    },
+    "licenseAlt": "公司营业执照预览图",
+    "cta": "查看公司信息"
+  },
+  "contact": {
+    "eyebrow": "联系我们",
+    "title": "与我们取得联系",
+    "description": "如有具体需求，请发送商务询盘；其他事宜请使用联系页面。仅当公司已公开相应联系方式时，此处才会显示。",
+    "addressLabel": "注册地址",
+    "addressTranslationLabel": "非官方翻译",
+    "inquiryCta": "发送询盘",
+    "contactCta": "联系我们",
+    "channels": {
+      "email": "电子邮箱",
+      "phone": "电话",
+      "whatsapp": "WhatsApp"
+    }
+  }
+}

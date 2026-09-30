@@ -1,1 +1,89 @@
-{}
+{
+  "meta": {
+    "title": "公司信息与营业执照",
+    "description": "{nameZh}（{name}）的注册信息：名称、注册资本、注册地址和统一社会信用代码，并附营业执照与登记的经营范围。"
+  },
+  "hero": {
+    "eyebrow": "公司信息",
+    "title": "公司信息与营业执照",
+    "description": "公司的注册信息取自其营业执照，并附营业执照图像，以及可核验注册信息的官方公示系统。",
+    "onThisPage": "本页内容",
+    "anchors": {
+      "registration": "注册信息",
+      "license": "营业执照",
+      "scope": "经营范围"
+    }
+  },
+  "registration": {
+    "eyebrow": "注册登记",
+    "title": "注册信息",
+    "description": "以下信息取自公司营业执照，以营业执照上的中文记载为准。"
+  },
+  "facts": {
+    "nameEn": "官方英文名称",
+    "nameZh": "中文名称",
+    "type": "公司类型",
+    "representative": "法定代表人",
+    "capital": "注册资本",
+    "established": "成立日期",
+    "address": "注册地址（住所）",
+    "uscc": "统一社会信用代码",
+    "authority": "登记机关",
+    "issued": "发照日期",
+    "unofficialTranslation": "非官方译文",
+    "copy": {
+      "label": "复制代码",
+      "copied": "已复制",
+      "announce": "统一社会信用代码已复制到剪贴板",
+      "failed": "无法复制，请选中代码后手动复制。"
+    }
+  },
+  "license": {
+    "eyebrow": "官方文件",
+    "title": "官方营业执照文件",
+    "description": "下图为公司营业执照的副本，按原样展示，未作任何修改。请与上方的注册信息对照阅读。",
+    "caption": "<zh>{titleZh}</zh>，签发日期：{date}。",
+    "copyNote": "此处仅展示执照副本。网站上的副本不能证明公司当前的登记状态，请以官方公示系统中的记录为准。",
+    "viewer": {
+      "previewAlt": "公司营业执照照片：横向证书，以中文印制，四周为装饰性花边，顶部居中为证书标题，登记事项分两栏排列，其下为经营范围，右下角有红色官方印章。全部内容亦以文字形式列于本页。",
+      "viewFullSize": "查看大图",
+      "openOriginal": "打开原始文件",
+      "opensInNewTab": "在新标签页中打开",
+      "dialogTitle": "营业执照大图",
+      "dialogDescription": "使用缩放按钮放大文件。放大后，可滚动页面或使用方向键查看其他位置。",
+      "close": "关闭",
+      "zoomControls": "缩放控制",
+      "zoomIn": "放大",
+      "zoomOut": "缩小",
+      "zoomReset": "重置缩放",
+      "zoomLevel": "缩放：{percent}",
+      "scrollRegion": "营业执照图像。放大后可滚动查看其他位置。"
+    },
+    "verify": {
+      "title": "如何核验注册信息",
+      "intro": "企业登记信息属于公开信息。您可以自行在国家官方公示系统中查询本公司的登记情况。",
+      "steps": {
+        "open": "打开<link><zh>{systemZh}</zh></link>。执照上印制的二维码也可直达该系统。",
+        "search": "使用公司中文名称或统一社会信用代码进行查询。该代码已列于上方的注册信息中，也印制在执照上。",
+        "compare": "将查询到的记录与本页信息及执照内容核对。如有出入，以官方记录为准，并请<contact>告知我们</contact>，以便我们更正本页。"
+      },
+      "action": "打开核验系统"
+    }
+  },
+  "scope": {
+    "eyebrow": "登记的经营活动",
+    "stats": "共 {count} 项一般经营项目，分为 {groups} 个类别",
+    "qualifierTitle": "适用于全部经营范围",
+    "officialLegend": "各项目均按营业执照上印制的原文列示。",
+    "translationTitle": "关于译文",
+    "regulatedTitle": "许可与批准",
+    "fullText": {
+      "summary": "查看营业执照所载经营范围原文",
+      "note": "以下为一般经营项目及其限定说明的中文原文，顺序与措辞均与营业执照一致。"
+    },
+    "notPublished": {
+      "title": "登记的经营范围不等于当前已发布的产品",
+      "body": "经营范围记载的是公司依法登记可以从事的经营活动，并不表示某一产品当前正在供应、有库存或有特定价格。您可以浏览产品类别，了解已发布的内容，或就具体需求发送询盘。"
+    }
+  }
+}

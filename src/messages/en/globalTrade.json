@@ -1,1 +1,282 @@
-{}
+{
+  "meta": {
+    "title": "Global Trade Support for International Buyers",
+    "description": "How a China trading company in Nanning, Guangxi supports international buyers: product and supplier sourcing, trade documents, and shipping and export coordination."
+  },
+  "readFaq": "Read the FAQ",
+  "process": {
+    "label": "Typical Trade Process",
+    "note": "A typical flow, not a fixed procedure. Which steps apply, and in what order, depends on the product, the supplier and the destination, and is confirmed for each inquiry.",
+    "provideLabel": "What you provide",
+    "doLabel": "What we typically do",
+    "inquiry": {
+      "title": "Inquiry",
+      "summary": "You tell us what you are looking for.",
+      "detail": "You describe the goods you want to source or trade, the quantity and the market you have in mind, through the inquiry form. The clearer the description, the easier it is to assess.",
+      "provide": {
+        "a": "The name and description of the product you need, with any specifications or standards",
+        "b": "The quantity you need and the destination country or market",
+        "c": "Your company and contact details, so that we can reply"
+      },
+      "do": {
+        "a": "Typically review your inquiry and how it fits the registered product categories",
+        "b": "Typically ask questions if something is unclear or missing",
+        "c": "Typically confirm whether the request can be taken forward"
+      }
+    },
+    "requirement-analysis": {
+      "title": "Requirement Analysis",
+      "summary": "We clarify the requirement with you.",
+      "detail": "Specifications, quantity, target market, quality expectations and timing are reviewed together, and anything unclear or missing is raised, so that sourcing starts from a well-defined brief.",
+      "provide": {
+        "a": "Specifications, materials, sizes or standards",
+        "b": "Your quality, packaging and labeling expectations",
+        "c": "Your target price and timing, if you have them, and any drawings, photos or reference links"
+      },
+      "do": {
+        "a": "Typically go through your requirements and ask about missing information",
+        "b": "Typically point out regulated goods or documents your market may require",
+        "c": "Typically summarize the requirement so that both sides work from the same brief"
+      }
+    },
+    "sourcing": {
+      "title": "Product / Supplier Sourcing",
+      "summary": "We look for products and suppliers that fit the brief.",
+      "detail": "Working from the agreed requirements, candidate products and suppliers are identified within the registered product categories, and information is exchanged with them. Availability depends on the product and the market; nothing is assumed in advance.",
+      "provide": {
+        "a": "Your feedback on the products and suppliers we present",
+        "b": "Your answers to supplier questions that we pass on",
+        "c": "Your decision on which options to take forward"
+      },
+      "do": {
+        "a": "Typically look for products and suppliers that match the brief",
+        "b": "Typically communicate with suppliers to collect product information",
+        "c": "Typically present the options that fit, together with the information gathered"
+      }
+    },
+    "quotation": {
+      "title": "Quotation & Commercial Discussion",
+      "summary": "Price and terms are discussed until both sides agree.",
+      "detail": "A quotation is prepared from the requirement and the supplier's terms. Price, quantity, payment and delivery terms and timing are discussed and set for each order; none of them is fixed in advance.",
+      "provide": {
+        "a": "Your preferred terms, such as quantity, delivery terms and payment method",
+        "b": "Your questions, comments or changes on the quotation",
+        "c": "Your decision to proceed or to adjust the request"
+      },
+      "do": {
+        "a": "Typically prepare a quotation based on the supplier's terms",
+        "b": "Typically coordinate the discussion of price and terms between you and the supplier",
+        "c": "Typically summarize the terms as they are agreed"
+      }
+    },
+    "order-confirmation": {
+      "title": "Order Confirmation",
+      "summary": "The agreed terms are confirmed before the order goes ahead.",
+      "detail": "Once the commercial terms are agreed, the order details are confirmed so that everyone works from the same information. The form the confirmation takes depends on the order.",
+      "provide": {
+        "a": "Your confirmation of the final order details",
+        "b": "Any payment or other arrangements that the agreed terms call for",
+        "c": "The company details needed for the order and its documents"
+      },
+      "do": {
+        "a": "Typically summarize the order for your confirmation",
+        "b": "Typically pass the confirmed order on to the supplier",
+        "c": "Typically agree the next steps and who does what"
+      }
+    },
+    "documentation": {
+      "title": "Documentation Coordination",
+      "summary": "Trade documents are prepared and coordinated.",
+      "detail": "International shipments typically involve documents such as a commercial invoice, a packing list and a transport document, and, depending on the goods and the countries involved, others such as a certificate of origin or export and import declarations. Requirements vary by product, origin and destination.",
+      "provide": {
+        "a": "Consignee and importer details as they should appear on the documents",
+        "b": "Import licenses, permits or other requirements of your market, where they apply",
+        "c": "Any document requirements you already know of"
+      },
+      "do": {
+        "a": "Typically coordinate the preparation of the documents the order calls for, with the supplier and the other parties involved",
+        "b": "Typically review the details across documents for consistency",
+        "c": "Typically point out unclear requirements, so that they can be confirmed with the relevant authority or an adviser"
+      }
+    },
+    "shipping": {
+      "title": "Shipping / Export Coordination",
+      "summary": "Shipping and export arrangements are coordinated.",
+      "detail": "Depending on the agreed terms, the handover of the goods for transport and export is coordinated with the suppliers and the parties handling them. Method, routing and timing depend on the goods, the destination and the terms agreed for the order.",
+      "provide": {
+        "a": "Delivery terms and destination details",
+        "b": "The forwarder or carrier you have appointed, if you use your own",
+        "c": "A contact who can receive shipping updates"
+      },
+      "do": {
+        "a": "Typically coordinate the handover of the goods for transport and export",
+        "b": "Typically liaise with the parties that handle transport and export formalities",
+        "c": "Typically share shipping information with you as it becomes available"
+      }
+    },
+    "delivery": {
+      "title": "Delivery",
+      "summary": "The goods reach the agreed destination.",
+      "detail": "A typical order ends with delivery to the destination agreed for it. What happens at the destination, such as import clearance, depends on the agreed terms and is handled by the parties responsible for it under those terms.",
+      "provide": {
+        "a": "Receipt of the goods at the agreed destination",
+        "b": "Inspection of the goods on arrival",
+        "c": "Prompt notice of any issue with the delivery"
+      },
+      "do": {
+        "a": "Typically confirm with you that delivery is complete",
+        "b": "Typically help coordinate with the supplier if an issue with the delivery is reported",
+        "c": "Typically stay in touch for any follow-up questions about the order"
+      }
+    }
+  },
+  "overview": {
+    "eyebrow": "Global trade",
+    "title": "Cross-border trade support for international buyers",
+    "description": "We are a China trading company registered in Nanning, Guangxi. We help international buyers and importers source products and suppliers, and coordinate the steps that follow, from quotation to trade documents and shipping.",
+    "mapCaption": "Registered in Nanning, Guangxi, China.",
+    "support": {
+      "eyebrow": "How we support trade",
+      "title": "Support for the steps of a cross-border order",
+      "description": "A high-level view of where we can help international buyers with sourcing and China import and export trade. Each area is described in more detail on its business page.",
+      "pillars": {
+        "sourcing": {
+          "title": "Product and supplier sourcing",
+          "description": "We look for products and suppliers that match a buyer's requirements within the registered product categories."
+        },
+        "coordination": {
+          "title": "Supplier coordination and quotations",
+          "description": "We coordinate communication between buyers and suppliers, from clarifying the requirement to exchanging quotations and confirming the order."
+        },
+        "logistics": {
+          "title": "Documents, shipping and export",
+          "description": "We help coordinate the trade documents and the shipping and export arrangements that an order calls for, together with the parties involved."
+        }
+      }
+    },
+    "brief": {
+      "eyebrow": "Sourcing brief",
+      "title": "Tell us what you need",
+      "description": "A clear brief makes it easier to give a useful answer. Send what you have; anything missing can be clarified afterwards.",
+      "listTitle": "What to include in your brief",
+      "items": {
+        "product": "The product: its name, description and any specifications or standards",
+        "quantity": "The quantity you need, and whether the order is one-off or repeated",
+        "destination": "The destination country or market, and the delivery terms you prefer",
+        "quality": "Quality, packaging or labeling requirements",
+        "terms": "Your target price and timing, if you have them",
+        "documents": "Any documents, licenses or approvals your market requires, if you know them",
+        "contact": "Your company name and how we can reach you"
+      },
+      "note": "The inquiry form asks for the essentials. This website does not publish prices, minimum order quantities or lead times: they depend on the product and the supplier and are confirmed in each quotation."
+    },
+    "process": {
+      "eyebrow": "Typical process",
+      "title": "From inquiry to delivery",
+      "description": "Eight steps describe how an order typically moves from the first inquiry to delivery. Not every step applies to every order.",
+      "cta": "See the process step by step"
+    },
+    "documents": {
+      "eyebrow": "Documentation",
+      "title": "Documentation coordination",
+      "description": "International trade runs on documents. We help coordinate the documents an order calls for with the supplier and the other parties involved. The documents below are typically involved.",
+      "listTitle": "Documents typically involved",
+      "items": {
+        "invoice": {
+          "name": "Commercial invoice",
+          "description": "Describes the goods sold and the value of the transaction."
+        },
+        "packing": {
+          "name": "Packing list",
+          "description": "Itemizes what is in each package, with quantities and, typically, weights and dimensions."
+        },
+        "transport": {
+          "name": "Transport document",
+          "description": "Issued for the carriage of the goods, for example a bill of lading or an air waybill, depending on the mode of transport."
+        },
+        "origin": {
+          "name": "Certificate of origin",
+          "description": "States where the goods originate. Needed only where the destination or the terms of the order call for it."
+        },
+        "declarations": {
+          "name": "Export and import declarations",
+          "description": "Submitted to customs in the exporting and importing countries, depending on the goods and the circumstances of the trade."
+        }
+      },
+      "note": "Requirements vary by product, origin and destination. Which documents an order needs, and who issues them, is confirmed for each inquiry.",
+      "imageAlt": "Illustration of trade documents"
+    },
+    "shipping": {
+      "eyebrow": "Shipping and export",
+      "title": "Shipping and export coordination",
+      "description": "Once an order is confirmed, the goods have to be handed over, transported and exported. We help coordinate these arrangements with the suppliers and the parties that handle them. This website names no carriers, routes, transit times or freight rates: they depend on the goods, the destination and the terms agreed for each order.",
+      "pointsTitle": "What coordination typically involves",
+      "points": {
+        "handover": "Coordinating the handover of the goods from the supplier for transport and export",
+        "formalities": "Liaising with the parties that handle transport and export formalities",
+        "updates": "Sharing shipping information with you as it becomes available"
+      },
+      "imageAlt": "Illustration of stacked shipping containers"
+    },
+    "compliance": {
+      "eyebrow": "Compliance awareness",
+      "title": "Know the rules before you order",
+      "description": "Trade rules apply to the goods and to the countries they move between. Knowing them early helps avoid surprises later.",
+      "points": {
+        "regulated": {
+          "title": "Some goods are regulated",
+          "description": "Food, medical supplies, certain minerals and some other goods may need licenses, filings, inspection or approvals, and some may be restricted or prohibited."
+        },
+        "varies": {
+          "title": "Requirements differ by country",
+          "description": "What applies depends on the product, its origin and the destination. Each party remains responsible for understanding the rules that apply to its own transaction."
+        },
+        "confirm": {
+          "title": "Raise it early",
+          "description": "If your goods may be regulated, mention it in your inquiry so that it can be discussed from the start. Where a requirement is unclear, it should be confirmed with the relevant authority or an adviser."
+        }
+      },
+      "note": "The registered business scope lists the activities the company is registered to carry on. It does not state that any license, filing or approval is held. See the <scope>registered business scope</scope>."
+    },
+    "cta": {
+      "title": "Ready to describe what you need?",
+      "description": "Send a business inquiry with the details you have."
+    }
+  },
+  "howItWorks": {
+    "meta": {
+      "title": "Typical Trade Process: From Inquiry to Delivery",
+      "description": "The typical trade process from inquiry to delivery: what buyers provide and what we typically do at each step. A typical flow, not a fixed procedure."
+    },
+    "eyebrow": "How it works",
+    "title": "The typical trade process, step by step",
+    "description": "Eight steps describe how an international sourcing and trade order typically moves from inquiry to delivery, and what you and we each typically do at every step.",
+    "atAGlance": "Steps at a glance",
+    "stepsTitle": "Eight typical steps",
+    "stepsDescription": "What you provide and what we typically do at each step. It is a typical flow: for a given order, some steps may be combined, repeated or not needed.",
+    "notes": {
+      "eyebrow": "Good to know",
+      "title": "Important notes",
+      "typical": {
+        "title": "A typical flow, not a fixed procedure",
+        "description": "The process varies with the product, the supplier and the destination. Some steps may be combined, repeated or not needed, and their order can change."
+      },
+      "confirmed": {
+        "title": "Confirmed for each inquiry",
+        "description": "Requirements, documents and terms are confirmed for each inquiry. Nothing on this page is a commitment about a particular order."
+      },
+      "commercial": {
+        "title": "No published prices or lead times",
+        "description": "This website does not publish prices, minimum order quantities, lead times, carriers or freight rates. They depend on the product and the supplier and are confirmed in each quotation."
+      },
+      "regulated": {
+        "title": "Regulated goods",
+        "description": "Some goods need licenses, filings or approvals. If yours may, mention it in your inquiry. See the <faq>FAQ</faq> for more."
+      }
+    },
+    "cta": {
+      "title": "Ready to start with an inquiry?",
+      "description": "Describe what you need in a business inquiry. If you have questions first, the FAQ covers common ones."
+    }
+  }
+}

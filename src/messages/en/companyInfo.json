@@ -1,1 +1,89 @@
-{}
+{
+  "meta": {
+    "title": "Company information and business license",
+    "description": "Registration details of {name} ({nameZh}): names, registered capital, registered address and Unified Social Credit Code, with the business license and the registered business scope."
+  },
+  "hero": {
+    "eyebrow": "Company information",
+    "title": "Company information and business license",
+    "description": "The registration details of the company, taken from its business license, with the license itself and the official register where the registration can be checked.",
+    "onThisPage": "On this page",
+    "anchors": {
+      "registration": "Registration details",
+      "license": "Business license",
+      "scope": "Business scope"
+    }
+  },
+  "registration": {
+    "eyebrow": "Registration",
+    "title": "Registration details",
+    "description": "These details are taken from the business license. The license is issued in Chinese and the Chinese text is the official record. Any English or Arabic shown beside it is an unofficial translation for reference."
+  },
+  "facts": {
+    "nameEn": "Official English name",
+    "nameZh": "Chinese name",
+    "type": "Company type",
+    "representative": "Legal representative",
+    "capital": "Registered capital",
+    "established": "Date of establishment",
+    "address": "Registered address",
+    "uscc": "Unified Social Credit Code",
+    "authority": "Registration authority",
+    "issued": "License issue date",
+    "unofficialTranslation": "Unofficial translation",
+    "copy": {
+      "label": "Copy code",
+      "copied": "Copied",
+      "announce": "Unified Social Credit Code copied to the clipboard",
+      "failed": "Could not copy. Select the code and copy it manually."
+    }
+  },
+  "license": {
+    "eyebrow": "Official document",
+    "title": "Official Business Registration Document",
+    "description": "The image below is a copy of the company's business license, shown without alteration. Read it together with the registration details above.",
+    "caption": "Copy of the business license, issued on {date}. Document title: <zh>{titleZh}</zh>.",
+    "copyNote": "Only a copy of the license is shown here. A copy on a website is not proof of current registration status: the official register is the authority, so check the record there.",
+    "viewer": {
+      "previewAlt": "Photograph of the company's business license: a landscape certificate written in Chinese, with a decorative border, the title at the top center, the registration details in two columns, the business scope below them and a red official stamp at the bottom right. Every detail is also given as text on this page.",
+      "viewFullSize": "View full size",
+      "openOriginal": "Open original file",
+      "opensInNewTab": "opens in a new tab",
+      "dialogTitle": "Business license, full size",
+      "dialogDescription": "Use the zoom buttons to enlarge the document. When it is enlarged, scroll or use the arrow keys to move around it.",
+      "close": "Close",
+      "zoomControls": "Zoom controls",
+      "zoomIn": "Zoom in",
+      "zoomOut": "Zoom out",
+      "zoomReset": "Reset zoom",
+      "zoomLevel": "Zoom: {percent}",
+      "scrollRegion": "Business license image. When zoomed in, scroll to move around it."
+    },
+    "verify": {
+      "title": "How to verify the registration",
+      "intro": "A company's registration is public record. You can check this one yourself in the official national register.",
+      "steps": {
+        "open": "Open the <link>National Enterprise Credit Information Publicity System</link> (<zh>{systemZh}</zh>). The system is in Chinese. The QR code printed on the license leads to the same system.",
+        "search": "Search for the company by its Chinese name or its Unified Social Credit Code. The code is listed in the registration details above and printed on the license.",
+        "compare": "Compare the record with the details on this page and on the license. If anything differs, the official record prevails. Please <contact>tell us</contact> so that we can correct this page."
+      },
+      "action": "Open the verification system"
+    }
+  },
+  "scope": {
+    "eyebrow": "Registered activities",
+    "stats": "{count} general business items in {groups} groups",
+    "qualifierTitle": "Applies to the whole scope",
+    "officialLegend": "Under each item you will find the official Chinese text printed on the license.",
+    "translationTitle": "About the translations",
+    "regulatedTitle": "Licenses and approvals",
+    "fullText": {
+      "summary": "Show the scope exactly as printed on the license",
+      "note": "The Chinese text of the general business items and the qualifier, in the order and wording of the license."
+    },
+    "notPublished": {
+      "title": "Registered business scope is not the same as currently published products",
+      "body": "The scope records what the company is registered to carry on. It does not mean that a product is currently offered, in stock or available at a particular price. Browse the product categories to see what is published, or send an inquiry for a specific requirement."
+    }
+  }
+}

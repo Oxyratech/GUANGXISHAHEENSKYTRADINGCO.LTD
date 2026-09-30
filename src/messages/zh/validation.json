@@ -1,1 +1,17 @@
-{}
+{
+  "required": "此项为必填项。",
+  "invalid": "请检查此项内容。",
+  "email": "请输入有效的电子邮箱地址，例如 name@company.com。",
+  "phone": "请输入有效的电话号码，应包含 {min} 至 {max} 位数字，可以以 + 和国家/地区区号开头。",
+  "tooShort": "请至少输入 {min, plural, other {# 个字符}}。",
+  "tooLong": "请控制在 {max, plural, other {# 个字符}}以内。",
+  "invalidCountry": "请从列表中选择国家或地区。",
+  "invalidChoice": "请从列表中选择一个选项。",
+  "dateInvalid": "请输入有效的日期。",
+  "dateInPast": "日期不能早于今天。",
+  "dateTooFar": "日期须在未来 {years, plural, other {# 年}}以内。",
+  "consentRequired": "请勾选同意，以便我们处理您的请求。",
+  "fileTooLarge": "该文件超过 {max, number} MB，请选择更小的文件。",
+  "fileType": "不支持该文件类型，请选择输入框下方列出的文件类型。",
+  "formExpired": "无法验证此表单会话，请重新发送。"
+}

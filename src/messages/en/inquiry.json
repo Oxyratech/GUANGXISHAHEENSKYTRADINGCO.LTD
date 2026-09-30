@@ -1,1 +1,129 @@
-{}
+{
+  "meta": {
+    "title": "Send a Business Inquiry (RFQ)",
+    "description": "Tell us what you need. Send a business inquiry or request for quotation to a China trading company in Nanning, Guangxi, for product sourcing, supplier sourcing, wholesale sourcing and import and export support."
+  },
+  "page": {
+    "eyebrow": "Business inquiry",
+    "title": "Tell us what you need",
+    "lead": "Send a business inquiry or request for quotation for product sourcing, supplier sourcing or wholesale sourcing from China. The clearer the request, the easier it is for our team to assess it.",
+    "breadcrumb": "Business inquiry"
+  },
+  "guidance": {
+    "title": "What to include",
+    "intro": "You do not need every detail to start. These points help our team understand the request.",
+    "items": {
+      "product": "The product or product type, with any model, material or size you have in mind.",
+      "quantity": "The quantity you are considering, and whether it is a one-time or a repeat order.",
+      "specification": "Specifications, standards, and packaging or branding requirements.",
+      "destination": "The destination country and the date you need the goods by.",
+      "price": "A target price with its currency, if you have one.",
+      "files": "A drawing, photo or specification sheet, if that is easier than describing it."
+    }
+  },
+  "next": {
+    "title": "What happens next",
+    "note": "A typical process, not a promise. Every request is different, and we do not commit to a response time or an outcome.",
+    "steps": {
+      "review": {
+        "title": "We review",
+        "body": "Our team reads your inquiry and checks it against the areas the company is registered to trade in."
+      },
+      "clarify": {
+        "title": "We may ask questions",
+        "body": "If details are missing, such as specifications, quantity or destination, we may contact you."
+      },
+      "source": {
+        "title": "We look at sourcing",
+        "body": "Where sourcing is feasible, we look for suitable suppliers and prepare a quotation or proposed next steps."
+      }
+    },
+    "processLink": "See the typical trade process"
+  },
+  "privacy": {
+    "title": "How we handle your details",
+    "body": "We use what you send to review and answer your inquiry. To limit spam we also keep a hashed form of your IP address, never the address itself. An attachment is stored privately and is visible only to authorized staff. See our <link>Privacy Policy</link> for details."
+  },
+  "form": {
+    "title": "Inquiry details",
+    "requiredNote": "Fields marked with * are required.",
+    "noscript": "This form needs JavaScript. Please turn it on in your browser to send an inquiry.",
+    "honeypot": "Leave this field empty",
+    "groups": {
+      "contact": "About you",
+      "product": "What you need",
+      "delivery": "Delivery and price",
+      "extra": "More details"
+    },
+    "fields": {
+      "name": { "label": "Your name" },
+      "company": { "label": "Company" },
+      "country": { "label": "Country" },
+      "email": { "label": "Email" },
+      "phone": { "label": "Phone", "hint": "Include the country code." },
+      "whatsapp": {
+        "label": "WhatsApp",
+        "hint": "Include the country code, if you would like to be reached on WhatsApp."
+      },
+      "product": {
+        "label": "Product",
+        "hint": "The name or type of the product you want to source."
+      },
+      "category": { "label": "Category" },
+      "quantity": {
+        "label": "Quantity",
+        "hint": "Include the unit, for example pieces, sets, kilograms or containers."
+      },
+      "specification": {
+        "label": "Specification",
+        "hint": "Materials, dimensions, standards, packaging, branding or other requirements."
+      },
+      "targetPrice": {
+        "label": "Target price",
+        "hint": "Include the currency and the unit, for example per piece."
+      },
+      "destinationCountry": {
+        "label": "Destination country",
+        "hint": "Where the goods should be delivered."
+      },
+      "requiredDeliveryDate": {
+        "label": "Required delivery date",
+        "hint": "The date you need the goods by."
+      },
+      "additionalRequirements": { "label": "Additional requirements" },
+      "attachment": { "label": "Attachment" },
+      "consent": { "label": "Privacy consent" }
+    },
+    "select": {
+      "country": "Select a country",
+      "category": "Select a category",
+      "destinationCountry": "Select a country"
+    },
+    "attachment": {
+      "hint": "Optional. One file, up to {size, number} MB. Accepted: {types}.",
+      "choose": "Choose file",
+      "replace": "Choose a different file",
+      "none": "No file chosen",
+      "remove": "Remove file",
+      "removeNamed": "Remove {name}"
+    },
+    "consent": "I agree that the details I submit may be used to review and respond to my inquiry, as described in the <privacy>Privacy Policy</privacy>.",
+    "submit": "Submit trade inquiry",
+    "submitting": "Sending your inquiry",
+    "summaryTitle": "Please check these fields",
+    "error": {
+      "title": "We could not send your inquiry",
+      "hint": "Your details are still in the form.",
+      "retry": "Try again"
+    }
+  },
+  "success": {
+    "title": "Your inquiry has been received",
+    "lead": "Thank you. Your inquiry is recorded and our team can now review it.",
+    "referenceLabel": "Reference code",
+    "referenceHint": "Please keep this code and quote it if you contact us about this inquiry.",
+    "next": "Our team will review it and may contact you if more details are needed. We cannot promise a response time.",
+    "another": "Send another inquiry",
+    "browse": "Browse product categories"
+  }
+}

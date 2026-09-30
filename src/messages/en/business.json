@@ -1,1 +1,594 @@
-{}
+{
+  "meta": {
+    "title": "Business: China Trading, Import and Export, and Sourcing",
+    "description": "A China trading company in Nanning, Guangxi: international trading, import and export, sourcing, supplier coordination, procurement and cross-border trade."
+  },
+  "index": {
+    "hero": {
+      "eyebrow": "Business",
+      "title": "Trading and sourcing support for international buyers",
+      "description": "We are a China trading company in Nanning, Guangxi. We can help international buyers with product sourcing, supplier coordination, procurement, and import and export, within the activities listed in our registered business scope.",
+      "illustration": "Abstract illustration of trade connections between buyers and suppliers"
+    },
+    "lines": {
+      "eyebrow": "Business lines",
+      "title": "Six ways we can help",
+      "description": "Each business line has its own page that explains what it is, how we can help and what we need from you."
+    },
+    "relation": {
+      "eyebrow": "Registered scope",
+      "title": "How the business lines relate to our registered scope",
+      "description": "The business license lists the activities the company is registered to carry on. Our trading work rests mainly on domestic trade agency, import and export agency, and the import and export of goods. The six business lines describe that work in the terms buyers use. <scopeLink>See the registered business scope</scopeLink>.",
+      "points": {
+        "direct": {
+          "title": "Directly registered",
+          "text": "International trading, import and export, and cross-border trade rest on items the license lists: domestic trade agency, import and export agency, and the import and export of goods."
+        },
+        "supporting": {
+          "title": "Supporting activities",
+          "text": "Product sourcing, supplier coordination and business procurement are activities that support trade agency. The license lists no separate item for them."
+        },
+        "categories": {
+          "title": "Categories follow the scope",
+          "text": "The product categories we can work in are set by the registered scope, not by this list of business lines."
+        }
+      },
+      "matrix": {
+        "caption": "Registered scope items that each business line relates to",
+        "lineHeader": "Business line",
+        "related": "Related",
+        "notRelated": "Not related"
+      }
+    },
+    "products": {
+      "eyebrow": "Products",
+      "title": "Product categories",
+      "description": "The registered scope covers {count} product categories."
+    },
+    "process": {
+      "eyebrow": "Typical trade process",
+      "title": "How a trade typically unfolds",
+      "description": "Most requests follow a similar sequence. The exact steps, their order and how long each takes depend on the goods, the supplier and the countries involved.",
+      "steps": {
+        "inquiry": "Inquiry",
+        "requirement-analysis": "Requirement analysis",
+        "sourcing": "Sourcing",
+        "quotation": "Quotation",
+        "order-confirmation": "Order confirmation",
+        "documentation": "Documentation",
+        "shipping": "Shipping",
+        "delivery": "Delivery"
+      },
+      "cta": "See the typical trade process"
+    },
+    "cta": {
+      "title": "Have a product or trade requirement?",
+      "description": "Send an inquiry describing what you are looking for. The more specific the brief, the more useful our reply can be."
+    }
+  },
+  "shared": {
+    "eyebrow": "Business line",
+    "illustration": "Abstract illustration of trade connections",
+    "cta": {
+      "sendInquiry": "Send an inquiry",
+      "sendBusinessInquiry": "Send business inquiry",
+      "requestQuote": "Request a quote",
+      "submitTradeInquiry": "Submit trade inquiry"
+    },
+    "scope": {
+      "eyebrow": "Registered scope",
+      "title": "Related items in the registered business scope",
+      "description": "This business line is carried out within the activities the company is registered for. These are the business license items it relates to.",
+      "supportNote": "Product sourcing, supplier coordination and business procurement support trade agency. The license lists no separate item for them.",
+      "viewAll": "See the full registered scope"
+    },
+    "categories": {
+      "eyebrow": "Product categories",
+      "title": "Registered categories this line can apply to",
+      "all": "This line can apply across all {count} registered product categories.",
+      "examples": "Examples of registered categories where this kind of work applies. The line is not limited to these, but it stays within the registered scope.",
+      "regulated": "These registered categories are regulated. The licenses, filings and approvals that apply vary by product and country, so it pays to raise them early.",
+      "viewAll": "View all product categories",
+      "regulatedNote": "Categories marked Regulated may need licenses, filings or approvals under applicable law, depending on the product and the countries involved. The registered business scope is not a statement that such approvals are held.",
+      "regulatedBadge": "Regulated"
+    },
+    "availability": {
+      "title": "Availability depends on the product",
+      "text": "What can be sourced, traded, imported or exported depends on the specific product, the supplier and the regulations that apply in the countries involved. Describing a business line here is not a statement that a particular product is available or that a particular result can be achieved."
+    },
+    "nav": {
+      "label": "More business lines",
+      "previous": "Previous",
+      "next": "Next"
+    },
+    "ctaBand": {
+      "title": "Tell us what you need",
+      "description": "Send an inquiry with what you are looking for and the countries involved. You do not need a complete brief."
+    }
+  },
+  "pages": {
+    "international-trading": {
+      "meta": {
+        "title": "International Trading: China Trading Company in Nanning",
+        "description": "International trading and trade agency support for buyers and importers, within the registered business scope of a China trading company in Nanning, Guangxi."
+      },
+      "hero": {
+        "lead": "International trading is the umbrella for our work: agency support for transactions between buyers and suppliers in different countries, within the product categories our registered business scope covers."
+      },
+      "overview": {
+        "title": "What international trading means for us",
+        "p1": "We are a trading and agency company registered in Nanning, Guangxi. In international trading we act between a buyer and the suppliers that may be able to meet the buyer's requirements, and we help keep the transaction organized from the first inquiry onward.",
+        "p2": "This page gives the overview. Sourcing, supplier coordination, procurement, import and export, and cross-border trade each have a page of their own, linked below."
+      },
+      "capabilities": {
+        "eyebrow": "Overview",
+        "title": "What international trading can cover",
+        "description": "Depending on the request, this line typically brings together the following kinds of support. Each one links to a page with more detail.",
+        "items": {
+          "tradeAgency": {
+            "title": "Trade agency",
+            "text": "Acting as an agent in domestic trade and in import and export, within the registered business scope."
+          },
+          "sourcing": {
+            "title": "Product and supplier sourcing",
+            "text": "Identifying products and suppliers that match a buyer's requirements."
+          },
+          "suppliers": {
+            "title": "Supplier communication",
+            "text": "Relaying requirements, questions and quotations between buyer and supplier."
+          },
+          "procurement": {
+            "title": "Procurement support",
+            "text": "Helping company buyers structure a purchase and follow it through."
+          },
+          "importExport": {
+            "title": "Import and export",
+            "text": "Coordinating the steps and documents that surround a shipment of goods."
+          },
+          "crossBorder": {
+            "title": "Cross-border considerations",
+            "text": "Keeping lanes, documents and compliance in view when goods cross borders."
+          }
+        }
+      },
+      "needs": {
+        "eyebrow": "Getting started",
+        "title": "What helps us get started",
+        "description": "You do not need a complete brief. Whatever you can share on these points is enough to begin, and we can help refine the rest.",
+        "items": {
+          "products": "The products you are looking for, described in your own words",
+          "countries": "The countries involved, including where the goods would go",
+          "frequency": "Whether this is a one-time purchase or a repeated need",
+          "requirements": "Any requirements you already know, such as standards, packaging or documents"
+        }
+      }
+    },
+    "import-export": {
+      "meta": {
+        "title": "Import and Export: China Import Export Support",
+        "description": "Import and export of goods, food included, and import and export agency, as listed in the registered business scope of a China trading company in Nanning."
+      },
+      "hero": {
+        "lead": "Import and export of goods, food included, and import and export agency are listed in the company's registered business scope. Here is how we can help coordinate the documents and steps around a shipment."
+      },
+      "scope": {
+        "title": "Import and export in the registered scope",
+        "text": "The business license names import and export agency, the import and export of goods, and the import and export of food. A shipment involves several parties and a set of documents. We can help coordinate them, so that the buyer follows one consistent thread instead of several disconnected ones."
+      },
+      "flow": {
+        "eyebrow": "Coordination flow",
+        "title": "A typical documentation and coordination flow",
+        "description": "The order and the detail change with the goods, the route and the countries involved. This is a typical sequence, not a fixed procedure.",
+        "steps": {
+          "confirm": {
+            "title": "Confirm the goods and the route",
+            "text": "Agree what is being shipped, from where to where, and on which trade terms."
+          },
+          "requirements": {
+            "title": "Check applicable requirements",
+            "text": "Identify the licenses, filings, inspection or quarantine steps that may apply to the goods in the countries involved."
+          },
+          "documents": {
+            "title": "Prepare and cross-check documents",
+            "text": "Help assemble the documents and check that names, quantities and descriptions match across them."
+          },
+          "coordinate": {
+            "title": "Coordinate transport and customs",
+            "text": "Help coordinate with the parties who arrange transport and customs clearance."
+          },
+          "followUp": {
+            "title": "Follow up after shipment",
+            "text": "Keep track of shipment status and of the paperwork that follows delivery."
+          }
+        }
+      },
+      "documents": {
+        "title": "Documents commonly involved",
+        "description": "Which of these apply depends on the goods and the countries.",
+        "items": {
+          "contract": "Sales contract or order confirmation",
+          "invoice": "Commercial invoice",
+          "packingList": "Packing list",
+          "transport": "Transport document, such as a bill of lading or air waybill",
+          "origin": "Certificate of origin, when required",
+          "certificates": "Inspection, quarantine or health certificates, when required",
+          "customs": "Customs declaration"
+        }
+      },
+      "regulated": {
+        "title": "Food and other regulated goods",
+        "text": "Import and export of food, and of some other goods, requires licenses, filings or approvals under applicable law. The registered scope lists these activities but is not a statement that any particular license or approval is held. We can help point out what may apply; the requirements themselves depend on the product and the countries."
+      },
+      "needs": {
+        "eyebrow": "What we need",
+        "title": "Information that helps with import and export",
+        "description": "Share what you know. If a row is unclear, tell us so and we can talk it through.",
+        "columns": {
+          "information": "Information",
+          "why": "Why it helps"
+        },
+        "rows": {
+          "product": {
+            "label": "Product name and description",
+            "why": "So we know exactly which goods are meant."
+          },
+          "classification": {
+            "label": "Product classification (HS code), if known",
+            "why": "It can help identify duties and the requirements that may apply."
+          },
+          "route": {
+            "label": "Origin and destination countries",
+            "why": "Requirements and documents differ by country."
+          },
+          "terms": {
+            "label": "Preferred trade term and transport mode",
+            "why": "They set who arranges transport and where responsibility passes."
+          },
+          "documents": {
+            "label": "Documents and certificates your side requires",
+            "why": "So they can be planned for from the start."
+          }
+        }
+      }
+    },
+    "product-sourcing": {
+      "meta": {
+        "title": "Product Sourcing: Supplier Sourcing in China",
+        "description": "Tell us what you need and we can help identify matching products and suppliers within our registered categories. Use the sourcing brief checklist."
+      },
+      "hero": {
+        "lead": "Product sourcing means identifying products and suppliers that match a buyer's requirement. It is an activity that supports trade agency, and the clearer the brief, the more accurate the sourcing."
+      },
+      "brief": {
+        "eyebrow": "Sourcing brief",
+        "title": "What to tell us so we can source accurately",
+        "description": "A brief does not have to be complete. Anything you can share on these points helps; if you are unsure about one, say so and we can talk it through.",
+        "groups": {
+          "product": {
+            "title": "The product",
+            "items": {
+              "use": "What the product is and what it is used for",
+              "specs": "Material, size, color and specifications, or a reference photo or sample",
+              "quality": "The quality level or standards it should meet",
+              "brand": "Brand, label or private-label requirements, if any"
+            }
+          },
+          "commercial": {
+            "title": "Quantity and terms",
+            "items": {
+              "quantity": "The quantity you have in mind, and whether the need is one-time or recurring",
+              "price": "A target price or budget range, if you have one",
+              "destination": "The destination country and your preferred trade term",
+              "timing": "When you would like to receive the goods"
+            }
+          },
+          "compliance": {
+            "title": "Compliance and packaging",
+            "items": {
+              "certificates": "Certificates or approvals your market requires",
+              "packaging": "Packaging, labeling and language requirements",
+              "samples": "Whether you need samples before a larger order",
+              "testing": "Inspection or testing you expect"
+            }
+          }
+        },
+        "footnote": "Missing points are not a barrier. Send what you have."
+      },
+      "process": {
+        "eyebrow": "How it typically works",
+        "title": "From brief to shortlist",
+        "description": "A typical sequence. Whether a matching product or supplier can be found depends on the requirement.",
+        "steps": {
+          "review": {
+            "title": "Review the brief",
+            "text": "We read your brief and ask about anything that is unclear."
+          },
+          "search": {
+            "title": "Look for matches",
+            "text": "We look for products and suppliers that fit, within the registered product categories."
+          },
+          "share": {
+            "title": "Share what we find",
+            "text": "We share the options so you can compare them and decide how to proceed."
+          }
+        }
+      },
+      "tip": {
+        "title": "Not sure where to start?",
+        "text": "Begin with the product category closest to what you need, or just send what you have. <products>Browse the product categories</products> to see the areas available for sourcing."
+      }
+    },
+    "supplier-coordination": {
+      "meta": {
+        "title": "Supplier Coordination: Buyer and Supplier Communication",
+        "description": "How we can help coordinate communication between buyers and suppliers, from clarifying requirements to exchanging quotations, samples and documents."
+      },
+      "hero": {
+        "lead": "Supplier coordination means helping buyers and suppliers understand each other: requirements in one direction, quotations, samples and documents in the other. It is an activity that supports trade agency."
+      },
+      "roles": {
+        "eyebrow": "Roles",
+        "title": "Three parties, one thread",
+        "description": "Trade goes more smoothly when everyone knows what they are responsible for. This is how responsibilities typically divide.",
+        "items": {
+          "buyer": {
+            "title": "The buyer",
+            "text": "Defines the requirement, confirms specifications and makes the commercial decisions."
+          },
+          "supplier": {
+            "title": "The supplier",
+            "text": "States what it can offer, provides quotations and samples, and confirms production and shipping details."
+          },
+          "us": {
+            "title": "Shaheen Sky",
+            "text": "Can help relay questions and answers, set quotations side by side and keep the exchange organized."
+          }
+        }
+      },
+      "areas": {
+        "eyebrow": "Coordination areas",
+        "title": "What we can help coordinate",
+        "description": "The exact scope depends on the request. These are the areas that typically come up.",
+        "items": {
+          "requirements": {
+            "title": "Requirements and specifications",
+            "text": "Helping both sides describe the goods in the same terms."
+          },
+          "quotations": {
+            "title": "Quotations",
+            "text": "Collecting quotations and setting out what each one includes."
+          },
+          "samples": {
+            "title": "Samples",
+            "text": "Relaying sample requests and feedback between buyer and supplier."
+          },
+          "packaging": {
+            "title": "Packaging and labeling",
+            "text": "Clarifying packaging, marking and language requirements."
+          },
+          "documents": {
+            "title": "Documents",
+            "text": "Passing on the documents each side asks for."
+          },
+          "changes": {
+            "title": "Questions and changes",
+            "text": "Carrying questions and changes back and forth as the order takes shape."
+          }
+        }
+      },
+      "rhythm": {
+        "eyebrow": "Communication",
+        "title": "How we intend to keep communication moving",
+        "description": "These are intentions, not service levels. How quickly a supplier answers is outside our control, and response times vary.",
+        "items": {
+          "start": {
+            "when": "At the start",
+            "text": "We intend to confirm that we have understood your requirement before we approach suppliers."
+          },
+          "quotations": {
+            "when": "When quotations arrive",
+            "text": "We intend to set them side by side and point out differences in what each one includes."
+          },
+          "changes": {
+            "when": "When something changes",
+            "text": "We intend to pass changes in specifications, quantities or documents on to the other side."
+          },
+          "decision": {
+            "when": "Before a decision",
+            "text": "We intend to flag open questions before you commit to an order."
+          }
+        }
+      },
+      "needs": {
+        "eyebrow": "What we need",
+        "title": "What we need from you",
+        "description": "Coordination goes more smoothly when the buyer's side is easy to reach.",
+        "items": {
+          "contact": "One contact person who can answer questions",
+          "specs": "Written specifications wherever possible",
+          "answers": "Answers to supplier questions that we relay",
+          "decisions": "Your decisions on samples, quantities and terms"
+        }
+      }
+    },
+    "business-procurement": {
+      "meta": {
+        "title": "Business Procurement: Wholesale Sourcing for Company Buyers",
+        "description": "Procurement support for company buyers: requirements, supplier options, quotations and follow-up for goods in our registered product categories."
+      },
+      "hero": {
+        "lead": "Business procurement is procurement support for company buyers who need goods within the registered product categories. It is carried out through trade agency and through import and export."
+      },
+      "audience": {
+        "eyebrow": "Who it is for",
+        "title": "Company buyers",
+        "description": "This line is meant for buyers who purchase on behalf of a business.",
+        "items": {
+          "importers": {
+            "title": "Importers and distributors",
+            "text": "Buying goods for resale in their own markets."
+          },
+          "projects": {
+            "title": "Contractors and project buyers",
+            "text": "Needing materials, hardware or equipment for a project."
+          },
+          "teams": {
+            "title": "Purchasing teams",
+            "text": "Sourcing supplies for the operations of a company."
+          }
+        }
+      },
+      "workflow": {
+        "eyebrow": "Workflow",
+        "title": "A typical procurement workflow",
+        "description": "Steps, order and duration vary by product, supplier and destination. This is a typical sequence, not a fixed process.",
+        "stepLabel": "Step {number}",
+        "steps": {
+          "intake": {
+            "title": "Requirement intake",
+            "text": "You describe what you need, in what quantity and by when. We ask about anything unclear."
+          },
+          "options": {
+            "title": "Supplier options",
+            "text": "We look for suppliers and products that fit, within the registered categories."
+          },
+          "comparison": {
+            "title": "Quotation comparison",
+            "text": "Quotations are set side by side on the terms that matter to you."
+          },
+          "order": {
+            "title": "Order and terms",
+            "text": "Once you decide, the order, terms and documents are confirmed with the supplier."
+          },
+          "followUp": {
+            "title": "Delivery follow-up",
+            "text": "We can help follow the shipment and the paperwork through to delivery."
+          }
+        },
+        "link": "See the typical trade process"
+      },
+      "patterns": {
+        "title": "One-time or recurring",
+        "items": {
+          "oneTime": {
+            "title": "A one-time purchase",
+            "text": "A defined requirement and a single order. Suitable when you want to evaluate a product or a supplier."
+          },
+          "recurring": {
+            "title": "Recurring supply",
+            "text": "A need that repeats. Describe the pattern early: it is useful information when comparing suppliers."
+          }
+        }
+      },
+      "needs": {
+        "eyebrow": "What we need",
+        "title": "What to include in a procurement request",
+        "description": "Whatever you can provide helps. Tell us what is not decided yet.",
+        "items": {
+          "company": {
+            "term": "Company and contact person",
+            "hint": "Who is buying, and who we should speak to."
+          },
+          "items": {
+            "term": "Items and specifications",
+            "hint": "What you need, described as precisely as you can."
+          },
+          "quantities": {
+            "term": "Quantities and frequency",
+            "hint": "How much, and whether the need is one-time or recurring."
+          },
+          "delivery": {
+            "term": "Destination and delivery expectations",
+            "hint": "Where the goods are going and when you would like them."
+          },
+          "compliance": {
+            "term": "Approval or compliance requirements",
+            "hint": "Anything your company or your market requires."
+          }
+        }
+      }
+    },
+    "cross-border-trade": {
+      "meta": {
+        "title": "Cross-Border Trade: Lanes, Documents, Compliance",
+        "description": "Considerations for trading goods across borders: lanes, documents and compliance awareness, through import and export agency and the import and export of goods."
+      },
+      "hero": {
+        "lead": "Cross-border trade moves goods between countries, so more parties, documents and rules come into play. This page sets out the considerations we typically keep in view."
+      },
+      "context": {
+        "title": "Cross-border trade in the registered scope",
+        "text": "The registered scope includes import and export agency, the import and export of goods, and internet sales of goods that do not require a license to sell.",
+        "notShop": "This website is not an online shop and does not take orders. A trade begins with an inquiry."
+      },
+      "considerations": {
+        "eyebrow": "Considerations",
+        "title": "What we typically keep in view",
+        "description": "The list is not exhaustive: every product and route raises its own questions.",
+        "groups": {
+          "lanes": {
+            "title": "Lanes",
+            "items": {
+              "route": "Origin and destination, and how the goods travel: sea, air, rail or road",
+              "terms": "The trade term that divides cost and risk between buyer and seller",
+              "handling": "Whether the goods need special handling, such as fragile packaging or temperature control",
+              "transit": "Transit points and any transshipment along the route"
+            }
+          },
+          "documents": {
+            "title": "Documents",
+            "items": {
+              "commercial": "Commercial documents such as the contract, invoice and packing list",
+              "transport": "Transport documents such as a bill of lading or air waybill",
+              "certificates": "Certificates the destination may require, such as origin, inspection or health",
+              "consistency": "Consistency: names, quantities and descriptions should match across documents"
+            }
+          },
+          "compliance": {
+            "title": "Compliance awareness",
+            "items": {
+              "import": "Import licenses, quotas or restrictions at the destination",
+              "standards": "Product standards, labeling and language requirements",
+              "duties": "Duties, taxes and customs valuation",
+              "controls": "Export controls and sanctions screening that may apply to goods or parties"
+            }
+          }
+        }
+      },
+      "questions": {
+        "eyebrow": "Questions to settle early",
+        "title": "Questions worth settling before an order",
+        "description": "Short answers to points that often come up. They are general information, not legal advice.",
+        "items": {
+          "transport": {
+            "question": "Who arranges and pays for transport?",
+            "answer": "The trade term you choose, for example FOB, CIF or DAP, sets who arranges transport, who bears cost and risk, and where responsibility passes from seller to buyer. It is worth agreeing before an order is confirmed."
+          },
+          "destination": {
+            "question": "Which rules apply at the destination?",
+            "answer": "Import rules are set by the destination country and depend on the product. Check them for your market before you order. We can help you collect the questions to ask, but the requirements themselves come from the authorities."
+          },
+          "regulated": {
+            "question": "What if the goods are regulated?",
+            "answer": "Some goods need licenses, filings or approvals for export from China, for import into the destination, or both. The registered scope is not a statement that such approvals are held, so tell us early if your goods may be regulated."
+          },
+          "website": {
+            "question": "Can I buy through this website?",
+            "answer": "No. The website is not an online store. Product categories describe areas available for sourcing and trade. A purchase typically begins with an inquiry, followed by requirement analysis and a quotation."
+          }
+        }
+      },
+      "needs": {
+        "title": "Before you send your inquiry",
+        "description": "These points help us understand a cross-border request.",
+        "items": {
+          "countries": "Origin and destination countries",
+          "goods": "A description of the goods and their classification (HS code), if known",
+          "terms": "Preferred trade term and transport mode",
+          "documents": "Documents and certificates your side requires",
+          "regulation": "Regulatory constraints you already know of"
+        }
+      }
+    }
+  }
+}

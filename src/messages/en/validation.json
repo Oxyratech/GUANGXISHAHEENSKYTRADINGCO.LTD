@@ -1,1 +1,17 @@
-{}
+{
+  "required": "This field is required.",
+  "invalid": "Please check this value.",
+  "email": "Enter a valid email address, for example name@company.com.",
+  "phone": "Enter a valid phone number with {min} to {max} digits. You can start with + and the country code.",
+  "tooShort": "Enter at least {min, plural, one {# character} other {# characters}}.",
+  "tooLong": "Keep this to {max, plural, one {# character} other {# characters}} or fewer.",
+  "invalidCountry": "Choose a country from the list.",
+  "invalidChoice": "Choose one of the listed options.",
+  "dateInvalid": "Enter a valid date.",
+  "dateInPast": "The date must be today or later.",
+  "dateTooFar": "The date must be within the next {years, plural, one {# year} other {# years}}.",
+  "consentRequired": "Please confirm that you agree, so that we can process your request.",
+  "fileTooLarge": "This file is larger than {max, number} MB. Please choose a smaller file.",
+  "fileType": "This file type is not accepted. Please choose one of the file types listed below the field.",
+  "formExpired": "We could not verify this form session. Please try sending again."
+}

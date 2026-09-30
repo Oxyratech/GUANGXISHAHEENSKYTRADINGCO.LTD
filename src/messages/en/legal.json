@@ -1,1 +1,262 @@
-{}
+{
+  "labels": {
+    "eyebrow": "Legal",
+    "lastUpdated": "Last updated: <time>{date}</time>",
+    "print": "Print this page",
+    "toc": "On this page"
+  },
+  "review": {
+    "title": "Legal review status",
+    "body": "This text is a general draft prepared for the company. It has not yet been reviewed by qualified legal counsel and is not legal advice. Items in [square brackets] are decisions the company must confirm before this text is final."
+  },
+  "updated": {
+    "privacy": "2026-09-30",
+    "terms": "2026-09-30",
+    "cookies": "2026-09-30"
+  },
+  "privacy": {
+    "meta": {
+      "title": "Privacy Policy",
+      "description": "What information this website collects when you send an inquiry or a message, why it is collected, how it is stored and what choices you have."
+    },
+    "hero": {
+      "title": "Privacy Policy",
+      "description": "What information this website collects when you send an inquiry or a message, why, how it is stored, and what choices you have."
+    },
+    "sections": {
+      "controller": {
+        "title": "Who is responsible for your information",
+        "p1": "This website is operated by <en>{legalName}</en> (<zh>{legalNameZh}</zh>), a company registered in Nanning, Guangxi, China (“the company” or “we”). The company decides how the information collected through this website is used and is responsible for handling it.",
+        "p2": "Registered address: <zh>{address}</zh>. The address is shown in Chinese, as recorded on the business license."
+      },
+      "collected": {
+        "title": "Information we collect",
+        "p1": "We collect only the information described below.",
+        "lead1": "When you send an inquiry, we collect:",
+        "list1": {
+          "i1": "your name, company name, country and email address",
+          "i2": "an optional telephone or WhatsApp number",
+          "i3": "the details of your requirement, such as the product name, category, quantity, specification, target price, destination country, required delivery date and any additional requirements",
+          "i4": "an attachment, if you choose to add one"
+        },
+        "lead2": "When you send a message through the contact form, we collect:",
+        "list2": {
+          "i1": "your name and email address",
+          "i2": "an optional company name, telephone number and country",
+          "i3": "your message"
+        },
+        "lead3": "With every form you submit, we also record:",
+        "list3": {
+          "i1": "the date and time, and the language of the page you used",
+          "i2": "the time at which you confirmed that you accept this policy by ticking the consent box",
+          "i3": "for abuse prevention, a keyed hash of your IP address and the user-agent text your browser sends. The IP address itself is not stored with your submission"
+        },
+        "p2": "The website also sets one functional cookie that remembers your language choice. See the <cookies>Cookie Policy</cookies>.",
+        "p3": "Please do not include payment card numbers, passwords or government identity numbers in a form or an attachment. We do not need them to respond to an inquiry."
+      },
+      "purposes": {
+        "title": "How we use your information",
+        "p1": "We use the information you submit to:",
+        "list1": {
+          "i1": "read, assess and reply to your inquiry or message",
+          "i2": "look for suppliers, prepare quotations and follow up on the requirement you described",
+          "i3": "keep records of our correspondence and of the inquiries we receive",
+          "i4": "prevent spam and abuse of the forms and keep the website secure",
+          "i5": "meet legal and regulatory obligations that apply to the company"
+        },
+        "p2": "Submitting a form does not subscribe you to a newsletter or a mailing list.",
+        "p3": "These uses rest on your request to us and, where required, on the consent you give when you submit a form. <tbc>[Legal bases under the law that applies to the company and to you, to be confirmed with counsel]</tbc>"
+      },
+      "storage": {
+        "title": "Where information is stored and who can see it",
+        "p1": "Information you submit is stored in the company's database. Access is limited to authorized people at the company who handle inquiries and administer the website, and attachments can be opened only by people who have that permission.",
+        "p2": "The company may also receive an email notification, sent to its own inbox, when a new inquiry or message arrives. It repeats what you typed into the form.",
+        "p3": "<tbc>[Hosting provider and location of the database, to be confirmed by the company]</tbc>"
+      },
+      "sharing": {
+        "title": "Who we share it with",
+        "p1": "We do not sell your information, and we do not share it with advertisers. This website does not use third-party advertising trackers.",
+        "p2": "We may share information with service providers that host the website, store its data or deliver email for the company, and only as far as they need it to provide those services. <tbc>[List of service providers, to be confirmed by the company]</tbc>",
+        "p3": "Sourcing a product can involve passing details of a requirement to suppliers. <tbc>[Whether and how inquiry details are shared with suppliers, and what is removed first, to be confirmed by the company]</tbc>",
+        "p4": "We may disclose information where the law requires it, or to protect the rights, safety and security of the company, its users and the website."
+      },
+      "international": {
+        "title": "International use",
+        "p1": "The company is based in China and this website is intended for international buyers, so the information you submit is sent to, and handled by, the company in China. <tbc>[Any transfer mechanisms or notices required by the law of the countries served, to be confirmed with counsel]</tbc>"
+      },
+      "analytics": {
+        "title": "Cookies and analytics",
+        "p1": "The website sets one functional cookie, which remembers the language you chose. It sets no advertising cookies and no analytics cookies. The <cookies>Cookie Policy</cookies> lists every cookie the website uses.",
+        "p2": "If the company turns on Plausible, a privacy-focused analytics service, it counts visits and a few actions, such as starting or sending an inquiry, in aggregate and without cookies. Those counts do not include your name, email address or message text. The service is not loaded if your browser sends a Do Not Track or Global Privacy Control signal."
+      },
+      "retention": {
+        "title": "How long we keep information",
+        "p1": "We keep inquiries and messages for as long as we need them for the purposes above and to meet legal obligations, and then delete or anonymize them. <tbc>[Retention period for inquiries, messages and attachments, to be confirmed with counsel]</tbc>",
+        "p2": "The hashed IP address and the user-agent text are kept with the inquiry or message they belong to."
+      },
+      "rights": {
+        "title": "Your rights and choices",
+        "p1": "Depending on the law that applies to you, you may have the right to ask us for access to the information we hold about you, to have it corrected or deleted, to restrict or object to its use, and to withdraw consent you have given.",
+        "p2": "To make a request, use the <contact>contact form</contact>, say that it concerns your personal information and identify the inquiry or message it relates to, for example by the reference code shown after you submitted it. We may need to confirm your identity before we act on a request. <tbc>[Response time and any fee, to be confirmed with counsel]</tbc>",
+        "p3": "Where the law gives you the right, you may also complain to the authority that supervises data protection in your country."
+      },
+      "security": {
+        "title": "How we protect information",
+        "p1": "We use technical and organizational measures suited to the information we hold, including access limited by role, private handling of attachments, checks on uploaded files, keyed hashing of IP addresses and encrypted connections to this website.",
+        "p2": "No method of transmission or storage is completely secure, so we cannot promise absolute security."
+      },
+      "children": {
+        "title": "Children",
+        "p1": "This website is intended for business users and is not directed at children. We do not knowingly collect information from children. <tbc>[Minimum age and any parental-consent wording required by applicable law, to be confirmed with counsel]</tbc>"
+      },
+      "changes": {
+        "title": "Changes to this policy",
+        "p1": "We may update this policy from time to time. The date at the top of this page shows when it was last updated."
+      },
+      "contact": {
+        "title": "Contact",
+        "p1": "For questions about this policy or your information, use the <contact>contact form</contact>. The company's registered details are on the <company>Company information</company> page. See also the <terms>Terms of Use</terms> and the <cookies>Cookie Policy</cookies>."
+      }
+    }
+  },
+  "terms": {
+    "meta": {
+      "title": "Terms of Use",
+      "description": "The terms that apply when you use this website, including that an inquiry is not an offer or a contract."
+    },
+    "hero": {
+      "title": "Terms of Use",
+      "description": "The terms that apply to your use of this website and to inquiries sent through it."
+    },
+    "sections": {
+      "use": {
+        "title": "Using this website",
+        "p1": "This website is operated by <en>{legalName}</en> (<zh>{legalNameZh}</zh>), a company registered in Nanning, Guangxi, China (“the company” or “we”). By using the website you agree to these terms. If you do not agree, please do not use it."
+      },
+      "nature": {
+        "title": "Informational purpose",
+        "p1": "The website provides general information about the company, its registered business scope and how to send an inquiry. It is not an online shop: it does not take orders or payments, and it does not publish prices."
+      },
+      "accuracy": {
+        "title": "Accuracy of information",
+        "p1": "We take care to keep the information on this website accurate, but we do not promise that it is complete, current or free of errors. Company details reflect the business license, and you can check the registration through the National Enterprise Credit Information Publicity System.",
+        "p2": "Product categories show areas in which the company is registered to trade. They are not a list of current stock. Some categories include goods that need licenses or approvals, and the presence of a category is not a statement that any license or approval for regulated goods is held."
+      },
+      "inquiries": {
+        "title": "Inquiries are not offers or contracts",
+        "p1": "An inquiry or message sent through this website is a request for information. It is not an offer, an order or a contract, and it does not oblige you or the company to buy, sell or supply anything.",
+        "p2": "Any agreement to trade is made separately, on terms that you and the company both accept. <tbc>[How agreements are concluded and how long a quotation stays valid, to be confirmed with counsel]</tbc>"
+      },
+      "availability": {
+        "title": "No guarantee of availability",
+        "p1": "We do not guarantee that any product, category or service shown on the website is available at any time, or that we can source a particular product. The website may be changed, interrupted or withdrawn without notice."
+      },
+      "acceptable-use": {
+        "title": "Acceptable use",
+        "p1": "When you use the website, you agree not to:",
+        "list1": {
+          "i1": "break the law or infringe the rights of others",
+          "i2": "send false, misleading or abusive content, or submit an inquiry on behalf of someone without their authority",
+          "i3": "upload files that contain malware or that you have no right to share",
+          "i4": "try to gain unauthorized access to the website, its systems or other users' information",
+          "i5": "disrupt the website or overload it with automated requests"
+        }
+      },
+      "submissions": {
+        "title": "What you send us",
+        "p1": "You are responsible for the accuracy of what you submit and for having the right to share it. We use it as described in the <privacy>Privacy Policy</privacy>."
+      },
+      "ip": {
+        "title": "Intellectual property",
+        "p1": "The text, design, graphics and other material on this website belong to the company or are used with permission. You may view the website and print pages for your own business use. You may not copy, republish or sell its material without our written permission. <tbc>[Ownership of content and brand elements, and any third-party licenses, to be confirmed by the company]</tbc>",
+        "p2": "Nothing in these terms gives you a license to use the company's names, logo or brand elements. Other names and marks belong to their owners."
+      },
+      "links": {
+        "title": "Links to other websites",
+        "p1": "The website may link to other websites, such as the National Enterprise Credit Information Publicity System. We do not control those websites and are not responsible for their content or practices."
+      },
+      "liability": {
+        "title": "Limitation of liability",
+        "p1": "To the extent the law allows, the company is not liable for any indirect or consequential loss, or for loss of profit or business, arising from your use of the website or your reliance on its content. Nothing in these terms limits liability that cannot be limited by law.",
+        "p2": "<tbc>[Scope of liability and any monetary limit, to be confirmed with counsel]</tbc>"
+      },
+      "law": {
+        "title": "Governing law and disputes",
+        "p1": "These terms are governed by <tbc>[governing law, to be confirmed with counsel]</tbc>.",
+        "p2": "Disputes arising from these terms or from your use of the website will be resolved by <tbc>[court or dispute-resolution method and venue, to be confirmed with counsel]</tbc>."
+      },
+      "changes": {
+        "title": "Changes",
+        "p1": "We may change the website and these terms at any time. The updated terms apply from the date shown at the top of this page. Please review them from time to time."
+      },
+      "contact": {
+        "title": "Contact",
+        "p1": "For questions, use the <contact>contact form</contact>. See also the <privacy>Privacy Policy</privacy> and the <cookies>Cookie Policy</cookies>."
+      }
+    }
+  },
+  "cookies": {
+    "meta": {
+      "title": "Cookie Policy",
+      "description": "The cookies this website uses: one functional language cookie and an administrator session cookie that visitors never receive, with no advertising or analytics cookies."
+    },
+    "hero": {
+      "title": "Cookie Policy",
+      "description": "This website uses very few cookies. This page lists every one of them and explains how to control cookies in your browser."
+    },
+    "table": {
+      "caption": "Cookies set by this website",
+      "headers": {
+        "name": "Cookie",
+        "purpose": "Purpose",
+        "setFor": "Set for",
+        "lifetime": "Lifetime"
+      },
+      "rows": {
+        "language": {
+          "purpose": "Functional. Remembers the language you chose (en, zh or ar) so the website can open in it next time.",
+          "setFor": "Visitors who choose a language",
+          "lifetime": "No fixed expiry; normally removed when you close your browser"
+        },
+        "session": {
+          "purpose": "Functional. Keeps an administrator signed in to the admin area.",
+          "setFor": "Administrators only, after they sign in. Never set for visitors.",
+          "lifetime": "Up to 7 days, and ended sooner after 8 hours without activity"
+        }
+      }
+    },
+    "sections": {
+      "what": {
+        "title": "What cookies are",
+        "p1": "Cookies are small text files that a website asks your browser to store. Some make a website work; others are used to measure visits or to advertise. This website uses only the first kind."
+      },
+      "used": {
+        "title": "Cookies this website uses",
+        "p1": "The table below lists every cookie the website can set. The language cookie holds only a language code. It contains no personal information and is not used to track you."
+      },
+      "not-used": {
+        "title": "What the website does not use",
+        "p1": "The website does not use:",
+        "list1": {
+          "i1": "advertising or marketing cookies",
+          "i2": "analytics cookies",
+          "i3": "cookies set by social networks or other third parties"
+        },
+        "p2": "If the company turns on Plausible analytics, it works without cookies and is not loaded if your browser sends a Do Not Track or Global Privacy Control signal. See the <privacy>Privacy Policy</privacy>."
+      },
+      "control": {
+        "title": "How to control cookies",
+        "p1": "You can view, block or delete cookies in your browser settings. The steps differ by browser; look for “Cookies” or “Site data” under privacy or security settings.",
+        "p2": "If you block or delete the language cookie, the website still works. Every page address contains its language, so pages open in the language you chose, but the website may not remember that choice on your next visit."
+      },
+      "notices": {
+        "title": "Cookie notices",
+        "p1": "Because the website sets only a functional cookie, it does not show a cookie banner. <tbc>[Whether a cookie notice or consent banner is required for the markets served, to be confirmed with counsel]</tbc>"
+      },
+      "changes": {
+        "title": "Changes and contact",
+        "p1": "We may update this policy if the cookies the website uses change. The date at the top of this page shows when it was last updated. For questions, use the <contact>contact form</contact>."
+      }
+    }
+  }
+}

@@ -1,1 +1,89 @@
-{}
+{
+  "meta": {
+    "title": "Frequently Asked Questions",
+    "description": "Answers about a China trading company in Nanning, Guangxi: registration, product sourcing, inquiries and quotations, shipping and documentation."
+  },
+  "hero": {
+    "eyebrow": "Buyer information",
+    "title": "Frequently asked questions",
+    "description": "Short, factual answers about the company, product sourcing, inquiries and quotations, and the typical trade process. Where an answer depends on the requirement, it says so instead of making a promise."
+  },
+  "nav": {
+    "label": "Question groups",
+    "title": "Topics"
+  },
+  "groups": {
+    "company": "Company and registration",
+    "products": "Products and sourcing",
+    "inquiries": "Inquiries and quotations",
+    "shipping": "Shipping and documentation"
+  },
+  "items": {
+    "registered": {
+      "question": "Is the company registered?",
+      "answer": "Yes. <en>{legalName}</en> (<zh>{legalNameZh}</zh>) is registered in Nanning, Guangxi, China. The business license details, and how to check the registration through the National Enterprise Credit Information Publicity System, are on the <company>Company information</company> page."
+    },
+    "location": {
+      "question": "Where is the company located?",
+      "answer": "We are based in Nanning, Guangxi, China. The registered address, exactly as recorded on the business license, is on the <company>Company information</company> page. A registered address is the address on file with the registration authority, so please send an <inquiry>inquiry</inquiry> or a message through the <contact>contact form</contact> before planning a visit."
+    },
+    "manufacturer": {
+      "question": "Is the company a manufacturer?",
+      "answer": "We are a trading company. Our registered business scope covers trade, trade agency, and import and export, and we source products against a buyer's requirements. This website does not present the company as a manufacturer."
+    },
+    "sourcing": {
+      "question": "What products can you source?",
+      "answer": "We source products within the categories covered by our registered business scope, for example consumer goods, apparel, building materials, hardware, electrical products and machinery. Sourcing is done against a buyer's stated requirements. The <products>product categories</products> show the areas we are registered to trade in; they are not a list of stock, and no ready catalogue is implied."
+    },
+    "categories": {
+      "question": "What trading categories does the company operate in?",
+      "answer": "Our registered business scope is organized on this website into {count} product categories, from consumer goods and food products to machinery and equipment, metal products, minerals and ores, and medical and protective supplies. Each category page lists the registered scope items behind it, and the business license, which sets out the registered scope, is shown on the <company>Company information</company> page. <products>Browse the product categories</products>."
+    },
+    "regulated": {
+      "question": "Are regulated products handled?",
+      "answer": "Some categories, such as food, minerals and ores, and medical and protective supplies, are regulated. Depending on the product and the countries involved, licenses, filings or approvals may be required under applicable law. We work only within our registered business scope and subject to the approvals that apply to the specific transaction. This website does not state that the company holds any particular permit or approval."
+    },
+    "submit": {
+      "question": "How can buyers submit requirements?",
+      "answer": "Use the <inquiry>inquiry form</inquiry>. Describe the product or requirement and add the details you have. If you are not sure which category applies, describe what you need in your own words."
+    },
+    "include": {
+      "question": "What should an inquiry include?",
+      "answer": "The more precise the inquiry, the easier it is for us to respond. Useful details are the product name or description, the category, the specification or standard required, the quantity you have in mind, your target price if you have one, the destination country and any required delivery date, together with your company name, country and contact details. Sending an inquiry does not commit you to a purchase."
+    },
+    "attachments": {
+      "question": "Can I attach documents?",
+      "answer": "Yes. The inquiry form accepts an optional attachment of up to 5 MB in PDF, JPG, PNG, WebP, DOCX or XLSX format, for example a specification sheet, a drawing or a reference photo."
+    },
+    "contact": {
+      "question": "How can international buyers contact the company?",
+      "answer": "Send an <inquiry>inquiry</inquiry> for a specific requirement, or use the <contact>contact form</contact> for a general question. Email, phone and WhatsApp details appear on the website only once we have published them; when none is shown, the two forms are the way to reach us."
+    },
+    "prices": {
+      "question": "Are prices listed on the website?",
+      "answer": "No. The website does not publish prices. A quotation depends on the requirement, including the product, specification, quantity and destination, and is prepared in response to an <inquiry>inquiry</inquiry>. We do not state a quotation time on this website."
+    },
+    "languages": {
+      "question": "What languages does the website support?",
+      "answer": "The website is available in English, Chinese (Simplified) and Arabic; use the language menu in the header to switch. This describes the website only. It is not a statement about the languages in which we can correspond."
+    },
+    "process": {
+      "question": "What is the typical trade process?",
+      "answer": "A typical process runs from the inquiry and requirement analysis through sourcing, quotation, order confirmation, documentation, shipping and delivery. It is called typical because every transaction differs: the steps, their order and their timing depend on the product, the parties and the terms agreed. <process>See how the typical trade process works</process>."
+    },
+    "documentation": {
+      "question": "Do you handle export documentation?",
+      "answer": "Documentation is one of the steps in the typical trade process, and we can coordinate documentation support for a transaction. The documents required vary by product, destination country and the agreed trade terms, so they are confirmed case by case. This website does not promise any particular document or certificate."
+    },
+    "shipping": {
+      "question": "How is shipping arranged?",
+      "answer": "Shipping arrangements depend on the requirement, the destination and the terms agreed for the transaction, and they are discussed after an inquiry. This website does not list carriers, routes, freight rates or delivery times."
+    }
+  },
+  "cta": {
+    "title": "Want to describe your requirement?",
+    "description": "Send an inquiry with the details you have, or use the contact form for a general question.",
+    "primary": "Send an inquiry",
+    "secondary": "Contact us"
+  }
+}

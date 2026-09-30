@@ -1,0 +1,15 @@
+/*
+ * Print rules for legal pages. The stylesheet loads once a legal page has been visited and stays
+ * loaded, so every rule is anchored to a page that contains a legal document.
+ * The site header, footer and skip link are direct children of <body>; the page's own title band
+ * lives inside <main> and is kept.
+ */
+@media print {
+  body:has([data-legal-document]) > :is(header, footer, a[href="#main"]) {
+    display: none;
+  }
+
+  [data-legal-document] a {
+    text-decoration: underline;
+  }
+}

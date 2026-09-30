@@ -1,1 +1,83 @@
-{}
+{
+  "meta": {
+    "title": "About us",
+    "description": "{name} ({nameZh}) is an international trading and sourcing company registered in {location}. See what it does, what it is registered to do and how it intends to work."
+  },
+  "location": "Nanning, Guangxi, China",
+  "labels": {
+    "established": "Established",
+    "registeredIn": "Registered in"
+  },
+  "hero": {
+    "eyebrow": "About us",
+    "title": "A China trading company for international sourcing and trade",
+    "description": "We connect business buyers with products and suppliers. This page sets out who the company is, what it is registered to do and how it intends to work.",
+    "glance": {
+      "heading": "At a glance",
+      "license": "Business license",
+      "licenseLink": "View the license"
+    }
+  },
+  "overview": {
+    "eyebrow": "Company overview",
+    "title": "Who we are",
+    "intro": "<n>{name}</n> (<zh>{nameZh}</zh>) is an international trading and sourcing company. It was established on {date} and is registered in {location}.",
+    "focus": "The company works between business buyers and suppliers: product sourcing and supplier coordination, wholesale sourcing within the registered categories, and support for the import and export side of trade, all within the business scope recorded on its business license.",
+    "newCompany": "We are a newly established company, and this website is written accordingly. It states what is on record and how we intend to work. It makes no claim about history, size or past results."
+  },
+  "focus": {
+    "eyebrow": "Business focus",
+    "title": "Trading and sourcing in clear lines of work",
+    "description": "Our work centers on international trade and on the sourcing and coordination that support it. Each line of work has its own page."
+  },
+  "registered": {
+    "eyebrow": "Registered information",
+    "title": "On record, and open to verification",
+    "description": "These details are taken from the company's business license. The license image, and the official register where you can check the registration yourself, are on the company information page.",
+    "link": "View company information and the license"
+  },
+  "scope": {
+    "eyebrow": "Business scope",
+    "title": "What the company is registered to do",
+    "description": "The registered business scope lists {count} general business items, grouped here by area of trade. It records the activities the company may lawfully carry on. It is not a list of current products.",
+    "groupItems": "{count, plural, one {{countLabel} registered item} other {{countLabel} registered items}}",
+    "link": "View the full registered business scope",
+    "note": "The registered scope is not a product list. Products that are actually published are on the <products>Products</products> pages."
+  },
+  "approach": {
+    "eyebrow": "Our approach",
+    "title": "How we intend to work",
+    "description": "These are working principles, not results. They describe the method we intend to follow with every inquiry.",
+    "principles": {
+      "requirements": {
+        "title": "Clarity of requirements",
+        "body": "We start by making sure the request is understood: the product, its specification, the quantity, the destination and the timing. A clear brief is the basis of a useful quotation."
+      },
+      "verification": {
+        "title": "Verification",
+        "body": "We intend to check what matters before anyone relies on it: that a supplier is what it says it is, that a product matches its specification and that the documents fit the goods."
+      },
+      "communication": {
+        "title": "Communication",
+        "body": "A buyer should know where a request stands. We intend to keep communication direct and in writing, to say plainly what is known and what is not, and to raise problems early."
+      },
+      "documentation": {
+        "title": "Documentation",
+        "body": "Trade depends on records. We intend to keep a clear record of requirements, quotations, confirmations and shipping documents, so that every party can see what was agreed."
+      }
+    },
+    "note": "These principles describe intent. They are not certifications, promises of outcome or a record of completed orders.",
+    "processLink": "See the typical trade process"
+  },
+  "vision": {
+    "eyebrow": "Global vision",
+    "title": "A direction, not a description of today",
+    "body": "Our aspiration is to grow, step by step, into a wider international trade platform that connects business buyers with products and suppliers across markets. That is a direction of travel. It is not a statement about our current size, reach or network.",
+    "foundation": "We are starting from a registered company in {location}, a defined business scope and a clear way of working. This website is built to be the foundation for that growth.",
+    "mapCaption": "Decorative map. Nanning, where the company is registered, is marked. The map does not show markets served."
+  },
+  "cta": {
+    "title": "Have a sourcing or trade requirement?",
+    "description": "Send us the details of the products you want to source or the trade you want to discuss."
+  }
+}

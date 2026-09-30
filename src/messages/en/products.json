@@ -1,1 +1,122 @@
-{}
+{
+  "meta": {
+    "title": "Product categories and sourcing",
+    "description": "Browse the twelve product categories the company is registered to trade in, and send an inquiry to source products from China."
+  },
+  "index": {
+    "eyebrow": "Product categories",
+    "title": "Product categories for sourcing and trade",
+    "description": "Twelve areas of trade taken from the company's registered business scope. Products are sourced against buyer requirements, so a specific need starts with an inquiry.",
+    "categories": {
+      "heading": "Twelve areas of registered trade",
+      "description": "Open a category to see the registered scope behind it and any products that have been published."
+    },
+    "published": {
+      "heading": "Published products",
+      "description": "Products that have been published on this site. Each category page lists its own products.",
+      "more": "Showing {shown} of {total} published products. Open a category to see the rest."
+    },
+    "closing": {
+      "title": "Looking for a specific product?",
+      "description": "Tell us the product, specification, quantity and destination market, and we will review your requirements."
+    }
+  },
+  "category": {
+    "eyebrow": "Product category",
+    "meta": {
+      "title": "{name} sourcing and trade from China",
+      "pageTitle": "{title}, page {page}",
+      "description": "{summary} These are areas of registered trade, not current stock. Send an inquiry to source products in this category."
+    },
+    "scope": {
+      "heading": "Registered scope for this category"
+    },
+    "products": {
+      "heading": "Published products",
+      "description": "Products in this category that have been published on this site.",
+      "summary": "Showing {from}–{to} of {total}"
+    },
+    "others": {
+      "heading": "Other product categories",
+      "all": "All product categories"
+    }
+  },
+  "card": {
+    "count": "{count, plural, one {# published product} other {# published products}}",
+    "explore": "Explore category"
+  },
+  "regulated": {
+    "badge": "Regulated",
+    "title": "Regulated goods"
+  },
+  "empty": {
+    "category": {
+      "title": "No products have been published in this category yet.",
+      "description": "Products are sourced against buyer requirements. Send an inquiry describing what you need in {category} and we will review it.",
+      "action": "Send an inquiry about this category"
+    },
+    "index": {
+      "title": "No products have been published yet.",
+      "description": "Products are sourced against buyer requirements. Send an inquiry describing what you need and we will review it."
+    }
+  },
+  "unavailable": {
+    "title": "Product listings are unavailable right now",
+    "description": "We could not load the published products just now. Please try again in a little while, or send an inquiry describing what you need."
+  },
+  "pagination": {
+    "label": "Product pages",
+    "previous": "Previous",
+    "next": "Next",
+    "page": "Page {page}"
+  },
+  "detail": {
+    "eyebrow": "Product",
+    "categoryLabel": "Category",
+    "originLabel": "Origin",
+    "summaryLabel": "Product summary",
+    "meta": {
+      "fallbackDescription": "{name} in the {category} category. Send an inquiry to ask about specifications, quantities and delivery."
+    },
+    "actions": {
+      "title": "Interested in this product?",
+      "sendBusinessInquiry": "Send business inquiry",
+      "note": "This page does not list prices, minimum order quantities or lead times. Send an inquiry with your requirements to ask about them."
+    },
+    "sections": {
+      "description": "Description",
+      "applications": "Applications",
+      "packaging": "Packaging information",
+      "specifications": "Specifications",
+      "documents": "Documents",
+      "related": "More from {category}",
+      "relatedCategories": "Explore other categories"
+    },
+    "translationNotice": {
+      "title": "Shown in English",
+      "body": "This product has not been translated into your language yet, so its details appear in English."
+    }
+  },
+  "gallery": {
+    "label": "Product images",
+    "thumbnails": "Choose an image",
+    "showImage": "Image {position} of {total}: {alt}",
+    "noImage": "No photo of {name} has been published."
+  },
+  "specifications": {
+    "caption": "Specifications of {name}",
+    "specification": "Specification",
+    "value": "Value"
+  },
+  "documents": {
+    "listLabel": "Documents for {name}",
+    "download": "Download",
+    "downloadLabel": "Download {title} ({type}, {size})",
+    "kinds": {
+      "SPECIFICATION_SHEET": "Specification sheet",
+      "CATALOGUE": "Catalog",
+      "CERTIFICATE": "Certificate",
+      "OTHER": "Document"
+    }
+  }
+}
