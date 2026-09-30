@@ -37,7 +37,7 @@ export function Wordmark({
       lang="en"
       dir="ltr"
       className={cn(
-        "flex flex-col font-[family-name:var(--font-plex-sans),system-ui,sans-serif]",
+        "flex min-w-0 flex-col font-[family-name:var(--font-plex-sans),system-ui,sans-serif]",
         centered ? "items-center text-center" : "items-start text-start",
         className,
       )}
@@ -57,8 +57,12 @@ export function Wordmark({
       </span>
       {legalName === "never" ? null : (
         <span
+          // `w-full` + `overflow-hidden` lets this line truncate with an ellipsis to whatever
+          // width flexbox gives it (see the `min-w-0` chain up through Wordmark and Logo) instead
+          // of forcing the header wider than the viewport on narrow phones. The accessible name
+          // (an explicit aria-label on the enclosing link) is unaffected by the visual truncation.
           className={cn(
-            "mt-1.5 leading-none font-medium whitespace-nowrap",
+            "mt-1.5 w-full overflow-hidden leading-none font-medium text-ellipsis whitespace-nowrap",
             LEGAL_TRACKING,
             centered && "ps-[0.06em]",
             sizes.legal,

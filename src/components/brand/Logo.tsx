@@ -36,7 +36,7 @@ export function Logo({
 }: LogoProps) {
   const stacked = variant === "stacked";
   const layout = cn(
-    "inline-flex",
+    "inline-flex min-w-0",
     stacked ? "flex-col items-center" : "items-center",
     LOGO_SIZE_CLASSES[size].gap,
     className,
