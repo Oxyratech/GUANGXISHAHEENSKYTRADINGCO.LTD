@@ -210,6 +210,34 @@ No fake AI features. No fake analytics. No dead buttons/links. Do not use the st
 
 ## 10. Testing & verification
 
-`npm run check` = typecheck (`next typegen && tsc`) + ESLint + Vitest. Also `npm run build`. Playwright specs in `e2e/`
-cover DB-independent flows (navigation, locales, RTL, validation, forms failing honestly without a DB, a11y with axe).
+`npm run check` = typecheck (`next typegen && tsc`) + ESLint + Vitest. Also `npm run build`.
 Code that touches the database is tested with mocked Prisma (`vi.mock("@/server/db")`); no live SQL Server is required.
+
+### End-to-end (Playwright, `e2e/`, `npm run e2e`)
+
+Runs against a real `next build && next start` (never `next dev`: a cold per-route compile can take longer than is
+reasonable to wait for in a test), with a fixed test-only `AUTH_SECRET` and **no `DATABASE_URL`** — deliberately, so the
+suite proves the "never a fake success" rule holds for real HTTP requests and a real browser, not only for a mocked
+Prisma client. Two projects: `desktop` (1440×900) and `mobile` (a phone viewport); `navigation.spec.ts` is desktop-only
+(it exercises the always-visible header nav) and `mobile.spec.ts` is mobile-only (it exercises `MobileNav`'s drawer,
+hidden above `xl`) — see the `testIgnore` entries in `playwright.config.ts`.
+
+| Spec                           | Proves                                                                                                                                                                                                                                                                                            |
+| ------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `navigation.spec.ts`           | Header/footer links resolve to real routes; every category and service page returns 200; unknown paths 404; license-derived facts render (RMB 50,000, never 5,000,000).                                                                                                                           |
+| `language-and-rtl.spec.ts`     | Each locale renders its own translated `<h1>` with correct `lang`/`dir`; the language switcher moves to the same page; hreflang alternates cover en/zh-CN/ar/x-default; Arabic pages ship **zero** physical-direction Tailwind classes; Radix widgets (the FAQ accordion) work under `dir="rtl"`. |
+| `mobile.spec.ts`               | The drawer opens/closes (incl. Escape returning focus), lists the full nav, a submenu expands, the inquiry CTA works, and key pages have no horizontal overflow at 360px.                                                                                                                         |
+| `forms-honest-failure.spec.ts` | A real inquiry/contact submission with no database shows the honest `errors.form.databaseUnavailable` message — never a fake reference code — and client-side validation blocks an invalid submission before it ever reaches the server.                                                          |
+| `admin.spec.ts`                | An unauthenticated `/admin` redirects to login; without a database, sign-in is disabled with an honest explanation, never a raw crash; admin responses carry `X-Robots-Tag: noindex, nofollow`; `/api/health` reports `database: "not_configured"` truthfully.                                    |
+| `accessibility.spec.ts`        | Zero axe (WCAG 2.1 A/AA) violations across every key public page in all three locales, the admin sign-in page, and two pages after interaction (an opened accordion, a submitted form).                                                                                                           |
+
+Locally this uses the system-installed Chrome (`channel: "chrome"`) because the sandbox this project was built in cannot
+reach the Playwright CDN to download its own browser; CI installs Playwright's pinned Chromium instead
+(`npx playwright install --with-deps chromium`) — see `.github/workflows/ci.yml`.
+
+Two real defects were found and fixed this way, not by unit tests: `src/proxy.ts`'s matcher losing a backslash inside a
+plain JS string (§3, now covered by `src/proxy.test.ts`), and `src/app/(admin)/admin/not-found.tsx` swallowing every
+error from `getSession()` — including Next's own dynamic-rendering bailout signal — instead of re-throwing anything
+that is not a recognised `DatabaseUnavailableError` (now covered by a regression test in `not-found.test.tsx`). Both
+are a reminder that `tsc`/ESLint/Vitest cannot see the App Router's client/server boundary or its build-time static
+analysis; only `next build` and a real running server can.

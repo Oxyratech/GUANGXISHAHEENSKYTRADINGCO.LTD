@@ -59,7 +59,7 @@ TypeScript is pinned to 6.x until `typescript-eslint` supports 7.
   signature-verified uploads, audit log, CSP and security headers.
 
 Full details: [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) · [`docs/DATABASE.md`](docs/DATABASE.md) ·
-[`docs/SECURITY.md`](docs/SECURITY.md) · [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
+[`docs/SECURITY.md`](docs/SECURITY.md) · [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md) · [`docs/AUDIT.md`](docs/AUDIT.md).
 
 ## Folder structure
 
@@ -161,7 +161,11 @@ node scripts/smoke-routes.mjs http://localhost:3000   # every public route × 3 
 - **Unit/component (Vitest):** business-scope golden text, USCC check digit, i18n key parity, validation schemas, server
   actions with a mocked database, RBAC, upload sniffing, rate limiting, UI kit behaviour, RTL rules.
 - **Route smoke test:** status, `lang`/`dir`, single `<h1>`, canonical/hreflang, JSON-LD, leaked i18n keys.
-- **E2E (Playwright):** navigation, language switching and RTL, forms failing honestly without a database, accessibility (axe).
+- **E2E (Playwright, `npm run e2e`):** desktop and mobile navigation (the header nav and the `MobileNav` drawer), language
+  switching and RTL correctness (zero physical-direction Tailwind classes on Arabic pages), a real inquiry/contact
+  submission failing honestly with no database configured (never a fake reference code), admin sign-in behaviour without
+  a database, and zero axe (WCAG 2.1 A/AA) violations across every key page in all three locales. Runs against
+  `next build && next start`, not `next dev` — see [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md#10-testing--verification).
 
 Database code is tested with mocked Prisma; no local SQL Server is required to run the suite.
 
