@@ -34,11 +34,9 @@
       "legalName": "الاسم المسجَّل (بالإنجليزية)",
       "legalNameZh": "الاسم المسجَّل (بالصينية)",
       "legalRepresentative": "الممثل القانوني",
-      "capital": "رأس المال المسجَّل",
       "established": "تاريخ التأسيس",
       "uscc": "رمز الائتمان الاجتماعي الموحَّد"
     },
-    "capitalValue": "{amount, number} يوان صيني (RMB)",
     "link": "عرض معلومات الشركة كاملة"
   },
   "location": {

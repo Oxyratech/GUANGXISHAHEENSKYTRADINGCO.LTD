@@ -34,11 +34,9 @@
       "legalName": "登记名称（英文）",
       "legalNameZh": "登记名称（中文）",
       "legalRepresentative": "法定代表人",
-      "capital": "注册资本",
       "established": "成立日期",
       "uscc": "统一社会信用代码"
     },
-    "capitalValue": "人民币 {amount, number} 元",
     "link": "查看完整公司信息"
   },
   "location": {

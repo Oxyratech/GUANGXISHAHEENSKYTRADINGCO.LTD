@@ -27,7 +27,6 @@ describe.each(LOCALE_LIST)("RegistrationFacts (%s)", (locale) => {
       COMPANY.legalNameZh,
       COMPANY.companyTypeZh,
       COMPANY.legalRepresentative,
-      COMPANY.registeredCapital.zh,
       COMPANY.registeredAddressZh,
       COMPANY.unifiedSocialCreditCode,
       COMPANY.registrationAuthorityZh,
@@ -40,16 +39,7 @@ describe.each(LOCALE_LIST)("RegistrationFacts (%s)", (locale) => {
     }
   });
 
-  it("states the registered capital as RMB 50,000, never five million", async () => {
-    const { container } = await renderServer(<RegistrationFacts locale={locale} />, locale);
-    const text = container.textContent ?? "";
-
-    expect(text).toContain("RMB 50,000");
-    expect(text).toContain("伍万人民币元整");
-    expect(text).not.toMatch(/5,000,000|5000000|5 million/);
-  });
-
-  it("is a definition list with a term and a description for each of the ten facts", async () => {
+  it("is a definition list with a term and a description for each of the nine facts", async () => {
     const { container } = await renderServer(<RegistrationFacts locale={locale} />, locale);
 
     const terms = [...container.querySelectorAll("dl > div > dt")].map((dt) => dt.textContent);
@@ -58,7 +48,6 @@ describe.each(LOCALE_LIST)("RegistrationFacts (%s)", (locale) => {
       copy.facts.nameZh,
       copy.facts.type,
       copy.facts.representative,
-      copy.facts.capital,
       copy.facts.established,
       copy.facts.address,
       copy.facts.uscc,
@@ -76,7 +65,6 @@ describe.each(LOCALE_LIST)("RegistrationFacts (%s)", (locale) => {
       COMPANY.companyTypeZh,
       COMPANY.registeredAddressZh,
       COMPANY.registrationAuthorityZh,
-      COMPANY.registeredCapital.zh,
     ]) {
       expect(screen.getByText(chinese)).toHaveAttribute("lang", "zh-CN");
     }

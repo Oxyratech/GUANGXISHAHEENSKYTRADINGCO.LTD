@@ -34,11 +34,9 @@
       "legalName": "Registered name",
       "legalNameZh": "Registered name (Chinese)",
       "legalRepresentative": "Legal representative",
-      "capital": "Registered capital",
       "established": "Established",
       "uscc": "Unified Social Credit Code"
     },
-    "capitalValue": "RMB {amount, number}",
     "link": "See full company information"
   },
   "location": {

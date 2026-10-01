@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "公司信息与营业执照",
-    "description": "{nameZh}（{name}）的注册信息：名称、注册资本、注册地址和统一社会信用代码，并附营业执照与登记的经营范围。"
+    "description": "{nameZh}（{name}）的注册信息：名称、注册地址和统一社会信用代码，并附营业执照与登记的经营范围。"
   },
   "hero": {
     "eyebrow": "公司信息",
@@ -24,7 +24,6 @@
     "nameZh": "中文名称",
     "type": "公司类型",
     "representative": "法定代表人",
-    "capital": "注册资本",
     "established": "成立日期",
     "address": "注册地址（住所）",
     "uscc": "统一社会信用代码",

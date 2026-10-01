@@ -8,7 +8,7 @@ import { ButtonLink } from "@/components/ui/button-link";
 import { COMPANY } from "@/config/company";
 import type { Locale } from "@/i18n/locales";
 import { cn } from "@/lib/utils";
-import { formatLongDate, formatRegisteredCapital } from "../format";
+import { formatLongDate } from "../format";
 
 function Tile({
   label,
@@ -62,14 +62,6 @@ export async function RegisteredSummary({ locale }: { locale: Locale }) {
             </Tile>
             <Tile label={info("facts.nameZh")}>
               <span lang="zh-CN">{COMPANY.legalNameZh}</span>
-            </Tile>
-            <Tile label={info("facts.capital")}>
-              <bdi dir="ltr" className="whitespace-nowrap">
-                {formatRegisteredCapital()}
-              </bdi>{" "}
-              <span lang="zh-CN" className="text-small font-normal text-ink-muted">
-                {COMPANY.registeredCapital.zh}
-              </span>
             </Tile>
             <Tile label={t("labels.established")}>
               <time dateTime={COMPANY.establishedOn}>

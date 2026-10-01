@@ -62,7 +62,7 @@ describe("home page", () => {
     expect(document.querySelector("main")).toBeNull();
   });
 
-  it("renders the credibility strip with exactly the four registration facts, including RMB 50,000", async () => {
+  it("renders the credibility strip with exactly the three registration facts", async () => {
     await renderHome();
 
     const strip = screen
@@ -71,11 +71,9 @@ describe("home page", () => {
     const terms = within(strip).getAllByRole("term");
     expect(terms.map((term) => term.textContent)).toEqual([
       MESSAGES.en.home.credibility.facts.established,
-      MESSAGES.en.home.credibility.facts.capital,
       MESSAGES.en.home.credibility.facts.location,
       MESSAGES.en.home.credibility.facts.focus,
     ]);
-    expect(within(strip).getByText("RMB 50,000")).toBeInTheDocument();
     expect(
       within(strip).getByText(MESSAGES.en.home.credibility.values.location),
     ).toBeInTheDocument();

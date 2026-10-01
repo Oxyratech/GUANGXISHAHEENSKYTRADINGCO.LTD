@@ -50,9 +50,9 @@ describe.each(LOCALES)("home namespace (%s)", (locale) => {
     expect(Object.keys(messages.why.points).sort()).toEqual([...WHY_POINT_KEYS].sort());
   });
 
-  it("names the four credibility facts", () => {
+  it("names the three credibility facts", () => {
     expect(Object.keys(messages.credibility.facts).sort()).toEqual(
-      ["established", "capital", "location", "focus"].sort(),
+      ["established", "location", "focus"].sort(),
     );
   });
 
@@ -76,16 +76,5 @@ describe.each(LOCALES)("home namespace (%s)", (locale) => {
     if (!pattern) return;
     const found = texts(messages).filter(([, text]) => pattern.test(text));
     expect(found).toEqual([]);
-  });
-});
-
-describe("home namespace: registered capital", () => {
-  it("never restates the registered capital as anything other than RMB 50,000", () => {
-    for (const locale of LOCALES) {
-      const found = texts(home(locale)).filter(([, text]) =>
-        /(?:5|五)\s*(?:million|百万)/i.test(text),
-      );
-      expect(found).toEqual([]);
-    }
   });
 });

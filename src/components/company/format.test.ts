@@ -1,4 +1,4 @@
-import { formatLongDate, formatRegisteredCapital } from "./format";
+import { formatLongDate } from "./format";
 
 describe("formatLongDate", () => {
   it("writes the establishment date in each language", () => {
@@ -21,12 +21,5 @@ describe("formatLongDate", () => {
     } finally {
       vi.unstubAllEnvs();
     }
-  });
-});
-
-describe("formatRegisteredCapital", () => {
-  it("is fifty thousand yuan, never five million", () => {
-    expect(formatRegisteredCapital()).toBe("RMB 50,000");
-    expect(formatRegisteredCapital()).not.toMatch(/5,000,000|5000000/);
   });
 });

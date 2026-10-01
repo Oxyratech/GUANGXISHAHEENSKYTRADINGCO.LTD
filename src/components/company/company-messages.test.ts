@@ -48,7 +48,7 @@ describe("company messages", () => {
     expect(ALL.length).toBeGreaterThan(200);
   });
 
-  it("never retype a registered fact: names, code, capital, dates and address come from COMPANY", () => {
+  it("never retype a registered fact: names, code, dates and address come from COMPANY", () => {
     const facts = [
       COMPANY.legalNameEn,
       COMPANY.legalNameZh,
@@ -57,10 +57,7 @@ describe("company messages", () => {
       COMPANY.registeredAddressZh,
       COMPANY.registrationAuthorityZh,
       COMPANY.companyTypeZh,
-      COMPANY.registeredCapital.zh,
       COMPANY.establishedOn,
-      String(COMPANY.registeredCapital.amount),
-      "50,000",
       "2026",
     ].map((fact) => fact.toLowerCase());
 

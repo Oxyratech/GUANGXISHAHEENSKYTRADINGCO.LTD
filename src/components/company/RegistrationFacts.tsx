@@ -4,7 +4,7 @@ import { Badge } from "@/components/ui/badge";
 import { COMPANY } from "@/config/company";
 import type { Locale } from "@/i18n/locales";
 import { CopyButton } from "./CopyButton";
-import { formatLongDate, formatRegisteredCapital } from "./format";
+import { formatLongDate } from "./format";
 import { getUnofficialTranslations } from "./unofficial-translations";
 
 function Fact({ label, children }: { label: string; children: ReactNode }) {
@@ -65,16 +65,6 @@ export async function RegistrationFacts({ locale }: { locale: Locale }) {
         <bdi lang="en" dir="ltr">
           {COMPANY.legalRepresentative}
         </bdi>
-      </Fact>
-      <Fact label={t("facts.capital")}>
-        <span className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-          <bdi dir="ltr" className="font-medium whitespace-nowrap text-navy-900">
-            {formatRegisteredCapital()}
-          </bdi>
-          <span lang="zh-CN" className="text-small text-ink-muted">
-            {COMPANY.registeredCapital.zh}
-          </span>
-        </span>
       </Fact>
       <Fact label={t("facts.established")}>
         <DateValue iso={COMPANY.establishedOn} locale={locale} />

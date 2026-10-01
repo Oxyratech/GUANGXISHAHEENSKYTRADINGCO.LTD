@@ -14,7 +14,6 @@
     "caption": "Registration details as shown on the company's <link>business license</link>",
     "facts": {
       "established": "Established",
-      "capital": "Registered capital",
       "location": "Location",
       "focus": "Registered focus"
     },

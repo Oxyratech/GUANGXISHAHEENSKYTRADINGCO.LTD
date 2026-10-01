@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "Company information and business license",
-    "description": "Registration details of {name} ({nameZh}): names, registered capital, registered address and Unified Social Credit Code, with the business license and the registered business scope."
+    "description": "Registration details of {name} ({nameZh}): names, registered address and Unified Social Credit Code, with the business license and the registered business scope."
   },
   "hero": {
     "eyebrow": "Company information",
@@ -24,7 +24,6 @@
     "nameZh": "Chinese name",
     "type": "Company type",
     "representative": "Legal representative",
-    "capital": "Registered capital",
     "established": "Date of establishment",
     "address": "Registered address",
     "uscc": "Unified Social Credit Code",

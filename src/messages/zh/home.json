@@ -14,7 +14,6 @@
     "caption": "登记信息均以公司<link>营业执照</link>所载为准",
     "facts": {
       "established": "成立日期",
-      "capital": "注册资本",
       "location": "注册地",
       "focus": "登记业务方向"
     },

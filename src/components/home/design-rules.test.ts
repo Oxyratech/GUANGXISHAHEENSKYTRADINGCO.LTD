@@ -90,7 +90,7 @@ describe("home page rules", () => {
     expect(offenders(/coming soon/gi)).toEqual([]);
   });
 
-  it('uses <bdi>/dir="ltr" for the registered capital and other Latin/numeric facts', () => {
-    expect(sources.some((file) => /formatRegisteredCapital/.test(file.text))).toBe(true);
+  it('uses <bdi>/dir="ltr" for Latin names, codes and other Latin/numeric facts', () => {
+    expect(sources.some((file) => /dir="ltr"/.test(file.text))).toBe(true);
   });
 });

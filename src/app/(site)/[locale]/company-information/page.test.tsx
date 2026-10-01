@@ -1,6 +1,5 @@
 import { screen, within } from "@testing-library/react";
 import { beforeEach, describe, expect, it, vi } from "vitest";
-import { formatRegisteredCapital } from "@/components/company/format";
 import {
   headingLevels,
   internalPaths,
@@ -109,14 +108,11 @@ describe.each(LOCALE_LIST)("Company information page (%s)", (locale) => {
     );
   });
 
-  it("gives the registration facts, RMB 50,000 included, and never five million", async () => {
+  it("gives the registration facts", async () => {
     const { container } = await renderPage();
     const text = container.textContent ?? "";
 
     expect(text).toContain(COMPANY.unifiedSocialCreditCode);
-    expect(text).toContain(formatRegisteredCapital());
-    expect(text).toContain(COMPANY.registeredCapital.zh);
-    expect(text).not.toMatch(/5,000,000|5000000/);
   });
 
   it("shows the license as an image with a way to open it full size", async () => {

@@ -38,10 +38,6 @@ export async function ContactCompanyCard({ locale }: { locale: Locale }) {
       ),
     },
     {
-      key: "capital",
-      value: t("company.capitalValue", { amount: COMPANY.registeredCapital.amount }),
-    },
-    {
       key: "established",
       value: format.dateTime(new Date(`${COMPANY.establishedOn}T00:00:00Z`), {
         dateStyle: "long",

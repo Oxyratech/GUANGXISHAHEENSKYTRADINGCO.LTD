@@ -1,10 +1,10 @@
 /*
- * Four registration facts, exactly as recorded on the business license — not performance statistics.
+ * Three registration facts, exactly as recorded on the business license — not performance statistics.
  * No counters: every value is static, so an animated count-up would only add motion for no reason.
  */
 import { getTranslations } from "next-intl/server";
 import type { ReactNode } from "react";
-import { formatLongDate, formatRegisteredCapital } from "@/components/company/format";
+import { formatLongDate } from "@/components/company/format";
 import { Container } from "@/components/layout/container";
 import { Section } from "@/components/layout/section";
 import { SectionHeading } from "@/components/layout/section-heading";
@@ -12,7 +12,7 @@ import { SmartLink } from "@/components/ui/smart-link";
 import { COMPANY } from "@/config/company";
 import type { Locale } from "@/i18n/locales";
 
-type FactKey = "established" | "capital" | "location" | "focus";
+type FactKey = "established" | "location" | "focus";
 
 export async function CredibilityStrip({ locale }: { locale: Locale }) {
   const t = await getTranslations({ locale, namespace: "home" });
@@ -26,7 +26,6 @@ export async function CredibilityStrip({ locale }: { locale: Locale }) {
         </time>
       ),
     },
-    { key: "capital", value: <bdi dir="ltr">{formatRegisteredCapital()}</bdi> },
     { key: "location", value: t("credibility.values.location") },
     { key: "focus", value: t("credibility.values.focus") },
   ];

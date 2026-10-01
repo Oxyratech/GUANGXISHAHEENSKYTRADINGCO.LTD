@@ -112,14 +112,9 @@ test.describe("primary navigation", () => {
     await expect(page.getByRole("heading", { level: 1 })).toContainText("Page not found");
   });
 
-  test("company information shows the license-derived facts, never the wrong capital figure", async ({
-    page,
-  }) => {
+  test("company information shows the license-derived facts", async ({ page }) => {
     await page.goto("/en/company-information");
     const main = page.locator("main");
-    await expect(main.getByText("RMB 50,000")).toBeVisible();
-    await expect(main.getByText("伍万人民币元整")).toBeVisible();
     await expect(main.getByText("91450100MAKG57TE3Y")).toBeVisible();
-    await expect(page.getByText("5,000,000")).toHaveCount(0);
   });
 });

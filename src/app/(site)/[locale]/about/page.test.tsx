@@ -7,7 +7,7 @@ import {
   LOCALE_LIST,
   renderServer,
 } from "@/components/company/test-utils";
-import { formatLongDate, formatRegisteredCapital } from "@/components/company/format";
+import { formatLongDate } from "@/components/company/format";
 import { BUSINESS_SCOPE_ITEMS, SCOPE_GROUPS } from "@/config/business-scope";
 import { COMPANY } from "@/config/company";
 import { STATIC_PUBLIC_PATHS } from "@/config/routes";
@@ -130,10 +130,8 @@ describe.each(LOCALE_LIST)("About page (%s)", (locale) => {
 
     expect(text).toContain(formatLongDate(COMPANY.establishedOn, locale));
     expect(text).toContain(copy.location);
-    expect(text).toContain(formatRegisteredCapital());
     expect(text).toContain(COMPANY.legalNameZh);
     expect(text).toContain(COMPANY.legalNameEn);
-    expect(text).not.toMatch(/5,000,000|5000000/);
   });
 
   it("isolates the Latin legal name for right-to-left reading", async () => {
